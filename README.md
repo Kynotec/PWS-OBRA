@@ -25,4 +25,5 @@ A aplicação permite também a inserção e gestão dos dados necessários para
 
 > Este projeto foi desenvolvido com:
 > - [HTML](https://www.w3schools.com/html/)
+> - [PHP](https://www.w3schools.com/php/)
 > - [JavaScript](https://www.javascript.com/)
