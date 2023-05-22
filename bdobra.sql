@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 22-Maio-2023 às 17:37
+-- Tempo de geração: 22-Maio-2023 às 18:03
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 8.1.0
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `empresas`;
 CREATE TABLE IF NOT EXISTS `empresas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `designacaosocial` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `email` varchar(40) CHARACTER SET latin1 DEFAULT NULL,
-  `telefone` int(11) NOT NULL,
-  `nif` int(11) NOT NULL,
-  `morada` varchar(40) CHARACTER SET latin1 DEFAULT NULL,
-  `codigopostal` varchar(8) CHARACTER SET latin1 DEFAULT NULL,
-  `localidade` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
+  `designacaosocial` varchar(20) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `telefone` int(9) NOT NULL,
+  `nif` int(9) NOT NULL,
+  `morada` varchar(40) DEFAULT NULL,
+  `codigopostal` varchar(8) DEFAULT NULL,
+  `localidade` varchar(40) DEFAULT NULL,
   `capitalsocial` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
@@ -57,10 +57,10 @@ INSERT INTO `empresas` (`id`, `designacaosocial`, `email`, `telefone`, `nif`, `m
 DROP TABLE IF EXISTS `folhaobras`;
 CREATE TABLE IF NOT EXISTS `folhaobras` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `data` date NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `valortotal` float NOT NULL,
   `ivatotal` float NOT NULL,
-  `estado` varchar(25) CHARACTER SET latin1 NOT NULL,
+  `estado` varchar(30) NOT NULL,
   `cliente_id` int(11) NOT NULL,
   `funcionario_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `ivas`;
 CREATE TABLE IF NOT EXISTS `ivas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `percentagem` int(11) DEFAULT NULL,
-  `descricao` varchar(90) CHARACTER SET latin1 DEFAULT NULL,
+  `descricao` varchar(10) DEFAULT NULL,
   `emvigor` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -111,8 +111,8 @@ CREATE TABLE IF NOT EXISTS `linhaobras` (
 DROP TABLE IF EXISTS `servicos`;
 CREATE TABLE IF NOT EXISTS `servicos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `referencia` varchar(20) NOT NULL,
-  `descricao` varchar(50) NOT NULL,
+  `referencia` varchar(50) NOT NULL,
+  `descricao` varchar(100) NOT NULL,
   `precohora` float NOT NULL,
   `taxaiva` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -128,14 +128,16 @@ CREATE TABLE IF NOT EXISTS `servicos` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `password` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `email` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
-  `nif` int(11) NOT NULL,
-  `morada` varchar(40) CHARACTER SET latin1 DEFAULT NULL,
-  `codigopostal` varchar(8) CHARACTER SET latin1 DEFAULT NULL,
-  `localidade` varchar(20) CHARACTER SET latin1 DEFAULT NULL,
-  `role` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
+  `username` varchar(40) DEFAULT NULL,
+  `password` varchar(40) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `telefone` int(9) NOT NULL,
+  `nif` int(9) NOT NULL,
+  `morada` varchar(100) DEFAULT NULL,
+  `codigopostal` varchar(8) DEFAULT NULL,
+  `localidade` varchar(40) DEFAULT NULL,
+  `role` varchar(15) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
