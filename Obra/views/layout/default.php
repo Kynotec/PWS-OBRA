@@ -38,7 +38,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="index.php?c=home&a=index" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="index.php?c=login&a=index" class="nav-link">Login</a>
@@ -152,7 +152,7 @@
         </ul>
     </nav>
     <!-- /.navbar -->
-    <?php require_once($viewPath); ?>
+    
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->

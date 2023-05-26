@@ -15,6 +15,11 @@ return [
             'index' => ['GET', 'HomeController', 'index'],
         ],
 
+        'home'=>[
+        'index' => ['GET', 'HomeController', 'index'],
+        ],
+
+
         'login'=>[
         'index' => ['GET', 'LoginController', 'index'],
         ],
