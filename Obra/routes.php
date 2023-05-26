@@ -1,18 +1,22 @@
 <?php
-require_once 'controllers/AuthController.php';
+require_once 'controllers/BoController.php';
 require_once 'controllers/HomeController.php';
 
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
 
-        'auth' => [
-            'index' => ['GET', 'AuthController', 'index'],
-            'login'=> ['POST', 'AuthController', 'login'],
-            'logout'=>['GET', 'AuthController', 'logout']
+        'Bo' => [
+            'index' => ['GET', 'BoController', 'index'],
+            'login'=> ['POST', 'BoController', 'login'],
+            'logout'=>['GET', 'BoController', 'logout']
             ],
 
-        'home'=>[
+        'LayoutFo'=>[
             'index' => ['GET', 'HomeController', 'index'],
+        ],
+
+        'login'=>[
+        'index' => ['GET', 'AuthController', 'index'],
         ],
 
        ];
