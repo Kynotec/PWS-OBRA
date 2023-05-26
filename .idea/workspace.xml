@@ -6,82 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/BoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/animate.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/default-skin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/icomoon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/jquery.fancybox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/jquery.mCustomScrollbar.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/meanmenu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/nice-select.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/normalize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/slick.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/about-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/banner-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/client-img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/contact-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/email-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/fb-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/img-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/in-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/instagram-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/ipl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/left-aero.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/li.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/map-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/phone-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/right-aero.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/round-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/search-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/toggle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/img/twitter-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/custom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/jquery-3.0.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/jquery.mCustomScrollbar.concat.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/modernizer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/public/js/slider-setting.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/auth/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/home/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/layout/default.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/views/layout/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/default.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +78,7 @@
       <workItem from="1684778034710" duration="2780000" />
       <workItem from="1684848065051" duration="613000" />
       <workItem from="1684848712087" duration="5882000" />
-      <workItem from="1685092113098" duration="937000" />
+      <workItem from="1685092113098" duration="1506000" />
     </task>
     <servers />
   </component>

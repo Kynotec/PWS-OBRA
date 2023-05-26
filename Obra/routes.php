@@ -16,7 +16,7 @@ return [
         ],
 
         'login'=>[
-        'index' => ['GET', 'AuthController', 'index'],
+        'index' => ['GET', 'LoginController', 'index'],
         ],
 
        ];
