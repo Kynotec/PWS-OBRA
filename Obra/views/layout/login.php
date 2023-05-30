@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="./public/assets/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
+
+<div>
 <?php require_once($viewPath); ?>
+</div>
+
+
 <!-- jQuery -->
 <script src="./public/assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

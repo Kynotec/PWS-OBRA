@@ -41,7 +41,7 @@
                 <a href="index.php?c=home&a=index" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php?c=login&a=index" class="nav-link">Login</a>
+                <a href="index.php?c=layout&a=login" class="nav-link">Login</a>
             </li>
         </ul>
     </nav>

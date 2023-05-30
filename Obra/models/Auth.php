@@ -70,16 +70,16 @@ class Auth
             return null;
         }
     }
-    /*
+
     public function isLoggedInAs($roles=[]): bool
     {
        if($this->isLoggedIn())
        {
                $role = $this->getUserRole();
-               $validRole=in_array($role,$roles); //verificar se o role ta dentro do array
+               return in_array($role,$roles); //verificar se o role ta dentro do array
        }
-       return $validRole;
+      return false;
+
     }
-*/
 
 }

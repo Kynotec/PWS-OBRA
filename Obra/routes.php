@@ -12,8 +12,8 @@ return [
 
         'layout' => [
             'index' => ['GET', 'BoController', 'index'],
-            'login'=> ['POST', 'BoController', 'login'],
-            'logout'=>['GET', 'BoController', 'logout']
+            'login'=> ['GET', 'LoginController', 'index'],
+            'logout'=>['GET', 'LoginController', 'logout']
             ],
 
         'LayoutFo'=>[

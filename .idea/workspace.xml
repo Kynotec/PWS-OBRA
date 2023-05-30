@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/models/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/models/Auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/views/layout/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/default.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/views/layout/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/views/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/login/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,8 @@
       <workItem from="1684848065051" duration="613000" />
       <workItem from="1684848712087" duration="5882000" />
       <workItem from="1685092113098" duration="5780000" />
-      <workItem from="1685452783272" duration="2211000" />
+      <workItem from="1685452783272" duration="4262000" />
+      <workItem from="1685457097594" duration="86000" />
     </task>
     <servers />
   </component>

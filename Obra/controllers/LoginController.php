@@ -1,25 +1,30 @@
 <?php
 
-require_once 'Controller.php';
+require_once 'models/Auth.php';
+require_once 'controllers/Controller.php';
 
 class LoginController extends Controller
 {
     public function index()
     {
-        $this->renderView('layout','login');
+        $this->renderView('login','index',[],'login');
     }
 
     public function checkLogin()
+
     {
         $auth = new Auth();
-        if ($auth ->checkAuth(username,password))
+
+
+        if ($auth ->checkAuth($username,$password))
         {
             echo 'Login com sucesso';
             echo $auth->getUsername(),$auth->getUserRole();
         }
         else{
             echo 'login invalido';
-            $this->redirectToRoute('login','index');
+           // $this->redirectToRoute('login','index');
         }
+
     }
 }
