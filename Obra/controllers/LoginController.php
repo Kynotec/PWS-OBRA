@@ -14,6 +14,8 @@ class LoginController extends Controller
 
     {
         $auth = new Auth();
+        $username = $this->getHTTPPostParam('username');
+        $password = $this->getHTTPPostParam('password');
 
 
         if ($auth ->checkAuth($username,$password))
