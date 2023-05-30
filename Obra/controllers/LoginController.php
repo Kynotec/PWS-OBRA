@@ -1,12 +1,12 @@
 <?php
 
-require_once 'controllers/Controller.php';
+require_once 'Controller.php';
 
 class LoginController extends Controller
 {
     public function index()
     {
-        $this->renderView('login','index');
+        $this->renderView('layout','login');
     }
 
     public function checkLogin()
