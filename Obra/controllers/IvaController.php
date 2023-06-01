@@ -19,6 +19,7 @@ class IvaController extends Controller
         if($iva->is_valid()){
             $iva->save();
             $this->redirectToRoute('iva','index');
+
         } else {
             $this->renderView('iva','create', ['iva' => $iva]);
         }
@@ -36,7 +37,7 @@ class IvaController extends Controller
     public function update($id)
     {
         $iva = Iva::find($id);
-        $iva->update_attributes($_POST);
+        $iva->update_attributes($this->getHTTPPost());
         if($iva->is_valid()){
             $iva->save();
             $this-> redirectToRoute('iva', 'index');

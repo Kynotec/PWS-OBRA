@@ -31,8 +31,7 @@
                                         <!-- <td><?//=$iva->vigor->valor?></td>-->
                                         <!-- FALTA POR O EDITAR O ESTADO DA TAXA DE IVA!-->
                                         <td>
-                                            <a href="index.php?c=iva&a=edit&id=<?=$iva->id ?>"
-                                               class="btn btn-info" role="button">Editar Iva</a>
+                                            <a class="btn btn-info btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -43,12 +42,6 @@
                         <div class="card-footer clearfix">
                             <a href="index.php?c=iva&a=create" class="btn btn-sm btn-secondary float-left">Criar Taxa de IVA</a>
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

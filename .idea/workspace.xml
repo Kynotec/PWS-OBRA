@@ -7,8 +7,11 @@
     <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/controllers/IvaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/IvaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/models/Iva.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/models/Iva.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/models/Servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/models/Servico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/views/iva/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/views/iva/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/views/layout/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/default.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +63,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../book" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -83,6 +88,7 @@
       <workItem from="1685452783272" duration="4262000" />
       <workItem from="1685457097594" duration="86000" />
       <workItem from="1685535856634" duration="4994000" />
+      <workItem from="1685626118761" duration="6557000" />
     </task>
     <servers />
   </component>

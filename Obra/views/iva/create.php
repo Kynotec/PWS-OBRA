@@ -19,18 +19,18 @@
                         <form action="index.php?c=iva&a=store" method="post">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label>Descrição</label>
+                                    <input type="text" class="form-control" placeholder="Descrição" name="descricao" value="<?php if(isset($ivas)) { echo $ivas->descricao; }?>">
+                                    <?php if(isset($ivas->errors)){ echo $ivas->errors->on('descricao'); }?>
+                                </div>
+                                <div class="form-group">
                                     <label>Percentagem</label>
                                     <input type="text" class="form-control" placeholder="Percentagem" name="percentagem" value="<?php if(isset($ivas)) { echo $ivas->percentagem; }?>">
                                     <?php if(isset($ivas->errors)){ echo $ivas->errors->on('percentagem'); }?>
                                 </div>
-                                <div class="form-group">
-                                    <label>Descrição</label>
-                                    <input type="text" class="form-control" placeholder="Descricao" name="descricao" value="<?php if(isset($ivas)) { echo $ivas->descricao; }?>">
-                                    <?php if(isset($ivas->errors)){ echo $ivas->errors->on('descricao'); }?>
-                                </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Criar Taxa</button>
+                                <button type="submit" class="btn btn-primary">Adicionar Taxa</button>
                                 <a href="index.php?c=iva&a=index" class="btn btn-info" role="button"> Cancelar</a>
                             </div>
                         </form>

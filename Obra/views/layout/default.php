@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="index.php?c=servicos&a=index" class="nav-link">
+                                <a href="index.php?c=servico&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Serviços</p>
                                 </a>
