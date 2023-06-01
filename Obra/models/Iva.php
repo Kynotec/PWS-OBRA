@@ -6,6 +6,6 @@ class Iva extends \ActiveRecord\Model
         array('id'),
         array('percentagem'),
         array('descricao'),
-        array('emvigor')
+        //array('emvigor')
     );
 }

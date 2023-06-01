@@ -30,6 +30,10 @@
                                         <td><?= $iva->percentagem.'%' ?></td>
                                         <!-- <td><?//=$iva->vigor->valor?></td>-->
                                         <!-- FALTA POR O EDITAR O ESTADO DA TAXA DE IVA!-->
+                                        <td>
+                                            <a href="index.php?c=iva&a=edit&id=<?=$iva->id ?>"
+                                               class="btn btn-info" role="button">Editar Iva</a>
+                                        </td>
                                     </tr>
                                     <?php } ?>
                                     </tbody>
@@ -37,14 +41,16 @@
                             </div>
                         </div>
                         <div class="card-footer clearfix">
-                            <a href="index.php?c=iva&a=create" class="btn btn-sm btn-info float-left">Criar Taxa de IVA</a>
+                            <a href="index.php?c=iva&a=create" class="btn btn-sm btn-secondary float-left">Criar Taxa de IVA</a>
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
     </section>
 </div>
-
-
-
-
