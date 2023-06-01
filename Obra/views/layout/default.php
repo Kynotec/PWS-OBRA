@@ -82,7 +82,6 @@
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Emissão Folha Obra
-                                <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
@@ -91,7 +90,6 @@
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Folhas de Obra
-                                <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
@@ -100,7 +98,6 @@
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Clientes
-                                <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
@@ -110,30 +107,29 @@
                             <p>
                                 Gestão de Dados
                                 <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                <a href="index.php?c=utilizadores&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Utilizadores</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/boxed.html" class="nav-link">
+                                <a href="index.php?c=servicos&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Serviços</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                <a href="index.php?c=iva&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Iva</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                                <a href="index.php?c=empresa&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Empresa</p>
                                 </a>
