@@ -8,13 +8,10 @@
             </div
         </div>
     </div>
-
     <section class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="card">
                         <div class="card-header border-transparent">
                             <h3 class="card-title">Lista de Serviços</h3>
@@ -33,7 +30,7 @@
                                     <tbody>
                                     <?php foreach ($servicos as $servico) { ?>
                                         <?php if($servico->id == $id){ ?>
-                                            <form action="index.php?c=produto&a=update&id=<?=$servico->id ?>" method="post">
+                                            <form action="index.php?c=servico&a=update&id=<?=$servico->id ?>" method="post">
                                                 <tr>
                                                     <td>
                                                         <input type="text" class="form-control" placeholder="Referencia" name="referencia"  value="<?=$servico->referencia?>">
@@ -47,7 +44,6 @@
                                                     </td>
                                                     <td>
                                                         <select name="taxaiva" class="form-control">
-
                                                             <?php foreach($ivas as $iva){?>
                                                                 <?php if($iva->emvigor == 1) { ?>
                                                                     <?php if($iva->id == $servico->taxaiva) { ?>
@@ -79,7 +75,8 @@
                             </div>
                         </div>
                         <div class="card-footer clearfix">
-                            <a href="#" class="btn btn-sm btn-info float-left">Adicionar Produto</a>
+                            <button type="submit" class="btn btn-primary" >Salvar</button>
+                            <a href="index.php?c=servico&a=index" class="btn btn-info" role="button"> Cancelar</a>
                         </div>
                     </div>
                 </div>
