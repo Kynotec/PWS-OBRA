@@ -38,17 +38,12 @@
 
                                 <div class="form-group">
                                     <label for="ivas">Taxa de IVA</label>
-                                    <select name="taxaiva" class="form-control">
-
-                                        <?php foreach($ivas as $iva){?>
-                                            <?php if($iva->emvigor == 1) { ?>
-                                                <?php if($iva->id == $servicos->taxaiva) { ?>
-                                                    <option value="<?= $iva->id?>" selected><?= $iva->descricao;?> </option>
-                                                <?php }
-                                                else { ?>
-                                                    <option value="<?= $iva->id?>"><?= $iva->descricao;?> </option>
-                                                <?php }
-                                            }} ?>
+                                    <select class="form-control" id="ivas" name="ivas" >
+                                        <?php if(isset($ivas)){
+                                            foreach($ivas as $iva){?>
+                                                <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
+                                            <?php }
+                                        }?>
                                     </select>
                                 </div>
                             </div>

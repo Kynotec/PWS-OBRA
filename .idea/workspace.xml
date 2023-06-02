@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/IvaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/IvaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/models/Servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/models/Servico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/iva/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/iva/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/layout/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/default.php" afterDir="false" />
-    </list>
+    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,11 +54,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\PWS-OBRA\Obra\views\iva" />
@@ -89,6 +86,7 @@
       <workItem from="1685457097594" duration="86000" />
       <workItem from="1685535856634" duration="4994000" />
       <workItem from="1685626118761" duration="6557000" />
+      <workItem from="1685696801895" duration="2463000" />
     </task>
     <servers />
   </component>

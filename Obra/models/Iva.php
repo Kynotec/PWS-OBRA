@@ -3,9 +3,8 @@
 class Iva extends \ActiveRecord\Model
 {
     static $validates_presence_of = array(
-        array('id'),
-        array('percentagem'),
-        array('descricao'),
-        //array('emvigor')
+        array('percentagem', 'message' => 'É necessário indicar o valor da taxa'),
+        array('descricao', 'message' => 'É necessário indicar a descrição da taxa'),
+
     );
 }

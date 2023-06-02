@@ -2,54 +2,52 @@
 
 class ServicoController extends Controller
 {
-
     public function index()
     {
         $servicos = Servico::all();
-        $this->RenderView('servico', 'index', ['servicos' => $servicos]);
+        $this->renderView('servico', 'index', ['servicos' => $servicos]);
     }
-
 
     public function create()
     {
-        $servicos = Servico::all();
-        $this->renderView('servico', 'create',  ['servicos' => $servicos]);
+        $ivas= Iva::all();
+        $this->renderView('servico', 'create', ['ivas' => $ivas]);
     }
 
     public function store()
     {
-        $servicos = new Servico($this->getHTTPPost());
+        $servicos = new Iva($this->getHTTPPost());
 
         if($servicos->is_valid()){
             $servicos->save();
             $this-> redirectToRoute('servico', 'index');
         } else {
-            $servicos = Servico::all();
-            $this->renderView('servico', 'create',  ['servicos' => $servicos]);
+            $ivas= Iva::all();
+            $this->renderView('servico', 'create',  ['servico' => $servicos, 'ivas' => $ivas]);
         }
     }
 
-    public function edit($id)
+    public function edit($idProduto)
     {
-        $servicos = Servico::find($id);
-        if (is_null($servicos)) {
+        $produtos = Produto::all();
+        if (is_null($produtos)) {
             //TODO redirect to standard error page
         } else {
             $ivas = Iva::all();
-            $this->renderView('servico', 'edit', ['id' => $id,'servicos' => $servicos, 'ivas' => $ivas]);
+            $this->makeView('produto', 'edit', ['idProduto' => $idProduto, 'produtos' => $produtos, 'ivas' => $ivas]);
         }
     }
     public function update($id)
     {
 
-        $servicos = Servico::find([$id]);
-        $servicos->update_attributes($this->getHTTPPost());
-        if($servicos->is_valid()){
-            $servicos->save();
-            $this-> redirectToRoute('servico', 'index');
+        $produtos = Produto::find([$id]);
+        $produtos->update_attributes($_POST);
+        if($produtos->is_valid()){
+            $produtos->save();
+            $this-> redirectToRoute('produto', 'index');
         } else {
             $ivas = Iva::all();
-            $this->renderView('servico', 'edit', ['servicos' => $servicos, 'ivas' => $ivas]);
+            $this->makeView('produto', 'edit', ['produtos' => $produtos, 'ivas' => $ivas]);
         }
     }
 
