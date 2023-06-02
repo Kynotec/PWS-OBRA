@@ -27,27 +27,27 @@ class ServicoController extends Controller
         }
     }
 
-    public function edit($idProduto)
+    public function edit($id)
     {
-        $produtos = Produto::all();
-        if (is_null($produtos)) {
+        $servicos = Servico::all();
+        if (is_null($servicos)) {
             //TODO redirect to standard error page
         } else {
             $ivas = Iva::all();
-            $this->makeView('produto', 'edit', ['idProduto' => $idProduto, 'produtos' => $produtos, 'ivas' => $ivas]);
+            $this->renderView('servico', 'edit', ['id' => $id, 'servicos' => $servicos, 'ivas' => $ivas]);
         }
     }
     public function update($id)
     {
 
-        $produtos = Produto::find([$id]);
-        $produtos->update_attributes($_POST);
-        if($produtos->is_valid()){
-            $produtos->save();
-            $this-> redirectToRoute('produto', 'index');
+        $servicos = Servico::find([$id]);
+        $servicos->update_attributes($this->getHTTPPost());
+        if($servicos->is_valid()){
+            $servicos->save();
+            $this-> redirectToRoute('servico', 'index');
         } else {
             $ivas = Iva::all();
-            $this->makeView('produto', 'edit', ['produtos' => $produtos, 'ivas' => $ivas]);
+            $this->renderView('servico', 'edit', ['servicos' => $servicos, 'ivas' => $ivas]);
         }
     }
 
