@@ -40,7 +40,7 @@ class ServicoController extends Controller
     public function update($id)
     {
 
-        $servicos = Servico::find([$id]);
+        $servicos = Servico::find($id);
         $servicos->update_attributes($this->getHTTPPost());
         if($servicos->is_valid()){
             $servicos->save();

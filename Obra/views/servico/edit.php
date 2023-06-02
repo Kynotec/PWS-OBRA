@@ -3,83 +3,61 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Serviços</h1>
+                    <h1 class="m-0">Editar Dados </h1>
                 </div>
-            </div
+
+            </div>
         </div>
     </div>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header border-transparent">
-                            <h3 class="card-title">Lista de Serviços</h3>
+                <div class="col-md-6">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title ">Dados do Serviço</h3>
                         </div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table m-0">
-                                    <thead>
-                                    <tr>
-                                        <th>Referencia</th>
-                                        <th>Descrição</th>
-                                        <th>Preço/Hora</th>
-                                        <th>Taxa IVA</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php foreach ($servicos as $servico) { ?>
-                                        <?php if($servico->id == $id){ ?>
-                                            <form action="index.php?c=servico&a=update&id=<?=$servico->id ?>" method="post">
-                                                <tr>
-                                                    <td>
-                                                        <input type="text" class="form-control" placeholder="Referencia" name="referencia"  value="<?=$servico->referencia?>">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" placeholder="Descricao" name="descricao"  value=" <?=$servico->descricao?>">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" placeholder="Preco" name="precohora"  value="<?php if(isset($servicos)) { echo $servico->precohora; }?>">
-                                                        <?php if(isset($servicos->errors)){ echo $servicos->errors->on('precohora'); }?>
-                                                    </td>
-                                                    <td>
-                                                        <select name="taxaiva" class="form-control">
-                                                            <?php foreach($ivas as $iva){?>
-                                                                <?php if($iva->emvigor == 1) { ?>
-                                                                    <?php if($iva->id == $servico->taxaiva) { ?>
-                                                                        <option value="<?= $iva->id?>" selected><?= $iva->descricao;?> </option>
-                                                                    <?php }
-                                                                    else { ?>
-                                                                        <option value="<?= $iva->id?>"><?= $iva->descricao;?> </option>
-                                                                    <?php }
-                                                                } }?>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <button type="submit" class="btn btn-primary" style="background-color: green; border-color: green"><i class="nav-icon fa-solid fa-check" ></i></button>
-                                                        <a href="index.php?c=servico&a=index" class="btn btn-primary" style="background-color: red; border-color: red"><i class="nav-icon fa-solid fa-x"></i></a>
-                                                    </td>
-                                                </tr>
-                                            </form>
-                                        <?php }else{?>
-                                            <tr>
-                                                <td><?=$servico->referencia?></td>
-                                                <td><?=$servico->descricao?></td>
-                                                <td><?=$servico->precohora.'€'?></td>
-                                                <td><?=$servico->taxaiva?></td>
-                                                <td> <a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i> Editar</a></td>
-                                            </tr>
-                                        <?php }}?>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card-body">
+                            <?php foreach ($servicos as $servico) ?>
+                            <?php if($servico->id == $id) ?>
+                            <form action="index.php?c=servico&a=update&id=<?= $servico->id ?>" method="post">
+                                <div class="text-muted">
+
+                                    <p class="text-sm">Referencia
+                                        <input type="text" class="form-control" placeholder="Referencia" name="referencia" value="<?= $servico->referencia ?>">
+                                        <?php if(isset($servico->errors)){ echo $servico->errors->on('referencia'); }?>
+                                    </p>
+
+                                    <p class="text-sm">Descrição
+                                        <input type="text" class="form-control" placeholder="Descrição" name="descricao" value="<?= $servico->descricao ?>">
+                                        <?php if(isset($servico->errors)){ echo $servico->errors->on('descricao'); }?>
+                                    </p>
+
+                                    <p class="text-sm">Preço/Hora
+                                        <input type="text" class="form-control" placeholder="Preço/Hora" name="precohora" value="<?= $servico->precohora ?>">
+                                        <?php if(isset($servico->errors)){ echo $servico->errors->on('precohora'); }?>
+                                    </p>
+
+                                    <p class="text-sm">Taxa de IVA
+                                        <select class="form-control" id="ivas" name="ivas" >
+                                            <?php if(isset($ivas)){
+                                                foreach($ivas as $iva){?>
+                                                    <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
+                                                <?php }
+                                            }?>
+                                        </select>
+                                    </p>
+                                </div>
                         </div>
                         <div class="card-footer clearfix">
                             <button type="submit" class="btn btn-primary" >Salvar</button>
                             <a href="index.php?c=servico&a=index" class="btn btn-info" role="button"> Cancelar</a>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>

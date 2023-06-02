@@ -48,7 +48,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-check"></i>Adicionar Serviço</button>
+                                <button type="submit" class="btn btn-primary">Adicionar Serviço</button>
+                                <a href="index.php?c=iva&a=index" class="btn btn-info" role="button"> Cancelar</a>
                             </div>
                         </form>
                     </div>
