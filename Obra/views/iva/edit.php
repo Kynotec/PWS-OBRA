@@ -21,6 +21,10 @@
                         <div class="card-body">
                             <form action="index.php?c=iva&a=update&id=<?= $iva->id ?>" method="post">
                                 <div class="text-muted">
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="emvigor" name="emvigor" <?=$iva->emvigor == 1 ? 'checked' : '' ?>/>
+                                        <label for="emvigor" class="form-check-label"> Ativo</label><br>
+                                    </div>
                                     <p class="text-sm">Percentagem
                                         <input type="text" class="form-control" placeholder="Percentagem" name="percentagem" value="<?= $iva->percentagem ?>">
                                         <?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?>

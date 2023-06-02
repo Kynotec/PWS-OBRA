@@ -18,23 +18,42 @@
                                 <table class="table m-0">
                                     <thead>
                                     <tr>
+                                        <th>Estado</th>
                                         <th>Descricao</th>
                                         <th>Percentagem</th>
+                                        <th class="fit_column">Ações</th>
                                         <!--  <th>Em Vigor</th>-->
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <?php foreach ($ivas as $iva) { ?>
-                                        <td><?=$iva->descricao?></td>
+                                    <?php
+                                    if(count($ivas) > 0)
+                                    {
+                                    foreach ($ivas as $iva)
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?php if($iva->emvigor == 1){ ?>
+                                                    <span class="badge bg-success">Em Vigor</span>
+                                                <?php } else { ?>
+                                                    <span class="badge bg-danger">Oculta</span>
+                                                <?php } ?>
+                                            </td>
+                                            <td><?= $iva->descricao ?></td>
                                         <td><?= $iva->percentagem.'%' ?></td>
-                                        <!-- <td><?//=$iva->vigor->valor?></td>-->
-                                        <!-- FALTA POR O EDITAR O ESTADO DA TAXA DE IVA!-->
+
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
+                                            <?php
+                                            if($iva->emvigor == 1){
+                                                ?>
+                                                <a href="#" class="btn btn-danger" onclick="deleteEntity(<?= $iva->id ?>)">Apagar</a>
+                                            <?php } ?>
                                         </td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php }
+                                    } ?>
                                     </tbody>
                                 </table>
                             </div>

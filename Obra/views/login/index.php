@@ -2,7 +2,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="index.php?c=home&a=index" class="h1"><?= APP_NAME ?></a>
+            <a href="./index.php?c=home&a=index" class="h1"><?= APP_NAME ?></a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Inicie Sessão Para Continuar</p>
@@ -11,7 +11,7 @@
                     <p>Credenciais incorretas!</p>
                 </div>
             <?php } ?>
-            <form action="index.php?c=home&a=index" method="post">
+            <form action="./index.php?c=home&a=index" method="post">
                 <div class="input-group mb-3">
                     <input type="username" class="form-control" name="username" placeholder="Username">
                     <div class="input-group-append">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <a href="index.php?c=home&a=index" class="m-1"><i class="fas fa-arrow-left"></i> Voltar à homepage</a>
+                        <a href="./index.php?c=home&a=index" class="m-1"><i class="fas fa-arrow-left"></i> Voltar à homepage</a>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">

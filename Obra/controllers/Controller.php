@@ -57,5 +57,13 @@ class Controller
         }
     }
 
+    protected function AuthenticationFilterAs($roles = [])
+    {
+        $auth = new Auth();
+        if(!$auth->isLoggedInAs($roles))
+        {
+            header('Location: ./router.php?' . INVALID_ACCESS_ROUTE);
+        }
+    }
 
 }
