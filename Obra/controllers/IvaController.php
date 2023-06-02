@@ -3,32 +3,44 @@
 class IvaController extends Controller
 {
     public function index(){
-        //$this->loginFilterByRole(['administrador', 'funcionario']);
+
         $ivas = Iva::all();
+        if(isset($_POST['filter_type'], $_POST['table_search']) && $_POST['table_search'] != ''){
+            $ivas = array_filter($ivas, function($iva){
+                return str_contains(strtoupper($iva->{$_POST['filter_type']}),strtoupper($iva['table_search']));
+            });
+        }
         $this-> renderView('iva','index',['ivas' => $ivas]);
     }
 
     public function create()
     {
-        $this->renderView('iva','create');
+        $this->renderView('iva','create',['iva' => new Iva()]);
     }
 
     public function store()
     {
-        $iva = new Iva($this->getHTTPPost());
-        if($iva->is_valid()){
-            $iva->save();
+
+        if($_POST['emvigor']){
+            $_POST['emvigor'] = 1;
+        }else{
+            $_POST['emvigor'] = 0;
+        }
+
+        $ivas = new Iva($this->getHTTPPost());
+        if($ivas->is_valid()){
+            $ivas->save();
             $this->redirectToRoute('iva','index');
 
         } else {
-            $this->renderView('iva','create', ['iva' => $iva]);
+            $this->renderView('iva','create', ['ivas' => $ivas]);
         }
     }
 
     public function edit($id)
     {
         $iva = Iva::find($id);
-        if (is_null($iva)) {
+        if(is_null($iva)) {
             //TODO redirect to standard error page
         } else {
             $this->renderView('iva', 'edit', ['iva' => $iva]);

@@ -19,6 +19,10 @@
                         <form action="index.php?c=iva&a=store" method="post">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="emvigor" name="emvigor"/>
+                                        <label for="emvigor" class="form-check-label"> Ativo</label><br>
+                                    </div>
                                     <label>Descrição</label>
                                     <input type="text" class="form-control" placeholder="Descrição" name="descricao" value="<?php if(isset($ivas)) { echo $ivas->descricao; }?>">
                                     <?php if(isset($ivas->errors)){ echo $ivas->errors->on('descricao'); }?>
