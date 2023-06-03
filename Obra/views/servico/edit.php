@@ -40,12 +40,16 @@
                                     </p>
 
                                     <p class="text-sm">Taxa de IVA
-                                        <select class="form-control" id="ivas" name="ivas" >
-                                            <?php if(isset($ivas)){
-                                                foreach($ivas as $iva){?>
-                                                    <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
-                                                <?php }
-                                            }?>
+                                        <select class="form-control" id="iva_id" name="iva_id" >
+                                            <?php foreach($ivas as $iva){?>
+                                                <?php if($iva->emvigor == 1) { ?>
+                                                    <?php if($iva->id == $servicos->iva_id) { ?>
+                                                        <option value="<?= $iva->id?>" selected><?= $iva->descricao;?> </option>
+                                                    <?php }
+                                                    else { ?>
+                                                        <option value="<?= $iva->id?>"><?= $iva->descricao;?> </option>
+                                                    <?php }
+                                                }} ?>
                                         </select>
                                     </p>
                                 </div>

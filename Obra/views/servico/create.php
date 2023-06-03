@@ -37,7 +37,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ivas">Taxa de IVA</label>
+                                    <label for="iva_id">Taxa de IVA</label>
                                     <select name="iva_id" class="form-control">
 
                                         <?php foreach($ivas as $iva){?>

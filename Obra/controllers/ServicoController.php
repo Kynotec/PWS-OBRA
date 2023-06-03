@@ -37,6 +37,7 @@ class ServicoController extends Controller
             $this->renderView('servico', 'edit', ['id' => $id, 'servicos' => $servicos, 'ivas' => $ivas]);
         }
     }
+
     public function update($id)
     {
         $servicos = Servico::find($id);
