@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/ServicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/ServicoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/servico/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/servico/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/servico/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/servico/edit.php" afterDir="false" />
-    </list>
+    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +54,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\PWS-OBRA\Obra\views\iva" />

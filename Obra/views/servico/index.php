@@ -34,7 +34,7 @@
                                         <td><?=$servico->referencia?></td>
                                         <td><?=$servico->descricao?></td>
                                         <td><?=$servico->precohora.'€'?></td>
-                                        <td><?=$servico->taxaiva?></td>
+                                        <td><?=$servico->iva_id?></td>
                                         <td> <a class="btn btn-info btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a></td>
                                     </tr>
                                     <?php } ?>

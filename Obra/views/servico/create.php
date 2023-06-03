@@ -22,7 +22,7 @@
 
                                 <div class="form-group">
                                     <label>Referencia</label>
-                                    <input type="text" class="form-control" placeholder="Referencia" name="referencia" minlength="11" maxlength="50" value="<?php if(isset($servicos)) { echo $servicos->referencia; }?>">
+                                    <input type="text" class="form-control" placeholder="Referencia" name="referencia" value="<?php if(isset($servicos)) { echo $servicos->referencia; }?>">
                                     <?php if(isset($servicos->errors)){ echo $servicos->errors->on('referencia'); }?>
                                 </div>
                                 <div class="form-group">
@@ -38,18 +38,24 @@
 
                                 <div class="form-group">
                                     <label for="ivas">Taxa de IVA</label>
-                                    <select class="form-control" id="ivas" name="ivas" >
-                                        <?php if(isset($ivas)){
-                                            foreach($ivas as $iva){?>
-                                                <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
-                                            <?php }
-                                        }?>
+                                    <select name="iva_id" class="form-control">
+
+                                        <?php foreach($ivas as $iva){?>
+                                            <?php if($iva->emvigor == 1) { ?>
+                                                <?php if($iva->id == $servicos->iva_id) { ?>
+                                                    <option value="<?= $iva->id?>" selected><?= $iva->descricao;?> </option>
+                                                <?php }
+                                                else { ?>
+                                                    <option value="<?= $iva->id?>"><?= $iva->descricao;?> </option>
+                                                <?php }
+                                            }} ?>
                                     </select>
+
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Adicionar Serviço</button>
-                                <a href="index.php?c=iva&a=index" class="btn btn-info" role="button"> Cancelar</a>
+                                <a href="index.php?c=servico&a=index" class="btn btn-info" role="button"> Cancelar</a>
                             </div>
                         </form>
                     </div>

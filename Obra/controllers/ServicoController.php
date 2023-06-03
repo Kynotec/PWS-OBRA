@@ -16,14 +16,14 @@ class ServicoController extends Controller
 
     public function store()
     {
-        $servicos = new Iva($this->getHTTPPost());
+        $servicos = new Servico($this->getHTTPPost());
 
         if($servicos->is_valid()){
             $servicos->save();
             $this-> redirectToRoute('servico', 'index');
         } else {
             $ivas= Iva::all();
-            $this->renderView('servico', 'create',  ['servico' => $servicos, 'ivas' => $ivas]);
+            $this->renderView('servico', 'create',  ['servicos' => $servicos, 'ivas' => $ivas]);
         }
     }
 
@@ -39,7 +39,6 @@ class ServicoController extends Controller
     }
     public function update($id)
     {
-
         $servicos = Servico::find($id);
         $servicos->update_attributes($this->getHTTPPost());
         if($servicos->is_valid()){

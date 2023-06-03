@@ -6,14 +6,10 @@ class Servico extends \ActiveRecord\Model
         array('referencia'),
         array('descricao'),
         array('precohora'),
-        array('taxaiva')
+        array('iva_id', 'message' => 'É necessário indicar uma taxa de IVA'),
+
     );
     static $belongs_to = array(
         array('iva')
     );
-
-    /*static $has_many = array(
-        array('linhaobra')
-    ); */
-
 }
