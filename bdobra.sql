@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 22-Maio-2023 às 18:03
--- Versão do servidor: 5.7.36
--- versão do PHP: 8.1.0
+-- Tempo de geração: 03-Jun-2023 às 22:48
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.1.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,17 +29,17 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `empresas`;
 CREATE TABLE IF NOT EXISTS `empresas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `designacaosocial` varchar(20) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
-  `telefone` int(9) NOT NULL,
-  `nif` int(9) NOT NULL,
+  `telefone` int NOT NULL,
+  `nif` int NOT NULL,
   `morada` varchar(40) DEFAULT NULL,
   `codigopostal` varchar(8) DEFAULT NULL,
   `localidade` varchar(40) DEFAULT NULL,
   `capitalsocial` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `empresas`
@@ -56,17 +56,17 @@ INSERT INTO `empresas` (`id`, `designacaosocial`, `email`, `telefone`, `nif`, `m
 
 DROP TABLE IF EXISTS `folhaobras`;
 CREATE TABLE IF NOT EXISTS `folhaobras` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `valortotal` float NOT NULL,
   `ivatotal` float NOT NULL,
   `estado` varchar(30) NOT NULL,
-  `cliente_id` int(11) NOT NULL,
-  `funcionario_id` int(11) NOT NULL,
+  `cliente_id` int NOT NULL,
+  `funcionario_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   KEY `funcionario_id` (`funcionario_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -76,12 +76,19 @@ CREATE TABLE IF NOT EXISTS `folhaobras` (
 
 DROP TABLE IF EXISTS `ivas`;
 CREATE TABLE IF NOT EXISTS `ivas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `percentagem` int(11) DEFAULT NULL,
-  `descricao` varchar(10) DEFAULT NULL,
-  `emvigor` tinyint(1) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `percentagem` int NOT NULL,
+  `descricao` varchar(10) NOT NULL,
+  `emvigor` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `ivas`
+--
+
+INSERT INTO `ivas` (`id`, `percentagem`, `descricao`, `emvigor`) VALUES
+(9, 0, 'Taxa 0%', 1);
 
 -- --------------------------------------------------------
 
@@ -91,16 +98,16 @@ CREATE TABLE IF NOT EXISTS `ivas` (
 
 DROP TABLE IF EXISTS `linhaobras`;
 CREATE TABLE IF NOT EXISTS `linhaobras` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `quantidade` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `quantidade` int NOT NULL,
   `valorunitario` float NOT NULL,
   `valoriva` float NOT NULL,
-  `folhaobra_id` int(11) NOT NULL,
-  `servico_id` int(11) NOT NULL,
+  `folhaobra_id` int NOT NULL,
+  `servico_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `folhaobra_id` (`folhaobra_id`),
   KEY `servico_id` (`servico_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -110,14 +117,21 @@ CREATE TABLE IF NOT EXISTS `linhaobras` (
 
 DROP TABLE IF EXISTS `servicos`;
 CREATE TABLE IF NOT EXISTS `servicos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `referencia` varchar(50) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   `precohora` float NOT NULL,
-  `taxaiva` int(11) NOT NULL,
+  `iva_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `taxaiva` (`taxaiva`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  KEY `iva_id` (`iva_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `referencia`, `descricao`, `precohora`, `iva_id`) VALUES
+(4, '3', 'ola', 1, 9);
 
 -- --------------------------------------------------------
 
@@ -127,19 +141,19 @@ CREATE TABLE IF NOT EXISTS `servicos` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(40) DEFAULT NULL,
   `password` varchar(40) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `telefone` int(9) NOT NULL,
-  `nif` int(9) NOT NULL,
+  `telefone` int NOT NULL,
+  `nif` int NOT NULL,
   `morada` varchar(100) DEFAULT NULL,
   `codigopostal` varchar(8) DEFAULT NULL,
   `localidade` varchar(40) DEFAULT NULL,
   `role` varchar(15) DEFAULT NULL,
   `ativo` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Restrições para despejos de tabelas
@@ -163,7 +177,7 @@ ALTER TABLE `linhaobras`
 -- Limitadores para a tabela `servicos`
 --
 ALTER TABLE `servicos`
-  ADD CONSTRAINT `servicos_ibfk_1` FOREIGN KEY (`taxaiva`) REFERENCES `ivas` (`id`);
+  ADD CONSTRAINT `servicos_ibfk_1` FOREIGN KEY (`iva_id`) REFERENCES `ivas` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
