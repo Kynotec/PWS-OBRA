@@ -51,4 +51,12 @@ class ServicoController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $servicos = Servico::find($id);
+        $servicos->delete();
+        //redirecionar para o index
+        $this->redirectToRoute('servico','index');
+    }
+
 }

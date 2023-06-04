@@ -25,6 +25,7 @@
                                         <th>Descrição</th>
                                         <th>Preço/Hora</th>
                                         <th>Taxa IVA</th>
+                                        <th class="fit_column">Ações</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -34,8 +35,10 @@
                                         <td><?=$servico->referencia?></td>
                                         <td><?=$servico->descricao?></td>
                                         <td><?=$servico->precohora.'€'?></td>
-                                        <td><?=$servico->iva_id?></td>
-                                        <td> <a class="btn btn-info btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a></td>
+                                        <td><?=$servico->iva->percentagem.'%'?></td>
+                                        <td> <a class="btn btn-info btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
+                                        <a class="btn btn-danger btn-sm" href="index.php?c=servico&a=delete&id=<?= $servico->id?>"><i class="fas fa-trash"></i> Apagar </a>
+                                        </td>
                                     </tr>
                                     <?php } ?>
                                     </tbody>

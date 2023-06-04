@@ -44,10 +44,11 @@
                                             <?php foreach($ivas as $iva){?>
                                                 <?php if($iva->emvigor == 1) { ?>
                                                     <?php if($iva->id == $servicos->iva_id) { ?>
-                                                        <option value="<?= $iva->id?>" selected><?= $iva->descricao;?> </option>
+                                                        <option <?= $servico->iva_id == $iva->id ? 'selected' : '' ?> value="<?= $iva->id ?>"><?= $iva->descricao ?> (<?= $iva->percentagem ?>%)</option>
+
                                                     <?php }
                                                     else { ?>
-                                                        <option value="<?= $iva->id?>"><?= $iva->descricao;?> </option>
+                                                        <option <?= $servico->iva_id == $iva->id ? 'selected' : '' ?> value="<?= $iva->id ?>"><?= $iva->descricao ?> (<?= $iva->percentagem ?>%)</option>
                                                     <?php }
                                                 }} ?>
                                         </select>

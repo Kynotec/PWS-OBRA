@@ -66,6 +66,13 @@ class IvaController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $iva = Iva::find($id);
+        $iva->delete();
+        //redirecionar para o index
+        $this->redirectToRoute('iva','index');
+    }
 
 
 }

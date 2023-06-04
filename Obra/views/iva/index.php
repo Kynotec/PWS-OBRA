@@ -45,11 +45,8 @@
 
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
-                                            <?php
-                                            if($iva->emvigor == 1){
-                                                ?>
-                                                <a href="#" class="btn btn-danger" onclick="deleteEntity(<?= $iva->id ?>)">Apagar</a>
-                                            <?php } ?>
+                                            <a class="btn btn-danger btn-sm" href="index.php?c=iva&a=delete&id=<?= $iva->id?>"><i class="fas fa-trash"></i> Apagar </a>
+
                                         </td>
                                     </tr>
                                     <?php }
