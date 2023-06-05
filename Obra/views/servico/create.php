@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Preço/Hora</label>
-                                    <input type="number" class="form-control" placeholder="Preço €" name="precohora" value="<?php if(isset($servicos)) { echo $servicos->preco; }?>">
+                                    <input type="number" class="form-control" placeholder="Preço €" name="precohora" value="<?php if(isset($servicos)) { echo $servicos->precohora; }?>">
                                     <?php if(isset($servicos->errors)){ echo $servicos->errors->on('precohora'); }?>
                                 </div>
 

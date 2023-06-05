@@ -23,6 +23,7 @@ return [
         ],
         'cliente'=>[
             'index' => ['GET', 'ClienteController', 'index'],
+            'show' => ['GET','ClienteController', 'show'],
             'create' => ['GET', 'ClienteController', 'create'],
             'store' =>['POST','ClienteController','store'],
             'edit' =>['GET','ClienteController','edit'],
@@ -32,6 +33,7 @@ return [
 
         'funcionario'=>[
             'index' => ['GET', 'FuncionarioController', 'index'],
+            'show' => ['GET','FuncionarioController', 'show'],
             'create' => ['GET', 'FuncionarioController', 'create'],
             'store' =>['POST','FuncionarioController','store'],
             'edit' =>['GET','FuncionarioController','edit'],

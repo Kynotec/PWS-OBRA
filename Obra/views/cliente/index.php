@@ -47,11 +47,11 @@
                                         <td><?=$user->telefone?></td>
                                         <td><?=$user->nif?></td>
                                         <td><?=$user->localidade?></td>
-                                        <td> <a class="btn btn-info btn-sm" href="index.php?c=cliente&a=edit&id=<?= $user->id?>">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Editar
-                                            </a></td>
+                                        <td>
+                                            <a class="btn btn-info btn-sm" href="index.php?c=cliente&a=edit&id=<?= $user->id?>"><i class="fas fa-pencil-alt"></i>Editar</a>
+                                            <a class="btn btn-info btn-sm" href="index.php?c=cliente&a=show&id=<?= $user->id?>"><i class="fas fa-eye"></i> Mostrar </a>
+                                        </td>
+
 
                                     </tr>
                                     <?php }} ?>
