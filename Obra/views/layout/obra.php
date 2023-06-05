@@ -43,7 +43,7 @@
                 <div class="menu_text">
                     <ul>
                         <li><a href="index.php?c=home&a=index">HOME</a></li>
-                        <li><a href="index.php?c=layout&a=login">LOGIN</a></li>
+                        <li><a href="index.php?c=login&a=index">LOGIN</a></li>
                 </div>
                 </li>
                 </ul>

@@ -11,7 +11,7 @@
                     <p>Credenciais incorretas!</p>
                 </div>
             <?php } ?>
-            <form action="./index.php?c=home&a=index" method="post">
+            <form action="./index.php?c=login&a=checkLogin" method="post">
                 <div class="input-group mb-3">
                     <input type="username" class="form-control" name="username" placeholder="Username">
                     <div class="input-group-append">

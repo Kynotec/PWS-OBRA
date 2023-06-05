@@ -5,7 +5,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $this->renderView('fo','index',[],'fo');
+        $this->renderView('home','index',[],'obra');
 
     }
 

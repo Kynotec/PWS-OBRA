@@ -7,7 +7,7 @@ class BoController extends Controller
 {
     public function index()
     {
-        $this->renderView('bo','index');
+        $this->renderView('bo','index',[],'default');
     }
 
 }

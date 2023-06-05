@@ -38,11 +38,9 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php?c=home&a=index" class="nav-link">Home</a>
+                <a href="index.php?c=login&a=logout" class="nav-link">Logout</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php?c=layout&a=login" class="nav-link">Login</a>
-            </li>
+
 
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="index.php?c=layout&a=login" class="nav-link">Pesquisa</a>

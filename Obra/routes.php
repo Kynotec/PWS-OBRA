@@ -11,20 +11,25 @@ return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
 
         'home'=>[
-            'index' => ['GET', 'HomeController', 'index'],
+            'index' => ['GET', 'HomeController', 'index'], // Pagina Principal Obra
         ],
 
-        'layout' => [
-        'index' => ['GET', 'FoController', 'index'],
-        'login'=> ['GET', 'LoginController', 'index'],
-        'logout'=>['GET', 'LoginController', 'logout']
+        'login'=>[
+            'index' => ['GET', 'LoginController', 'index'],
+            'checkLogin'=>['POST','LoginController','checkLogin'],
+            'logout'=>['GET','LoginController','logout'],
+        ],
+
+
+    'bo'=>[
+            'index' => ['GET', 'BoController', 'index'], //rota backoffice
         ],
 
         'empresa'=>[
             'index' => ['GET', 'EmpresaController', 'index'],
             'edit' =>['GET','EmpresaController','edit'],
             'update' =>['POST','EmpresaController','update'],
-],
+        ],
 
         'iva'=>[
             'index' => ['GET', 'IvaController', 'index'],
@@ -42,11 +47,6 @@ return [
             'create' =>['GET','ServicoController','create'],
             'store' =>['POST','ServicoController','store'],
             'delete' =>['GET','ServicoController','delete']
-        ],
-    
-
-        'login'=>[
-        'index' => ['GET', 'LoginController', 'index'],
         ],
 
        ];
