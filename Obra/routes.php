@@ -6,6 +6,8 @@ require_once 'controllers/EmpresaController.php';
 require_once 'controllers/IvaController.php';
 require_once 'controllers/ServicoController.php';
 require_once 'controllers/FoController.php';
+require_once 'controllers/ClienteController.php';
+require_once 'controllers/FuncionarioController.php';
 
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
@@ -19,9 +21,25 @@ return [
             'checkLogin'=>['POST','LoginController','checkLogin'],
             'logout'=>['GET','LoginController','logout'],
         ],
+        'cliente'=>[
+            'index' => ['GET', 'ClienteController', 'index'],
+            'create' => ['GET', 'ClienteController', 'create'],
+            'store' =>['POST','ClienteController','store'],
+            'edit' =>['GET','ClienteController','edit'],
+            'update' =>['POST','ClienteController','update'],
+            'delete' =>['GET','ClienteController','delete']
+        ],
 
+        'funcionario'=>[
+            'index' => ['GET', 'FuncionarioController', 'index'],
+            'create' => ['GET', 'FuncionarioController', 'create'],
+            'store' =>['POST','FuncionarioController','store'],
+            'edit' =>['GET','FuncionarioController','edit'],
+            'update' =>['POST','FuncionarioController','update'],
+            'delete' =>['GET','FuncionarioController','delete']
+    ],
 
-    'bo'=>[
+        'bo'=>[
             'index' => ['GET', 'BoController', 'index'], //rota backoffice
         ],
 

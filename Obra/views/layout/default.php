@@ -91,14 +91,6 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Clientes
-                            </p>
-                        </a>
-                    </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
@@ -109,11 +101,18 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="index.php?c=utilizadores&a=index" class="nav-link">
+                                <a href="index.php?c=funcionario&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Utilizadores</p>
+                                    <p>Funcionarios</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="index.php?c=cliente&a=index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Clientes</p>
+                                </a>
+                            </li>
+
                             <li class="nav-item">
                                 <a href="index.php?c=servico&a=index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
