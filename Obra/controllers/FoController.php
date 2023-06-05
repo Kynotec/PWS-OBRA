@@ -4,7 +4,7 @@ class FoController extends Controller
 {
     public function index()
     {
-        $this->renderView('login','index');
+        $this->renderView('layout','default');
     }
 
 }

@@ -5,12 +5,19 @@ require_once 'controllers/LoginController.php';
 require_once 'controllers/EmpresaController.php';
 require_once 'controllers/IvaController.php';
 require_once 'controllers/ServicoController.php';
+require_once 'controllers/FoController.php';
 
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
 
         'home'=>[
             'index' => ['GET', 'HomeController', 'index'],
+        ],
+
+        'layout' => [
+        'index' => ['GET', 'FoController', 'index'],
+        'login'=> ['GET', 'LoginController', 'index'],
+        'logout'=>['GET', 'LoginController', 'logout']
         ],
 
         'empresa'=>[
@@ -35,18 +42,6 @@ return [
             'create' =>['GET','ServicoController','create'],
             'store' =>['POST','ServicoController','store'],
             'delete' =>['GET','ServicoController','delete']
-        ],
-
-
-
-        'layout' => [
-            'index' => ['GET', 'BoController', 'index'],
-            'login'=> ['GET', 'LoginController', 'index'],
-            'logout'=>['GET', 'LoginController', 'logout']
-            ],
-
-        'LayoutFo'=>[
-            'index' => ['GET', 'HomeController', 'index'],
         ],
     
 
