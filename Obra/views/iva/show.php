@@ -41,10 +41,10 @@
                                         <td><?= $ivas->percentagem.'%' ?></td>
                                         <td><?= $ivas->descricao ?></td>
                                     </tr>
+                                    </tbody>
                                     <td>
                                         <a href="index.php?c=iva&a=index" class="btn btn-info" role="button"> Cancelar</a>
                                     </td>
-                                    </tbody>
                                 </table>
                             </div>
                         </div>

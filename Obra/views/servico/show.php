@@ -37,10 +37,10 @@
                                         <td><?=$servico->precohora.'€'?></td>
                                         <td><?=$servico->iva->percentagem.'%'?></td>
                                     </tr>
+                                    </tbody>
                                     <td>
                                         <a href="index.php?c=servico&a=index" class="btn btn-info" role="button"> Cancelar</a>
                                     </td>
-                                    </tbody>
                                 </table>
                                 </div>
                         </div>
