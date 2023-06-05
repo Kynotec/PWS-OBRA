@@ -23,6 +23,7 @@ class Controller
 
 
     protected function renderView($controllerPrefix, $viewName, $data = [], $layout = 'default') {
+        $auth = new Auth();
         extract($data);
         $viewPath = 'views/' . $controllerPrefix . '/' . $viewName . '.php';
         $layoutPath = 'views/layout/' . $layout . '.php';
