@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 03-Jun-2023 às 23:15
+-- Tempo de geração: 05-Jun-2023 às 18:53
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 8.1.0
 
@@ -81,21 +81,19 @@ CREATE TABLE IF NOT EXISTS `ivas` (
   `descricao` varchar(10) NOT NULL,
   `emvigor` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `ivas`
 --
 
 INSERT INTO `ivas` (`id`, `percentagem`, `descricao`, `emvigor`) VALUES
-(1, 1, 'testee', 0),
 (2, 12, 'admin', 0),
 (3, 12, 'testee112', 1),
 (4, 12, 'testee112', 1),
 (5, 12, 'testee112', 1),
 (6, 12, 'olaaa', 1),
-(7, 12, 'dadad', 1),
-(8, 12, 'empresa', 1);
+(7, 12, 'dadad', 1);
 
 -- --------------------------------------------------------
 
@@ -132,7 +130,14 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `iva_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `iva_id` (`iva_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `referencia`, `descricao`, `precohora`, `iva_id`) VALUES
+(2, '1', 'a', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -152,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `codigopostal` varchar(8) DEFAULT NULL,
   `localidade` varchar(40) DEFAULT NULL,
   `role` varchar(15) DEFAULT NULL,
-  `ativo` tinyint(1) NOT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
