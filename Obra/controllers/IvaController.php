@@ -13,6 +13,17 @@ class IvaController extends Controller
         $this-> renderView('iva','index',['ivas' => $ivas]);
     }
 
+    public function show($id)
+    {
+        $ivas = Iva::find($id);
+        if (is_null($ivas)) {
+            //TODO redirect to standard error page
+        } else {
+            //mostrar a vista show passando os dados por parâmetro
+            $this->renderView('iva','show',['ivas'=>$ivas]);
+        }
+    }
+
     public function create()
     {
         $this->renderView('iva','create',['iva' => new Iva()]);

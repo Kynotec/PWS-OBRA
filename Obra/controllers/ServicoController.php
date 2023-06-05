@@ -8,6 +8,17 @@ class ServicoController extends Controller
         $this->renderView('servico', 'index', ['servicos' => $servicos]);
     }
 
+    public function show($id)
+    {
+        $servicos = Servico::find($id);
+        if (is_null($servicos)) {
+            //TODO redirect to standard error page
+        } else {
+            //mostrar a vista show passando os dados por parâmetro
+            $this->renderView('servico','show',['servico'=>$servicos]);
+        }
+    }
+
     public function create()
     {
         $ivas= Iva::all();

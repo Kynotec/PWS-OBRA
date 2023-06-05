@@ -33,6 +33,7 @@ return [
 
         'iva'=>[
             'index' => ['GET', 'IvaController', 'index'],
+            'show' => ['GET','IvaController', 'show'],
             'edit' =>['GET','IvaController','edit'],
             'update' =>['POST','IvaController','update'],
             'create' =>['GET','IvaController','create'],
@@ -42,6 +43,7 @@ return [
 
         'servico'=>[
             'index' => ['GET', 'ServicoController', 'index'],
+            'show' => ['GET','ServicoController', 'show'],
             'edit' =>['GET','ServicoController','edit'],
             'update' =>['POST','ServicoController','update'],
             'create' =>['GET','ServicoController','create'],
