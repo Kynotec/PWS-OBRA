@@ -8,6 +8,8 @@ require_once 'controllers/ServicoController.php';
 require_once 'controllers/FoController.php';
 require_once 'controllers/ClienteController.php';
 require_once 'controllers/FuncionarioController.php';
+require_once 'controllers/LinhaObraController.php';
+require_once 'controllers/FolhaObraController.php';
 
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
@@ -69,6 +71,21 @@ return [
             'create' =>['GET','ServicoController','create'],
             'store' =>['POST','ServicoController','store'],
             'delete' =>['GET','ServicoController','delete']
+        ],
+
+        'linhaobra'=>[
+            'index' => ['GET', 'LinhaObraController', 'index'],
+            'edit' =>['GET','LinhaObraController','edit'],
+            'update' =>['POST','LinhaObraController','update'],
+            'create' =>['GET','LinhaObraController','create'],
+            'store' =>['POST','LinhaObraController','store'],
+        ],
+        'folhaobra'=>[
+            'index' => ['GET', 'FolhaObraController', 'index'],
+            'edit' =>['GET','FolhaObraController','edit'],
+            'update' =>['POST','FolhaObraController','update'],
+            'create' =>['GET','FolhaObraController','create'],
+            'store' =>['POST','FolhaObraController','store'],
         ],
 
        ];

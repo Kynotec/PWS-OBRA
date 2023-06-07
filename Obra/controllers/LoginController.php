@@ -10,27 +10,6 @@ class LoginController extends Controller
         $this->renderView('login','index',[],'login');
     }
 
-    /*
-    public function checkLogin()
-
-    {
-        $auth = new Auth();
-        $username = $this->getHTTPPostParam('username');
-        $password = $this->getHTTPPostParam('password');
-
-
-        if ($auth ->checkAuth($username,$password))
-        {
-            echo 'Login com sucesso';
-            echo $auth->getUsername(),$auth->getUserRole();
-        }
-        else{
-            echo 'login invalido';
-           // $this->redirectToRoute('login','index');
-        }
-
-    }
-*/
 
     public function checkLogin()
     {
