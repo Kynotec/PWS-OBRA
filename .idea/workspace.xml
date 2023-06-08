@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/ClienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/controllers/FuncionarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/controllers/FuncionarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/views/cliente/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/cliente/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/cliente/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/cliente/show.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Obra/views/funcionario/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/funcionario/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/funcionario/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/funcionario/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/iva/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/iva/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/iva/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Obra/views/servico/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/servico/create.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
