@@ -86,6 +86,7 @@ return [
             'update' =>['POST','FolhaObraController','update'],
             'create' =>['GET','FolhaObraController','create'],
             'store' =>['POST','FolhaObraController','store'],
+            'selectClient' => ['GET', 'FolhaObraController', 'selectClient'],
         ],
 
        ];

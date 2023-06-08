@@ -2,40 +2,38 @@
 
 class FolhaObraController extends Controller
 {
-
-    public function index()//$estado, $idCliente)
+    public function index()
     {
-        $folhaobra = FolhaObra::all();
-        $this->renderView('folhaobra','index', ['folhaobra' => $folhaobra]);
+        $folhaobras = FolhaObra::all();
 
-        /*
-        if(!is_null($idCliente))
-        {
-            $this->renderView('fatura', 'index', ['folhaobra' => $folhaobra, 'estado' => $estado, 'idCliente' => $idCliente]);
-        }else{
-            $idCliente = null;
-            $this->renderView('fatura', 'index', ['folhaobra' => $folhaobra, 'estado' => $estado, 'idCliente' => $idCliente]);
-        }
-        */
-    }
-
-    public function selectCliente()
-    {
+        $this->renderView('folhaobra', 'index', ['folhaobras' => $folhaobras]);
 
     }
 
-    public function store($idCliente){
+    public function create()
+    {
+        $empresas = Empresa::All();
+        $this->renderView('folhaobra', 'create', ['empresas' => $empresas]);
+
+    }
+
+    public function selectClient()
+    {
+        $users = User::all();
+        $this->renderView('folhaobra', 'selectClient', ['users' => $users]);
+    }
+
+    public function store($idCliente)
+    {
         $folhaobra = new FolhaObra();
 
-        $folhaobra->data = date_default_timezone_set('Lisbon') ; // Data do Sistema
+        $folhaobra->data = date_default_timezone_set('Lisbon'); // Data do Sistema
         $folhaobra->valortotal = 0;
         $folhaobra->ivatotal = 0;
         $folhaobra->estado = 'Em Lançamento';
-        $folhaobra->cliente_id =$idCliente;
+        $folhaobra->cliente_id = $idCliente;
         $auth = new Auth();
-        $folhaobra->funcionario_id =$auth->getUserId();
+        $folhaobra->funcionario_id = $auth->getUserId();
 
     }
-
-
 }
