@@ -35,9 +35,10 @@
                                         <td><?=$servico->descricao?></td>
                                         <td><?=$servico->precohora.'€'?></td>
                                         <td><?=$servico->iva->percentagem.'%'?></td>
-                                        <td> <a class="btn btn-info btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
+                                        <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=servico&a=show&id=<?= $servico->id?>"><i class="fas fa-eye"></i> Mostrar </a>
-                                        <a class="btn btn-danger btn-sm" href="index.php?c=servico&a=delete&id=<?= $servico->id?>"><i class="fas fa-trash"></i> Apagar </a>
+                                            <a class="btn btn-warning btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
+                                            <a class="btn btn-danger btn-sm" href="index.php?c=servico&a=delete&id=<?= $servico->id?>"><i class="fas fa-trash"></i> Apagar </a>
                                         </td>
                                     </tr>
                                     <?php } ?>

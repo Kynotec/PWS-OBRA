@@ -24,7 +24,7 @@ return [
             'logout'=>['GET','LoginController','logout'],
         ],
         'cliente'=>[
-            'index' => ['GET', 'ClienteController', 'index'],
+            'index' => ['GET|POST', 'ClienteController', 'index'],
             'show' => ['GET','ClienteController', 'show'],
             'create' => ['GET', 'ClienteController', 'create'],
             'store' =>['POST','ClienteController','store'],
@@ -86,7 +86,7 @@ return [
             'update' =>['POST','FolhaObraController','update'],
             'create' =>['GET','FolhaObraController','create'],
             'store' =>['POST','FolhaObraController','store'],
-            'selectClient' => ['GET', 'FolhaObraController', 'selectClient'],
+            'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
         ],
 
        ];
