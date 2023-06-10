@@ -21,7 +21,7 @@
                  <div class="card">
                      <div class="card-header">
 
-                             <a href="./index.php?c=folhaobra&a=selectClient" class="btn btn-primary btn-sm">Registar Obras</a>
+                             <a href="./index.php?c=folhaobra&a=create" class="btn btn-primary btn-sm">Registar Obras</a>
 
                          <div class="card-tools">
                              <form action="index.php?c=folhaobra&a=index" method="post" class="input-group input-group-sm">

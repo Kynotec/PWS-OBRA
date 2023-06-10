@@ -76,7 +76,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="index.php?c=folhaobra&a=index" class="nav-link">
+                        <a href="index.php?c=folhaobra&a=create" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Emissão Folha Obra

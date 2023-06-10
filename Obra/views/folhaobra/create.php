@@ -23,7 +23,7 @@
                             <div class="col-12">
                                 <h4>
                                     <b>Fatura Nº0000</b> <br>
-                                    <small class="float">Data: </small>
+                                    <small class="float">Data:  </small>
                                 </h4>
                             </div>
                             <!-- /.col -->

@@ -84,9 +84,9 @@ return [
             'index' => ['GET', 'FolhaObraController', 'index'],
             'edit' =>['GET','FolhaObraController','edit'],
             'update' =>['POST','FolhaObraController','update'],
-            'create' =>['GET','FolhaObraController','create'],
-            'store' =>['POST','FolhaObraController','store'],
-            'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
+            'create' =>['GET|POST','FolhaObraController','create'],
+            'store' =>['GET|POST','FolhaObraController','store'],
+            'selectClient' => ['GET', 'FolhaObraController', 'selectClient'],
         ],
 
        ];

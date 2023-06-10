@@ -15,8 +15,24 @@ class FolhaObra extends \ActiveRecord\Model
     );
 
 
-   /* static $has_many = array(
+   static $has_many = array(
         array('linhaobras')
     );
-    */
+
+
+    /*   AtualizarForms()
+     *
+     *  Percorrer todas linhas obras:
+     *
+     *  $valorTotal
+     *  $ivaTotal
+     *  $Total
+     *
+     *  Atualizar os valores ao modelo e save
+     *
+     *
+     */
+
+
+
 }

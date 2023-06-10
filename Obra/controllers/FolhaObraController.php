@@ -1,4 +1,5 @@
 <?php
+use Carbon\Carbon;
 
 class FolhaObraController extends Controller
 {
@@ -12,8 +13,12 @@ class FolhaObraController extends Controller
 
     public function create()
     {
-        $empresas = Empresa::All();
-        $this->renderView('folhaobra', 'create', ['empresas' => $empresas]);
+        $empresas = Empresa::all();
+        if(count($empresas ) > 0){
+            $empresa = $empresas[0];
+            $this->renderView('folhaobra', 'create', ['empresa' => $empresa]);
+        }
+
 
     }
 
@@ -37,14 +42,25 @@ class FolhaObraController extends Controller
     public function store($idCliente)
     {
         $folhaobra = new FolhaObra();
+        $datetoday = Carbon::now();
 
-        $folhaobra->data = date_default_timezone_set('Lisbon'); // Data do Sistema
+        $folhaobra->data = $datetoday;
         $folhaobra->valortotal = 0;
         $folhaobra->ivatotal = 0;
         $folhaobra->estado = 'Em Lançamento';
         $folhaobra->cliente_id = $idCliente;
         $auth = new Auth();
         $folhaobra->funcionario_id = $auth->getUserId();
+
+        if ($folhaobra->is_valid()) {
+            $folhaobra->save();
+            $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $folhaobra->id]);
+        } else {
+            $this->renderView('folhaobra', 'create', ['folhaobras' => $folhaobra]);
+        }
+
+
+
 
     }
 }

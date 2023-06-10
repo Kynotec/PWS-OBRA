@@ -64,7 +64,7 @@
                                             <td><?= $user->nif ?></td>
                                             <td><?= $user->morada . ', ' . $user->codigopostal . ', ' . $user->localidade ?></td>
                                             <td>
-                                                <a href="./index.php?c=folhaobra&a=create&idCliente=<?= $user->id ?>" class="btn btn-primary">Selecionar</a>
+                                                <a href="index.php?c=folhaobra&a=store&idCliente=<?=$user->id?>" class="btn btn-primary">Selecionar</a>
                                             </td>
                                         </tr>
                                         <?php
