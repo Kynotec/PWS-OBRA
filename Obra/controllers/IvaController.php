@@ -80,9 +80,28 @@ class IvaController extends Controller
     public function delete($id)
     {
         $iva = Iva::find($id);
-        $iva->delete();
-        //redirecionar para o index
-        $this->redirectToRoute('iva','index');
+
+            $iva->delete();
+            //redirecionar para o index
+            $this->redirectToRoute('iva','index');
+        }
+
+
+
+    public function disable($id)
+    {
+        $iva = Iva::find($id);
+        $iva->update_attribute('emvigor', 0);
+        $iva->save();
+        $this->RedirectToRoute('iva', 'index');//redirecionar para o index
+    }
+
+    public function enable($id)
+    {
+        $iva = Iva::find($id);
+        $iva->update_attribute('emvigor', 1);
+        $iva->save();
+        $this->RedirectToRoute('iva', 'index');//redirecionar para o index
     }
 
 

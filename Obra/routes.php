@@ -63,7 +63,10 @@ return [
             'update' =>['POST','IvaController','update'],
             'create' =>['GET','IvaController','create'],
             'store' =>['POST','IvaController','store'],
-            'delete' =>['GET','IvaController','delete']
+            'delete' =>['GET','IvaController','delete'],
+            'disable' =>['GET','IvaController','disable'],
+            'enable' =>['GET','IvaController','enable']
+
         ],
 
         'servico'=>[

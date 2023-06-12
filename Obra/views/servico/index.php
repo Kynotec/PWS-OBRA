@@ -38,7 +38,7 @@
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=servico&a=show&id=<?= $servico->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                             <a class="btn btn-warning btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
-                                            <a class="btn btn-danger btn-sm" href="index.php?c=servico&a=delete&id=<?= $servico->id?>"><i class="fas fa-trash"></i> Apagar </a>
+                                            <a class="btn btn-danger btn-sm" onclick="deleteEntity(<?= $servico->id?>)"><i class="fas fa-trash"></i> Apagar </a>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -53,3 +53,29 @@
                 </div>
             </div>
     </section>
+
+    <!-- Modal Delete-->
+    <div class="modal fade" id="modalDelete" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Pretende mesmo apagar este Serviço?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="modal_delete_btn" class="btn btn-danger">Apagar</a>
+                    <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function deleteEntity(id)
+        {
+            document.getElementById('modal_delete_btn').setAttribute('href', 'index.php?c=servico&a=delete&id=' + id);
+
+            new bootstrap.Modal(document.getElementById('modalDelete'), {
+                keyboard: true
+            }).toggle();
+        }
+    </script>

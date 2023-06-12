@@ -45,7 +45,13 @@
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=iva&a=show&id=<?= $iva->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                             <a class="btn btn-warning btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
-                                            <a class="btn btn-danger btn-sm" href="index.php?c=iva&a=delete&id=<?= $iva->id?>"><i class="fas fa-trash"></i> Apagar </a>
+                                            <?php if($iva->emvigor == 1) {?>
+                                                <a class="btn btn-danger btn-sm" onclick="disableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
+                                            <?php } else { ($iva->emvigor == 0) ?>
+                                                <a class="btn btn-success btn-sm" onclick="enableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
+
+                                            <?php } ?>
+                                            <a class="btn btn-danger btn-sm" onclick="deleteEntity(<?= $iva->id?>)"><i class="fas fa-trash"></i> Apagar </a>
 
 
                                         </td>
@@ -63,3 +69,82 @@
                 </div>
             </div>
     </section>
+
+
+<!-- Modal Disable-->
+<div class="modal fade" id="modalDisable" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Pretende mesmo desativar esta Taxa de Iva?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal_disable_btn" class="btn btn-danger">Desativar</a>
+                <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Enable-->
+<div class="modal fade" id="modalEnable" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Pretende mesmo ativar esta Taxa de Iva?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal_enable_btn" class="btn btn-success btn-sm">Ativar</a>
+                <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="modalDelete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Pretende mesmo apagar esta Taxa de Iva?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal_delete_btn" class="btn btn-danger">Apagar</a>
+                <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function disableEntity(id)
+    {
+        document.getElementById('modal_disable_btn').setAttribute('href', 'index.php?c=iva&a=disable&id=' + id);
+
+        new bootstrap.Modal(document.getElementById('modalDisable'), {
+            keyboard: true
+        }).toggle();
+    }
+</script>
+
+<script type="text/javascript">
+    function enableEntity(id)
+    {
+        document.getElementById('modal_enable_btn').setAttribute('href', 'index.php?c=iva&a=enable&id=' + id);
+
+        new bootstrap.Modal(document.getElementById('modalEnable'), {
+            keyboard: true
+        }).toggle();
+    }
+</script>
+
+<script type="text/javascript">
+    function deleteEntity(id)
+    {
+        document.getElementById('modal_delete_btn').setAttribute('href', 'index.php?c=iva&a=delete&id=' + id);
+
+        new bootstrap.Modal(document.getElementById('modalDelete'), {
+            keyboard: true
+        }).toggle();
+    }
+</script>
