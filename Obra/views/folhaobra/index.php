@@ -65,8 +65,7 @@
                                          <td><?= $folhaobra->cliente->username ?></td>
                                          <td><?= $folhaobra->valortotal ?> €</td>
                                          <td>
-                                             <a href="index.php?c=folhaobra&a=show&id=<?=$folhaobra->id ?>"
-                                                class="btn btn-info" role="button">Mostrar</a>
+                                             <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&id=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
 
                                              <?php if($folhaobra->estado =='em lancamento')
                                              { ?>

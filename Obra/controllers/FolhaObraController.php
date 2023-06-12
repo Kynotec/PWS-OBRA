@@ -19,7 +19,6 @@ class FolhaObraController extends Controller
             $this->renderView('folhaobra', 'create', ['empresa' => $empresa]);
         }
 
-
     }
 
     public function selectClient()
@@ -35,7 +34,6 @@ class FolhaObraController extends Controller
             });
         }
         $this->renderView('folhaobra', 'selectClient', ['users' => $users]);
-
 
     }
 
@@ -58,8 +56,6 @@ class FolhaObraController extends Controller
         } else {
             $this->renderView('folhaobra', 'create', ['folhaobras' => $folhaobra]);
         }
-
-
 
 
     }

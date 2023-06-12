@@ -47,6 +47,7 @@
                                             <a class="btn btn-warning btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
                                             <a class="btn btn-danger btn-sm" href="index.php?c=iva&a=delete&id=<?= $iva->id?>"><i class="fas fa-trash"></i> Apagar </a>
 
+
                                         </td>
                                     </tr>
                                     <?php }

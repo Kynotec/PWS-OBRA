@@ -68,9 +68,9 @@
                                                 <a class="btn btn-warning btn-sm" href="index.php?c=cliente&a=edit&id=<?= $user->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
 
                                                 <?php if($user->ativo == 1) {?>
-                                                    <a class="btn btn-danger btn-sm" onclick="deleteEntity(<?= $user->id ?>)"> <i class="fas fa-trash"></i> Desativar </a>
+                                                    <a class="btn btn-danger btn-sm" onclick="disableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
                                                     <?php } else { ($user->ativo == 0) ?>
-                                                    <a class="btn btn-success btn-sm" onclick="activeEntity(<?= $user->id ?>)"> <i class="fas fa-check"></i> Ativar </a>
+                                                    <a class="btn btn-success btn-sm" onclick="enableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
 
                                                 <?php } ?>
                                             </td>
@@ -117,10 +117,25 @@
     </div>
 </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalActive" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Pretende mesmo ativar este Cliente?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="modal_active_btn" class="btn btn-success btn-sm">Ativar</a>
+                    <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script type="text/javascript">
-    function deleteEntity(id)
+    function disableEntity(id)
     {
-        document.getElementById('modal_delete_btn').setAttribute('href', './index.php?c=cliente&a=delete&id=' + id);
+        document.getElementById('modal_delete_btn').setAttribute('href', 'index.php?c=cliente&a=disable&id=' + id);
 
         new bootstrap.Modal(document.getElementById('modalDelete'), {
             keyboard: true
@@ -128,8 +143,13 @@
     }
 </script>
 
-<?php if(isset($_GET['success'])){ ?>
     <script type="text/javascript">
-        window.onload = function() { alert_success(); }
+        function enableEntity(id)
+        {
+            document.getElementById('modal_active_btn').setAttribute('href', 'index.php?c=cliente&a=enable&id=' + id);
+
+            new bootstrap.Modal(document.getElementById('modalActive'), {
+                keyboard: true
+            }).toggle();
+        }
     </script>
-<?php } ?>

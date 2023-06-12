@@ -46,7 +46,7 @@
                                         <td><?=$users->codigopostal?></td>
                                         <td><?=$users->localidade?></td>
                                         <td><?=$users->role?></td>
-                                        <td><?=$users->ativo?></td>
+                                        <td><?= $users->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Desativado</span>' ?></td>
 
                                     </tr>
                                     </tbody>

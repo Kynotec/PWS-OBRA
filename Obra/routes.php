@@ -30,7 +30,9 @@ return [
             'store' =>['POST','ClienteController','store'],
             'edit' =>['GET','ClienteController','edit'],
             'update' =>['POST','ClienteController','update'],
-            'delete' =>['GET','ClienteController','delete']
+            'disable' =>['GET','ClienteController','disable'],
+            'enable' =>['GET','ClienteController','enable']
+
         ],
 
         'funcionario'=>[
@@ -40,7 +42,8 @@ return [
             'store' =>['POST','FuncionarioController','store'],
             'edit' =>['GET','FuncionarioController','edit'],
             'update' =>['POST','FuncionarioController','update'],
-            'delete' =>['GET','FuncionarioController','delete']
+            'disable' =>['GET','FuncionarioController','disable'],
+            'enable' =>['GET','FuncionarioController','enable']
     ],
 
         'bo'=>[

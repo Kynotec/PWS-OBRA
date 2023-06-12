@@ -25,6 +25,12 @@ class FuncionarioController extends Controller
 
     public function store()
     {
+        if($_POST['ativo']){
+            $_POST['ativo'] = 1;
+        }else{
+            $_POST['ativo'] = 0;
+        }
+
         $users = new User($this->getHTTPPost());
         if($users->is_valid()){
             $users->save();
@@ -46,6 +52,14 @@ class FuncionarioController extends Controller
     public function update($id)
     {
         $users = User::find($id);
+
+        if(isset($_POST['ativo'])){
+            $_POST['ativo'] = 1;
+        }else{
+            $_POST['ativo'] = 0;
+        }
+
+        $users = User::find($id);
         $users->update_attributes($this->getHTTPPost());
         if($users->is_valid()){
             $users->save();
@@ -54,4 +68,21 @@ class FuncionarioController extends Controller
             $this->renderView('funcionario', 'edit', ['users' => $users]);
         }
     }
+
+    public function disable($id)
+    {
+        $users = User::find($id);
+        $users->update_attribute('ativo', 0);
+        $users->save();
+        $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+    }
+
+    public function enable($id)
+    {
+        $users = User::find($id);
+        $users->update_attribute('ativo', 1);
+        $users->save();
+        $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+    }
+
 }

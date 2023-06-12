@@ -31,7 +31,10 @@
 
                                 <input type="hidden" class="form-control" name="role" value="cliente">
 
-                                //CheckList Ativo
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="ativo" name="ativo" <?=$users->ativo == 1 ? 'checked' : '' ?>/>
+                                    <label for="ativo" class="form-check-label"> Ativo</label><br>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>

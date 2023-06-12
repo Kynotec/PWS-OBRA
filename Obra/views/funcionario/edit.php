@@ -26,8 +26,16 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form action="index.php?c=funcionario&a=update&id=<?= $users->id ?>" method="post">
+
                             <div class="card-body">
+
                                 <input type="hidden" class="form-control" name="role" value="funcionario">
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="ativo" name="ativo" <?=$users->ativo == 1 ? 'checked' : '' ?>/>
+                                    <label for="ativo" class="form-check-label"> Ativo</label><br>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>
                                     <input type="text" class="form-control" placeholder="Username" name="username" value="<?php if(isset($users)) { echo $users->username; }?>">
