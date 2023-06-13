@@ -11,8 +11,7 @@ class FolhaObra extends \ActiveRecord\Model
     static $belongs_to = array(
         array('cliente', 'class_name' => 'User', 'foreign_key' => 'cliente_id'),
         array('funcionario', 'class_name' => 'User', 'foreign_key' => 'funcionario_id'),
-        array('user')
-    );
+     );
 
 
    static $has_many = array(
@@ -32,6 +31,31 @@ class FolhaObra extends \ActiveRecord\Model
      *
      *
      */
+
+    public function calcularIvaTotal($folhaobra)
+    {
+        $iva = 0;
+        foreach ($folhaobra->linhaobras as $linhaobra)
+        {
+            $iva += $linhaobra->valoriva * $linhaobra->quantidade;
+        }
+        return $iva;
+    }
+
+    public function calcularSubTotal($folhaobra)
+    {
+        $subtotal = 0;
+        foreach ($folhaobra->linhaobras as $linhaobra)
+        {
+            $subtotal += $linhaobra->valorunitario * $linhaobra->quantidade;
+        }
+        return $subtotal;
+
+
+    }
+
+
+
 
 
 

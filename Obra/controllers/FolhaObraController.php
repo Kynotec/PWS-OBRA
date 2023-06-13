@@ -50,13 +50,14 @@ class FolhaObraController extends Controller
         $auth = new Auth();
         $folhaobra->funcionario_id = $auth->getUserId();
 
+
         if ($folhaobra->is_valid()) {
             $folhaobra->save();
             $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $folhaobra->id]);
         } else {
             $this->renderView('folhaobra', 'create', ['folhaobras' => $folhaobra]);
         }
-
-
+        
     }
+
 }

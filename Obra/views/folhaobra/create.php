@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Fatura</h1>
+                    <h1 class="m-0">Folha Obra</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -22,7 +22,7 @@
                         <div class="row" >
                             <div class="col-12">
                                 <h4>
-                                    <b>Fatura Nº0000</b> <br>
+                                    <b>Obra Nº0000</b> <br>
                                     <small class="float">Data:  </small>
                                 </h4>
                             </div>

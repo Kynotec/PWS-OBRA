@@ -85,6 +85,8 @@ return [
             'update' =>['POST','LinhaObraController','update'],
             'create' =>['GET','LinhaObraController','create'],
             'store' =>['POST','LinhaObraController','store'],
+            'selectServico' => ['GET', 'LinhaObraController', 'selectServico'],
+
         ],
         'folhaobra'=>[
             'index' => ['GET', 'FolhaObraController', 'index'],
