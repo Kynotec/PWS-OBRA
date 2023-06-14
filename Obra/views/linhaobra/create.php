@@ -62,13 +62,14 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>REF</th>
+                                    <th>Referência</th>
                                     <th>Descrição</th>
                                     <th>QTD</th>
-                                    <th>Preço Unidade</th>
-                                    <th>IVA</th>
+                                    <th>Valor IVA</th>
+                                    <th>Taxa IVA</th>
                                     <th>Taxa</th>
-                                    <th>SubTotal</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -104,7 +105,7 @@
                                     if (isset($servico))
                                     { ?>
 
-                                        <form action="index.php?c=linhaobra&a=store&idFolhaobra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
+                                        <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
                                             <tr>
                                                 <td>
                                                     <?=$servico->referencia?><br>
@@ -113,11 +114,11 @@
                                                     <?=$servico->descricao?><br>
                                                 </td>
                                                 <td>
-                                                    <input type="hidden" class="form-control" name="quantidade" value="">
+                                                    <input type="number" class="form-control" placeholder="QTD" name="" min="1" style="width: 100px; margin-left: -10px">
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control" name="valoriva" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                    <?=$servico->precohora*($servico->iva->percentagem/100)?><br>
+                                                    <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
                                                 </td>
                                                 <td>
                                                     <?=$servico->iva->percentagem?>%<br>
@@ -126,10 +127,11 @@
                                                     <?=$servico->precohora+($servico->iva->percentagem/100)?><br>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary" style="background-color: green"><i class="nav-icon fa-solid fa-check" ></i></button>
+
                                                 </td>
                                                 <td>
-                                                    <a href="index.php?c=linhaobra&a=create&id=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red"><i class="nav-icon fa-solid fa-x"></i></a>
+                                                    <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
+                                                    <a href="index.php?c=linhaobra&a=create&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
 
                                                 </td>
 
@@ -148,8 +150,6 @@
                         <!-- /.col -->
 
                         <div class="col-md-2" style="margin-right: 180px">
-
-                            <div class="table-responsive">
 
                                 <table class="table">
                                     <tr>
@@ -170,14 +170,13 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="index.php?c=fatura&a=update&idFolhaobra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Emitir</a>
+                                            <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Emitir</a>
                                         </td>
                                         <td>
-                                            <a href="index.php?c=fatura&a=delete&idFolhaobra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Anular</a>
+                                            <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Anular</a>
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
                         </div>
                         <!-- /.col -->
                     </div>

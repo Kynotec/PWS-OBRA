@@ -60,4 +60,16 @@ class FolhaObraController extends Controller
         
     }
 
+    public function delete($idFolhaObra)
+    {
+        $folhaobra = FolhaObra::find($idFolhaObra);
+
+        foreach ($folhaobra->linhaobras as $linhaobra)
+        {
+            $linhaobra->delete();
+        }
+        $folhaobra->delete();
+        $this->redirectToRoute('folhaobra', 'create');
+    }
+
 }

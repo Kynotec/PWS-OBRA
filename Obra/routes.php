@@ -95,6 +95,7 @@ return [
             'create' =>['GET|POST','FolhaObraController','create'],
             'store' =>['GET|POST','FolhaObraController','store'],
             'selectClient' => ['GET', 'FolhaObraController', 'selectClient'],
+            'delete' =>['GET','FolhaObraController','delete']
         ],
 
        ];

@@ -2,7 +2,15 @@
 
 class CalculoObra
 {
-
+    public function verificarServico($folhaobra, $idServico, $quantidade)
+    {
+        foreach ($folhaobra->linhaobras as $linhaobra) {
+            if ($linhaobra->servico_id == $idServico) {
+                $linhaobra->quantidade = $linhaobra->quantidade + $quantidade;
+                return $linhaobra;
+            }
+        }
+    }
 
     public function calcularIvaTotal($folhaobra)
     {

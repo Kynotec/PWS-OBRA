@@ -125,7 +125,7 @@
                                                 <?=$servico->iva->percentagem?><br>
                                             </td>
                                             <td>
-                                                <?=$servico->preco+($servico->iva->percentagem/100)?><br>
+                                                <?=$servico->precohora+($servico->iva->percentagem/100)?><br>
                                             </td>
                                             <td>
                                                 <button type="submit" class="btn btn-primary" style="background-color: green"><i class="nav-icon fa-solid fa-check" ></i></button>

@@ -12,8 +12,6 @@ class LinhaObraController extends Controller
 
     public function create($idServico,$idFolhaObra)
     {
-
-
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::find(1);
         $CalculoObra = new CalculoObra();
@@ -28,10 +26,36 @@ class LinhaObraController extends Controller
         }
 
     }
-    public function store()
+    public function store($idFolhaObra,$idServico)
     {
+
         $folhaobra = FolhaObra::find($idFolhaObra);
-        $quantidade = $this->getHTTPPostParam('quantidade');
+        $quantidade = $this->getHTTPPost('quantidade');
+        $CalculoObra = new CalculoObra();
+        $verificar = $CalculoObra->verificarServico($folhaobra, $idServico, $quantidade);
+        if($verificar != null)
+        {
+            if($verificar->is_valid()) {
+                $verificar->update_attribute('quantidade', $verificar->quantidade);
+                $verificar->save();
+                $this->redirectToRoute('linhaobra', 'create', ['id' => $idFolhaObra]);
+                return;
+            }
+        }
+
+        $linhaobra = new  LinhaObra($this->getHTTPPost());
+        $linhaobra->folha_obra_id = $idFolhaObra;
+        $linhaobra->servico_id = $idServico;
+
+        if ($linhaobra->is_valid()) {
+            $linhaobra->save();
+            $this->redirectToRoute('linhaobra', 'create', ['id' => $idFolhaObra]);
+        } else {
+            $this->renderView('linhaobra', 'create', ['id' => $idFolhaObra]);
+        }
+
+        //$folhaobra = FolhaObra::find($idFolhaObra);
+        //$quantidade = $this->getHTTPPostParam('quantidade');
         // $CalculoObra = new CalculoObra(); //Modelo de Calculo
         /*
         $verificar = $CalculoObra->verificarProduto($fatura, $idProduto, $qtd);
@@ -57,9 +81,6 @@ class LinhaObraController extends Controller
             $this->renderView('linhaFatura', 'create', ['id' => $idFatura]);
         }
     }
-
-
-
         /*
 
         $linhaobra->quantidade = ;
