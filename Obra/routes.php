@@ -84,7 +84,7 @@ return [
             'edit' =>['GET','LinhaObraController','edit'],
             'update' =>['POST','LinhaObraController','update'],
             'create' =>['GET','LinhaObraController','create'],
-            'store' =>['POST','LinhaObraController','store'],
+            'store' =>['GET|POST','LinhaObraController','store'],
             'selectServico' => ['GET', 'LinhaObraController', 'selectServico'],
 
         ],

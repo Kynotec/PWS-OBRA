@@ -15,17 +15,49 @@ class LinhaObraController extends Controller
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::find(1);
         $CalculoObra = new CalculoObra();
+        //$linhaobras = LinhaObra::all();
         $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
+
+
         if(!is_null($idServico)) {
 
             $servico = Servico::find($idServico);
             $this->renderView('linhaobra','create',['folhaobra'=>$folhaobra,'subtotal'=>$subtotal, 'empresa'=>$empresa,'servico'=>$servico,'idServico'=>$idServico]);
         }else{
             $idServico=null;
-            $this->renderView('linhaobra','create',['folhaobra'=>$folhaobra, 'empresa'=>$empresa,'$idServico'=>$idServico]);
+            $this->renderView('linhaobra','create',['folhaobra'=>$folhaobra, 'empresa'=>$empresa,'idServico'=>$idServico]);
         }
 
     }
+/*
+    public function store($idFolhaObra,$idServico)
+    {
+
+        $linhaobra = new LinhaObra();
+        $servico= Servico::find($idServico);
+        $folhaobra =FolhaObra::find($idFolhaObra);
+        if(isset($_POST['quantidade'])){
+            $linhaobra->quantidade =$_POST['quantidade'];
+        }
+        else{
+            $linhaobra->quantidade =1;
+        }
+        $linhaobra->valorunitario = $servico->precohora;
+        //$linhaobra->precohora =$servico->precohora*($servico->iva->percentagem/100);
+        //$linhaobra->taxaiva=$servico->iva->percentagem;
+        $linhaobra->folha_obra_id = $idFolhaObra;
+        $linhaobra->servico_id =$idServico;
+
+        if($linhaobra->is_valid()){
+            $linhaobra->save();
+            $this->redirectToRoute('linhaobra','create',['idFolhaObra'=>$idFolhaObra]);
+        } else {
+            $this->redirectToRoute('linhaobra','create',['idFolhaObra'=>$idFolhaObra]);
+
+        }
+    }*/
+
+
     public function store($idFolhaObra,$idServico)
     {
 
@@ -33,12 +65,11 @@ class LinhaObraController extends Controller
         $quantidade = $this->getHTTPPost('quantidade');
         $CalculoObra = new CalculoObra();
         $verificar = $CalculoObra->verificarServico($folhaobra, $idServico, $quantidade);
-        if($verificar != null)
-        {
-            if($verificar->is_valid()) {
+        if ($verificar != null) {
+            if ($verificar->is_valid()) {
                 $verificar->update_attribute('quantidade', $verificar->quantidade);
                 $verificar->save();
-                $this->redirectToRoute('linhaobra', 'create', ['id' => $idFolhaObra]);
+                $this->redirectToRoute('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
                 return;
             }
         }
@@ -49,11 +80,11 @@ class LinhaObraController extends Controller
 
         if ($linhaobra->is_valid()) {
             $linhaobra->save();
-            $this->redirectToRoute('linhaobra', 'create', ['id' => $idFolhaObra]);
+            $this->redirectToRoute('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
         } else {
-            $this->renderView('linhaobra', 'create', ['id' => $idFolhaObra]);
+            $this->renderView('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
         }
-
+    }
         //$folhaobra = FolhaObra::find($idFolhaObra);
         //$quantidade = $this->getHTTPPostParam('quantidade');
         // $CalculoObra = new CalculoObra(); //Modelo de Calculo
@@ -95,7 +126,7 @@ class LinhaObraController extends Controller
 
         */
 
-    }
+   // }
 
     public function selectServico($idFolhaObra)
     {
