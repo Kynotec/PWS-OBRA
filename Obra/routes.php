@@ -86,6 +86,7 @@ return [
             'create' =>['GET','LinhaObraController','create'],
             'store' =>['GET|POST','LinhaObraController','store'],
             'selectServico' => ['GET', 'LinhaObraController', 'selectServico'],
+            'delete' =>['GET','LinhaObraController','delete']
 
         ],
         'folhaobra'=>[

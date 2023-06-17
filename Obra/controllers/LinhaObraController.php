@@ -79,6 +79,39 @@ class LinhaObraController extends Controller
 
     } */
 
+    public function delete($idLinhaObra, $idFolhaObra)
+    {
+        $linhaobra = LinhaObra::find($idLinhaObra);
+        $linhaobra->delete();
+        $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);
+    }
+
+    public function edit($idLinhaObra, $idFolhaObra, $idServico)
+    {
+        $linhaobra = LinhaObra::find($idLinhaObra);
+        $empresa = Empresa::find(1);
+        $folhaobra = FolhaObra::find($idFolhaObra);
+        $servico = Servico::find($idServico);
+        $cliente = User::find($folhaobra->cliente_id);
+        if (is_null($linhaobra)) {
+            //TODO redirect to standard error page
+        } else {
+            $this->renderView('linhaobra', 'edit', ['servico' => $servico ,'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'idServico' => $idServico, 'linhaobra' => $linhaobra, 'idLinhaObra' => $idLinhaObra]);
+        }
+    }
+
+    public function update($idLinhaObra, $idFolhaObra)
+    {
+        $linhaobra = LinhaObra::find($idLinhaObra);
+        $linhaobra->update_attributes($this->getHTTPPost());
+        if($linhaobra->is_valid()){
+            $linhaobra->save();
+
+            $this->redirectToRoute('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
+        } else {
+            $this->renderView('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
+        }
+    }
     public function selectServico($idFolhaObra)
     {
         $folhaobra = FolhaObra::find($idFolhaObra);

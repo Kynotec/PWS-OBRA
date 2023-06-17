@@ -101,10 +101,8 @@
                                         <td><?=$linhaobra->servico->iva->percentagem * $linhaobra->quantidade. "€"?></td>
                                         <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade. "€"?></td>
                                         <td>
-                                            <a href="index.php?c=linhaobra&a=edit&idLinhaObra=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>  </a>
-                                        </td>
-                                        <td>
-                                            <a href="index.php?c=linhaobra&a=delete&idLinhaObra=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>" class="btn btn-primary" style="background-color: red; border-color: red"><i class="fa-solid fa-trash-can"></i> </a>
+                                            <a href="index.php?c=linhaobra&a=edit&idLinhaObra=<?= $linhaobra->id?>&idFolhaObra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>Editar</a>
+                                            <a href="index.php?c=linhaobra&a=delete&idLinhaObra=<?= $linhaobra->id?>&idFolhaObra=<?=$folhaobra->id?>" class="btn btn-primary" style="background-color: red; border-color: red"><i class="fa-solid fa-trash-can"></i>Cancelar</a>
                                         </td>
                                     </tr>
                                 <?php }?>
