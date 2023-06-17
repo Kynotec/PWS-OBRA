@@ -114,7 +114,8 @@
                                                     <?=$servico->descricao?><br>
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" style="width: 100px; margin-left: -10px">
+                                                    <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
+
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">

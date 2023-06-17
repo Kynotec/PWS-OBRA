@@ -12,8 +12,8 @@ class LinhaObra extends \ActiveRecord\Model
     );
 
     static $validates_numericality_of = array(
-        array('valorunitario'),
-        array('quantidade')
+        array('valorunitario', 'only_integer' => true, 'message' => 'Tem que ser numerico'),
+        array('quantidade', 'only_integer' => true, 'message' => 'Tem que ser numerico')
     );
 
     static $belongs_to = array(
