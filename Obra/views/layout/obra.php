@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Gravitao</title>
+    <title>Obra</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,7 +20,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="./public/dist/css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="./public/dist/img//fevicon.png" type="image/gif" />
+    <link rel="icon" href="./public/dist/img/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="./public/dist/css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="logo"><a href="index.html"><img src="./public/dist/img/logo.png"></a></div>
+                <h2 class="construction_text">OBRA</h2>
             </div>
             <div class="col-md-9">
                 <div class="menu_text">
@@ -65,7 +65,18 @@
     </div>
     <div class="footer_section_2">
         <div class="container">
-
+            <div class="footer_section_2">
+                <div class="container">
+                    </div>
+                    <div class="social_icon">
+                        <ul>
+                            <li><a href="https://www.facebook.com/politecnico.de.leiria/?locale=pt_PT"><img src="./public/dist/img/fb-icon.png"></a></li>
+                            <li><a href="https://twitter.com/ESTG_EI"><img src="./public/dist/img/twitter-icon.png"></a></li>
+                            <li><a href="https://www.instagram.com/estg_pleiria/"><img src="./public/dist/img/instagram-icon.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -83,31 +94,6 @@
 <!-- javascript -->
 <script src="./public/dist/js/owl.carousel.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $(".fancybox").fancybox({
-            openEffect: "none",
-            closeEffect: "none"
-        });
 
-        $(".zoom").hover(function(){
-
-            $(this).addClass('transition');
-        }, function(){
-
-            $(this).removeClass('transition');
-        });
-    });
-
-</script>
-<script>
-    function openNav() {
-        document.getElementById("myNav").style.width = "100%";
-    }
-
-    function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
-    }
-</script>
 </body>
 </html>
