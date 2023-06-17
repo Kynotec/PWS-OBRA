@@ -81,7 +81,7 @@
                                     <td><?=$linhaobra->valorunitario."€"?></td>
                                     <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
                                     <td><?=$linhaobra->valoriva * $linhaobra->quantidade. "€"?></td>
-                                    <td> <?=$linhaobra->servico->preco*$linhaobra->quantidade. "€"?></td>
+                                    <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade. "€"?></td>
                                     <td>
                                         <a href="index.php?c=linhaobra&a=edit&idLinhaFatura=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>  </a>
                                     </td>
@@ -118,7 +118,7 @@
                                                 <?=$servico->precohora."€"?><br>
                                             </td>
                                             <td>
-                                                <input type="hidden" class="form-control" name="valoriva" value=" <?=$servico->preco*($servico->iva->percentagem/100)?>">
+                                                <input type="hidden" class="form-control" name="valoriva" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
                                                 <?=$servico->precohora*($servico->iva->percentagem/100)?><br>
                                             </td>
                                             <td>

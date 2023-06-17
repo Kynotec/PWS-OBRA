@@ -6,9 +6,9 @@ class LinhaObra extends \ActiveRecord\Model
         array('folha_obra_id', 'message' => 'Indique a fatura a que pertence'),
         array('servico_id', 'message' => 'Selecione um serviço'),
         array('valorunitario', 'message' => 'Indique o valor da obra '),
+        array('valoriva', 'message' => 'Indique o valor do iva '),
         array('quantidade', 'message' => 'Indique a quantidade do produto'),
-        array('iva_id', 'message' => 'Selecione uma taxa de iva'),
-
+        array('subtotal'),
     );
 
     static $validates_numericality_of = array(
@@ -19,7 +19,6 @@ class LinhaObra extends \ActiveRecord\Model
     static $belongs_to = array(
         array('folhaobra'),
         array('servico'),
-        array('iva')
     );
 
 }

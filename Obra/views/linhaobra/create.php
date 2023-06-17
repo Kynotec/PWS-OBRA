@@ -132,7 +132,7 @@
 
                                                 <td>
                                                     <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
-                                                    <a href="index.php?c=linhaobra&a=create&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
+                                                    <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
 
                                                 </td>
 
