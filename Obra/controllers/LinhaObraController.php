@@ -103,13 +103,13 @@ class LinhaObraController extends Controller
     public function update($idLinhaObra, $idFolhaObra)
     {
         $linhaobra = LinhaObra::find($idLinhaObra);
-        $linhaobra->update_attributes($this->getHTTPPost());
+        $linhaobra->update_attributes($_POST);
         if($linhaobra->is_valid()){
             $linhaobra->save();
 
-            $this->redirectToRoute('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
+            $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);//estava create
         } else {
-            $this->renderView('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra]);
+            $this->renderView('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);
         }
     }
     public function selectServico($idFolhaObra)
