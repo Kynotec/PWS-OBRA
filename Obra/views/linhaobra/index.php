@@ -62,33 +62,33 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>REF</th>
+                                    <th>Referência</th>
                                     <th>Descrição</th>
                                     <th>QTD</th>
-                                    <th>Preço Unidade</th>
-                                    <th>IVA</th>
-                                    <th>Taxa</th>
-                                    <th>SubTotal</th>
+                                    <th>Valor Unitário</th>
+                                    <th>Valor IVA</th>
+                                    <th>Taxa IVA</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <?php foreach ($folhaobra->linhaobras as $linhaobra) { ?>
-                                <tr>
-                                    <td><?=$linhaobra->servico->referencia?></td>
-                                    <td><?=$linhaobra->servico->descricao?></td>
-                                    <td><?=$linhaobra->quantidade?></td>
-                                    <td><?=$linhaobra->valorunitario."€"?></td>
-                                    <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
-                                    <td><?=$linhaobra->valoriva * $linhaobra->quantidade. "€"?></td>
-                                    <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade. "€"?></td>
-                                    <td>
-                                        <a href="index.php?c=linhaobra&a=edit&idLinhaFatura=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>  </a>
-                                    </td>
-                                    <td>
-                                        <a href="index.php?c=linhaobra&a=delete&idLinhaFatura=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>" class="btn btn-primary" style="background-color: red; border-color: red"><i class="fa-solid fa-trash-can"></i> </a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($folhaobra->linhaobras as $linhaobra) { ?>
+                                    <tr>
+                                        <td><?=$linhaobra->servico->referencia?></td>
+                                        <td><?=$linhaobra->servico->descricao?></td>
+                                        <td><?=$linhaobra->quantidade?></td>
+                                        <td><?=$linhaobra->valorunitario."€"?></td>
+                                        <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
+                                        <td><?=$linhaobra->servico->iva->percentagem * $linhaobra->quantidade. "€"?></td>
+                                        <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade. "€"?></td>
+                                        <td>
+                                            <a href="index.php?c=linhaobra&a=edit&idLinhaObra=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>  </a>
+                                        </td>
+                                        <td>
+                                            <a href="index.php?c=linhaobra&a=delete&idLinhaObra=<?= $linhaobra->id?>&idFolhaobra=<?=$folhaobra->id?>" class="btn btn-primary" style="background-color: red; border-color: red"><i class="fa-solid fa-trash-can"></i> </a>
+                                        </td>
+                                    </tr>
                                 <?php }?>
                                 <?php  if (!isset($idServico))
                                 {?>
@@ -105,7 +105,7 @@
                                     if (isset($servico))
                                 { ?>
 
-                                    <form action="index.php?c=linhaobra&a=store&idFolhaobra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
+                                    <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
                                         <tr>
                                             <td>
                                                 <?=$servico->referencia?><br>
@@ -114,24 +114,26 @@
                                                 <?=$servico->descricao?><br>
                                             </td>
                                             <td>
-                                                <input type="hidden" class="form-control" name="precohora" value=" <?=$servico->precohora?>">
+                                                <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" style="width: 100px; margin-left: -10px">
+                                            </td>
+                                            <td>
+                                                <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
                                                 <?=$servico->precohora."€"?><br>
                                             </td>
                                             <td>
-                                                <input type="hidden" class="form-control" name="valoriva" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                <?=$servico->precohora*($servico->iva->percentagem/100)?><br>
+                                                <input type="hidden" class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
+                                                <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
                                             </td>
                                             <td>
-                                                <?=$servico->iva->percentagem?><br>
+                                                <?=$servico->iva->percentagem?>%<br>
                                             </td>
                                             <td>
-                                                <?=$servico->precohora+($servico->iva->percentagem/100)?><br>
+                                                <?=$servico->precohora+$servico->precohora*($servico->iva->percentagem/100)?>€<br>
                                             </td>
+
                                             <td>
-                                                <button type="submit" class="btn btn-primary" style="background-color: green"><i class="nav-icon fa-solid fa-check" ></i></button>
-                                            </td>
-                                            <td>
-                                                <a href="index.php?c=linhaobra&a=create&id=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red"><i class="nav-icon fa-solid fa-x"></i></a>
+                                                <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
+                                                <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
 
                                             </td>
 
@@ -150,21 +152,32 @@
                         <!-- /.col -->
                         <div class="col-2">
 
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tr>
-                                        <th>Subtotal:</th>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th>IVA:</th>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Total:</th>
-                                        <td>0</td>
-                                    </tr>
-                                </table>
+                            <table class="table">
+                                <tr>
+                                    <th>Subtotal:</th>
+                                    <td>
+                                        <?= $subtotal . "€"?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>IVA:</th>
+                                    <td><?= $folhaobra->ivatotal . "€"?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <td><?= $folhaobra->valortotal . "€"?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Emitir</a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Anular</a>
+                                    </td>
+                                </tr>
+                            </table>
                             </div>
                         </div>
                         <!-- /.col -->

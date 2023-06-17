@@ -22,7 +22,8 @@
                     <div class="row" >
                         <div class="col-12">
                             <h4>
-
+                                    <b>Obra Nº <?= $folhaobra->id ?></b> <br>
+                                    <small class="float">Data: <?=$folhaobra->data->format('d-m-Y')?> </small>
                             </h4>
                         </div>
                         <!-- /.col -->
