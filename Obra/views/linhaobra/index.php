@@ -103,43 +103,43 @@
                                     </tr>
                                 <?php }else
                                     if (isset($servico))
-                                { ?>
+                                    { ?>
 
-                                    <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
-                                        <tr>
-                                            <td>
-                                                <?=$servico->referencia?><br>
-                                            </td>
-                                            <td>
-                                                <?=$servico->descricao?><br>
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" style="width: 100px; margin-left: -10px">
-                                            </td>
-                                            <td>
-                                                <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
-                                                <?=$servico->precohora."€"?><br>
-                                            </td>
-                                            <td>
-                                                <input type="hidden" class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
-                                            </td>
-                                            <td>
-                                                <?=$servico->iva->percentagem?>%<br>
-                                            </td>
-                                            <td>
-                                                <?=$servico->precohora+$servico->precohora*($servico->iva->percentagem/100)?>€<br>
-                                            </td>
+                                        <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
+                                            <tr>
+                                                <td>
+                                                    <?=$servico->referencia?><br>
+                                                </td>
+                                                <td>
+                                                    <?=$servico->descricao?><br>
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" style="width: 100px; margin-left: -10px">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
+                                                    <?=$servico->precohora."€"?><br>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
+                                                    <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
+                                                </td>
+                                                <td>
+                                                    <?=$servico->iva->percentagem?>%<br>
+                                                </td>
+                                                <td>
+                                                    <?=$servico->precohora+$servico->precohora*($servico->iva->percentagem/100)?>€<br>
+                                                </td>
 
-                                            <td>
-                                                <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
-                                                <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
+                                                    <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
 
-                                            </td>
+                                                </td>
 
-                                        </tr>
-                                    </form>
-                                <?php } ?>
+                                            </tr>
+                                        </form>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -150,13 +150,14 @@
                     <div class="row flex-row-reverse">
 
                         <!-- /.col -->
-                        <div class="col-2">
+
+                        <div class="col-md-2" style="margin-right: 180px">
 
                             <table class="table">
                                 <tr>
                                     <th>Subtotal:</th>
                                     <td>
-                                        <?= $subtotal . "€"?>
+                       
                                     </td>
                                 </tr>
                                 <tr>
@@ -178,7 +179,6 @@
                                     </td>
                                 </tr>
                             </table>
-                            </div>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -188,9 +188,6 @@
                     <div class="row no-print">
                         <div class="col-12">
                             Fatura Processada por <?= $_SESSION['username']?>
-                            <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                                Emitir
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -202,6 +199,3 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-
-

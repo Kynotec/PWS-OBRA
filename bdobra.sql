@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 17-Jun-2023 às 15:58
+-- Tempo de geração: 17-Jun-2023 às 16:32
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.1.13
 
@@ -30,16 +30,16 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `empresas`;
 CREATE TABLE IF NOT EXISTS `empresas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `designacaosocial` varchar(20) DEFAULT NULL,
-  `email` varchar(40) DEFAULT NULL,
+  `designacaosocial` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `telefone` int NOT NULL,
   `nif` int NOT NULL,
-  `morada` varchar(40) DEFAULT NULL,
-  `codigopostal` varchar(8) DEFAULT NULL,
-  `localidade` varchar(40) DEFAULT NULL,
+  `morada` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `codigopostal` varchar(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `localidade` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `capitalsocial` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `empresas`
@@ -61,13 +61,13 @@ CREATE TABLE IF NOT EXISTS `folha_obras` (
   `valortotal` float NOT NULL,
   `ivatotal` float NOT NULL,
   `subtotal` float NOT NULL,
-  `estado` varchar(30) NOT NULL,
+  `estado` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `cliente_id` int NOT NULL,
   `funcionario_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   KEY `funcionario_id` (`funcionario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `folha_obras`
@@ -109,10 +109,10 @@ DROP TABLE IF EXISTS `ivas`;
 CREATE TABLE IF NOT EXISTS `ivas` (
   `id` int NOT NULL AUTO_INCREMENT,
   `percentagem` int NOT NULL,
-  `descricao` varchar(10) NOT NULL,
+  `descricao` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `emvigor` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `ivas`
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `linha_obras` (
   PRIMARY KEY (`id`),
   KEY `servico_id` (`servico_id`),
   KEY `folha_obra_id` (`folha_obra_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `linha_obras`
@@ -173,13 +173,13 @@ INSERT INTO `linha_obras` (`id`, `quantidade`, `valorunitario`, `valoriva`, `fol
 DROP TABLE IF EXISTS `servicos`;
 CREATE TABLE IF NOT EXISTS `servicos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `referencia` varchar(50) NOT NULL,
-  `descricao` varchar(100) NOT NULL,
+  `referencia` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `precohora` float NOT NULL,
   `iva_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `iva_id` (`iva_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `servicos`
@@ -198,18 +198,18 @@ INSERT INTO `servicos` (`id`, `referencia`, `descricao`, `precohora`, `iva_id`) 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(40) DEFAULT NULL,
-  `password` varchar(40) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `username` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `telefone` int NOT NULL,
   `nif` int NOT NULL,
-  `morada` varchar(100) DEFAULT NULL,
-  `codigopostal` varchar(8) DEFAULT NULL,
-  `localidade` varchar(40) DEFAULT NULL,
-  `role` varchar(15) DEFAULT NULL,
+  `morada` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `codigopostal` varchar(8) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `localidade` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `role` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `users`
