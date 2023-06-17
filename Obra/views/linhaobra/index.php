@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Folha Obra</h1>
+
             </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -23,7 +23,7 @@
                         <div class="col-12">
                             <h4>
                                 <b>Obra Nº <?= $folhaobra->id ?></b> <br>
-                                <small class="float">Data: <?=$folhaobra->data->format('d-m-Y')?> </small>
+                                <small class="float">Data: <?=$folhaobra->data->format('Y-m-d H:i:s')?> </small>
                             </h4>
                         </div>
                         <!-- /.col -->
@@ -35,8 +35,9 @@
                                 <strong><?=$empresa->designacaosocial?></strong><br>
                                 <?=$empresa->morada?><br>
                                 <?=$empresa->localidade. ',' . $empresa->codigopostal?><br>
-                                Telefone: <?=$empresa->telefone?><br>
-                                Email: <?=$empresa->email?>
+                                <b>Nif:</b> <?= $empresa->nif ?><br>
+                                <b>Telefone:</b> <?= $empresa->telefone ?><br>
+                                <b>Email:</b> <?= $empresa->email?>
                             </address>
                         </div>
                         <!-- /.col -->
@@ -55,7 +56,16 @@
 
                     </div>
                     <!-- /.row -->
-
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <?php if(count($folhaobra->linhaobras) > 0){ ?>
+                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&id=<?= $folhaobra->id ?>">
+                                        <img src="./public/dist/img/pdf-icon.png" height="30">
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
                     <!-- Table row -->
                     <div class="row">
                         <div class="col-12 table-responsive">
@@ -151,7 +161,7 @@
 
                         <!-- /.col -->
 
-                        <div class="col-md-2" style="margin-right: 180px">
+                        <div class="col-md-2"">
 
                             <table class="table">
                                 <tr>

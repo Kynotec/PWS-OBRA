@@ -56,13 +56,14 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>REF</th>
+                                        <th>Referência</th>
                                         <th>Descrição</th>
                                         <th>QTD</th>
-                                        <th>Preço Unidade</th>
-                                        <th>IVA</th>
-                                        <th>Taxa</th>
-                                        <th>SubTotal</th>
+                                        <th>Valor Unitário</th>
+                                        <th>Valor IVA</th>
+                                        <th>Taxa IVA</th>
+                                        <th>Total</th>
+                                        <th>Ações</th>
                                     </tr>
                                     </thead>
                                     <tbody>
