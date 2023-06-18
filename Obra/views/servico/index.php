@@ -1,20 +1,42 @@
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="m-0">Serviços</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="card">
-                        <div class="card-header border-transparent">
-                            <h3 class="card-title">Lista de Serviços</h3>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Serviços</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                    <li class="breadcrumb-item active">Serviços</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-tools">
+                            <form action="./index.php?c=servico&a=index" method="post" class="input-group input-group-sm">
+                                <a class="pt-1 mx-2" href="./index.php?c=servico&a=index">Limpar Filtro</a>
+                                <select id="filter_type" class="form-control" name="filter_type">
+                                    <option value="id">Referencia</option>
+                                    <option value="descricao">Descrição</option>
+                                    <option value="precohora">Preço Hora</option>
+                                    <option value="iva">Iva</option>
+                                </select>
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Procurar">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
+                    </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table m-0">
@@ -52,7 +74,8 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </div>
+</div>
 
     <!-- Modal Delete-->
     <div class="modal fade" id="modalDelete" role="dialog">

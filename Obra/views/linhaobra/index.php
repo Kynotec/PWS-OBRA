@@ -4,7 +4,15 @@
             <div class="col-sm-6">
 
             </div><!-- /.col -->
-
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                        <li class="breadcrumb-item"><a href="./index.php?c=folhaobra&a=index">Obras</a></li>
+                        <li class="breadcrumb-item active">Obra Nº<?= $folhaobra->id ?></li>
+                    </ol>
+                </ol>
+            </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
@@ -193,11 +201,12 @@
                     <!-- /.row -->
 
                     <!-- this row will not appear when printing -->
-                    <div class="row no-print">
-                        <div class="col-12">
-                            Fatura Processada por <?= $_SESSION['username']?>
+
+                        <div class="col-sm-4 invoice-col">
+
+                            Fatura Processada por : <b><?= $_SESSION['username']?> </b>
                         </div>
-                    </div>
+                    <br><br>
                 </div>
                 <!-- /.invoice -->
             </div><!-- /.col -->

@@ -1,5 +1,4 @@
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
+<div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -38,14 +37,14 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <table class="table table-hover text-nowrap">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table m-0">
                                 <thead>
                                 <tr>
                                     <th>Nome</th>
                                     <th>Email</th>
                                     <th>NIF</th>
-                                    <!--th>Morada</th-->
                                     <th class="fit_column">Estado</th>
                                     <th class="fit_column">Ações</th>
                                 </tr>
@@ -54,6 +53,7 @@
                                 <?php
                                 if(count($users) > 0)
                                 {
+
                                     foreach ($users as $user)
                                     {
                                          if ($user->role == 'cliente') {
@@ -74,7 +74,6 @@
 
                                                 <?php } ?>
                                             </td>
-
                                         </tr>
                                         <?php
                                         }

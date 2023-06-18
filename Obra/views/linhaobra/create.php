@@ -3,7 +3,8 @@
         <div class="row mb-2">
             <div class="col-sm-6">
 
-            </div><!-- /.col --><div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
@@ -61,7 +62,6 @@
 
                             </address>
                         </div>
-
                     </div>
                     <!-- /.row -->
                     <div class="card mt-3">

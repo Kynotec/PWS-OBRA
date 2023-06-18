@@ -70,7 +70,7 @@ return [
         ],
 
         'servico'=>[
-            'index' => ['GET', 'ServicoController', 'index'],
+            'index' => ['GET|POST', 'ServicoController', 'index'],
             'show' => ['GET','ServicoController', 'show'],
             'edit' =>['GET','ServicoController','edit'],
             'update' =>['POST','ServicoController','update'],
@@ -85,17 +85,17 @@ return [
             'update' =>['POST','LinhaObraController','update'],
             'create' =>['GET','LinhaObraController','create'],
             'store' =>['GET|POST','LinhaObraController','store'],
-            'selectServico' => ['GET', 'LinhaObraController', 'selectServico'],
+            'selectServico' => ['GET|POST', 'LinhaObraController', 'selectServico'],
             'delete' =>['GET','LinhaObraController','delete']
 
         ],
         'folhaobra'=>[
-            'index' => ['GET', 'FolhaObraController', 'index'],
+            'index' => ['GET|POST', 'FolhaObraController', 'index'],
             'edit' =>['GET','FolhaObraController','edit'],
             'update' =>['POST','FolhaObraController','update'],
             'create' =>['GET|POST','FolhaObraController','create'],
             'store' =>['GET|POST','FolhaObraController','store'],
-            'selectClient' => ['GET', 'FolhaObraController', 'selectClient'],
+            'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
             'delete' =>['GET','FolhaObraController','delete']
         ],
 

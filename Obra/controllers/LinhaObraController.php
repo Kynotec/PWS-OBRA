@@ -103,11 +103,11 @@ class LinhaObraController extends Controller
     public function update($idLinhaObra, $idFolhaObra)
     {
         $linhaobra = LinhaObra::find($idLinhaObra);
-        $linhaobra->update_attributes($_POST);
+        $linhaobra->update_attributes($this->getHTTPPost());
         if($linhaobra->is_valid()){
             $linhaobra->save();
 
-            $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);//estava create
+            $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);
         } else {
             $this->renderView('linhaobra', 'index', ['idFolhaObra' => $idFolhaObra]);
         }
@@ -120,12 +120,27 @@ class LinhaObraController extends Controller
         $filterType = $this->getHTTPPostParam('filter_type');
         $tableSearch = $this->getHTTPPostParam('table_search');
 
-        if ($filterType && $tableSearch !== '') {
-            $servicos = array_filter($servicos, function($servico) use ($filterType, $tableSearch) {
-                return str_contains(strtoupper($servico->{$filterType}), strtoupper($tableSearch));
+        $viewSearch = "./index.php?c=linhaobra&a=selectServico" .
+            "&&idFolhaObra=".$idFolhaObra;
+
+        if (isset($filterType, $tableSearch) && $tableSearch != '') {
+            $servicos = array_filter($servicos, function ($servico) use ($filterType, $tableSearch) {
+                if (!strcmp($filterType, 'descricao') ||
+                    !strcmp($filterType, 'precohora'))
+                {
+                    return str_contains(strtoupper($servico->{$filterType}), strtoupper($tableSearch));
+                }
+
+                else if (!strcmp($filterType, 'iva')) {
+                    return str_contains(strtoupper($servico->{$filterType}->percentagem), strtoupper($tableSearch));
+                }
+                else if (!strcmp($filterType, 'id')) {
+                    return str_contains(strtoupper($servico->{$filterType}), strtoupper($tableSearch));
+                }
+                return false;
             });
         }
-        $this->renderView('linhaobra', 'selectServico', ['servicos' => $servicos,'folhaobra'=>$folhaobra]);
+        $this->renderView('linhaobra', 'selectServico', ['servicos' => $servicos,'folhaobra'=>$folhaobra,'viewSearch'=>$viewSearch]);
 
 
     }

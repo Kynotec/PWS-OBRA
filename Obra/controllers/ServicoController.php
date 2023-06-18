@@ -5,7 +5,33 @@ class ServicoController extends Controller
     public function index()
     {
         $servicos = Servico::all();
+        $servicos = $this->filter($servicos);
         $this->renderView('servico', 'index', ['servicos' => $servicos]);
+    }
+
+    public function filter($servicos)
+    {
+        $filterType = $this->getHTTPPostParam('filter_type');
+        $tableSearch = $this->getHTTPPostParam('table_search');
+
+        if (isset($filterType, $tableSearch) && $tableSearch != '') {
+            $servicos = array_filter($servicos, function ($servico) use ($filterType, $tableSearch) {
+                if (!strcmp($filterType, 'descricao') ||
+                    !strcmp($filterType, 'precohora'))
+                {
+                    return str_contains(strtoupper($servico->{$filterType}), strtoupper($tableSearch));
+                }
+
+                else if (!strcmp($filterType, 'iva')) {
+                    return str_contains(strtoupper($servico->{$filterType}->percentagem), strtoupper($tableSearch));
+                }
+            else if (!strcmp($filterType, 'id')) {
+                return str_contains(strtoupper($servico->{$filterType}), strtoupper($tableSearch));
+            }
+                return false;
+            });
+        }
+        return $servicos;
     }
 
     public function show($id)

@@ -2,9 +2,15 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Folha Obra</h1>
                 </div><!-- /.col -->
-
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                            <li class="breadcrumb-item"><a href="./index.php?c=folhaobra&a=index">Obras</a></li>
+                        </ol>
+                    </ol>
+                </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -105,14 +111,11 @@
                         <!-- /.row -->
 
                         <!-- this row will not appear when printing -->
-                        <div class="row no-print">
-                            <div class="col-12">
-                                Fatura Processada por <?= $_SESSION['username']?>
-                                <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                                    Emitir
-                                </button>
-                            </div>
+                        <div class="col-sm-4 invoice-col">
+
+                            Fatura Processada por : <b><?= $_SESSION['username']?> </b>
                         </div>
+                        <br><br>
                     </div>
                     <!-- /.invoice -->
                 </div><!-- /.col -->
