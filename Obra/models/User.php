@@ -4,6 +4,7 @@ class User extends ActiveRecord\Model
 {
     static $validates_presence_of = array(
         array('username', 'message' => 'É necessário indicar um nome de utilizador'),
+        array('password', 'message' => 'É necessário indicar uma password'),
         array('email', 'message' => 'É necessário indicar um endereço de email'),
         array('morada', 'message' => 'É necessário indicar a morada'),
         array('localidade', 'message' => 'É necessário indicar a localidade')

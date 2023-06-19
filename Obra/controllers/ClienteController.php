@@ -37,12 +37,6 @@ class ClienteController extends Controller
 
     public function store()
     {
-        if($_POST['ativo']){
-            $_POST['ativo'] = 1;
-        }else{
-            $_POST['ativo'] = 0;
-        }
-
         $users = new User($this->getHTTPPost());
         if ($users->is_valid()) {
             $users->save();

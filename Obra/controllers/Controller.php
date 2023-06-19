@@ -60,11 +60,17 @@ class Controller
 
     protected function AuthenticationFilterAs($roles = [])
     {
+        $this->authenticationFilter();
         $auth = new Auth();
-        if(!$auth->isLoggedInAs($roles))
+        $auth->isLoggedInAs($roles);
+        $role= $auth->getUserRole();
+        if(!in_array($role,$roles))
         {
-            header('Location: ./router.php?' . INVALID_ACCESS_ROUTE);
+            header('Location: ' . INVALID_ACCESS_ROUTE);
         }
+
     }
+
+
 
 }

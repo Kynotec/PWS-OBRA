@@ -4,14 +4,37 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Taxas IVA</h1>
                 </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                        <li class="breadcrumb-item active">Ivas</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-12">
                     <div class="card">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <form action="index.php?c=iva&a=index" method="post" class="input-group input-group-sm">
+                                    <a class="pt-1 mx-2" href="./index.php?c=iva&a=index">Limpar Filtro</a>
+                                    <select id="filter_type" class="form-control" name="filter_type">
+                                        <option value="descricao">Descrição</option>
+                                        <option value="percentagem">Percentagem</option>
+                                    </select>
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Procurar">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table m-0">

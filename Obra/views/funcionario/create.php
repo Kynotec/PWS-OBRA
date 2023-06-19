@@ -30,6 +30,7 @@
                         <form action="index.php?c=funcionario&a=store" method="post">
                             <div class="card-body">
                                 <input type="hidden" class="form-control" name="role" value="funcionario">
+                                <input type="hidden" class="form-control" name="ativo" value="1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>
                                     <input type="text" class="form-control" placeholder="Username" name="username" value="<?php if(isset($users)) { echo $users->username; }?>">
@@ -47,12 +48,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telefone</label>
-                                    <input type="text" class="form-control" placeholder="Telefone" name="telefone" maxlength="9" value="<?php if(isset($users)) { echo $users->telefone; }?>">
+                                    <input type="number" class="form-control" placeholder="Telefone" name="telefone" maxlength="9" value="<?php if(isset($users)) { echo $users->telefone; }?>">
                                     <?php if(isset($users->errors)){ echo $users->errors->on('telefone'); }?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">NIF</label>
-                                    <input type="text" class="form-control" placeholder="NIF" name="nif" maxlength="9" value="<?php if(isset($users)) { echo $users->nif; }?>">
+                                    <input type="number" class="form-control" placeholder="NIF" name="nif" maxlength="9" value="<?php if(isset($users)) { echo $users->nif; }?>">
                                     <?php if(isset($users->errors)){ echo $users->errors->on('nif'); }?>
                                 </div>
                                 <div class="form-group">

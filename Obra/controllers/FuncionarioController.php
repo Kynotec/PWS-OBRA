@@ -2,8 +2,24 @@
 
 class FuncionarioController extends Controller
 {
+
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador']);
+    }
     public function index(){
+
+
         $users = User::all();
+
+        $filterType = $this->getHTTPPostParam('filter_type');
+        $tableSearch = $this->getHTTPPostParam('table_search');
+
+        if ($filterType && $tableSearch !== '') {
+            $users = array_filter($users, function ($user) use ($filterType, $tableSearch) {
+                return str_contains(strtoupper($user->{$filterType}), strtoupper($tableSearch));
+            });
+        }
         $this->renderView('funcionario', 'index', ['users' => $users]);
     }
 
@@ -25,28 +41,42 @@ class FuncionarioController extends Controller
 
     public function store()
     {
-        if($_POST['ativo']){
-            $_POST['ativo'] = 1;
-        }else{
-            $_POST['ativo'] = 0;
-        }
+        try {
 
-        $users = new User($this->getHTTPPost());
-        if($users->is_valid()){
-            $users->save();
-            $this->redirectToRoute('funcionario','index');
-        } else {
-            $this->renderView('funcionario', 'create', ['users' => $users]);
+
+            if ($_POST['ativo']) {
+                $_POST['ativo'] = 1;
+            } else {
+                $_POST['ativo'] = 0;
+            }
+
+            $users = new User($this->getHTTPPost());
+            if ($users->is_valid()) {
+                $users->save();
+                $this->redirectToRoute('funcionario', 'index');
+            } else {
+                $this->renderView('funcionario', 'create', ['users' => $users]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
         }
     }
 
     public function edit($id)
     {
-        $users = User::find($id);
-        if (is_null($users)) {
-            //TODO redirect to standard error page
-        } else {
-            $this->renderView('funcionario', 'edit', ['users' => $users]);
+        try {
+            $users = User::find($id);
+            if (is_null($users)) {
+                //TODO redirect to standard error page
+            } else {
+                $this->renderView('funcionario', 'edit', ['users' => $users]);
+            }
+        }
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
         }
     }
     public function update($id)

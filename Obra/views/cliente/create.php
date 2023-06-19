@@ -30,6 +30,7 @@
                         <form action="index.php?c=cliente&a=store" method="post">
                             <div class="card-body">
                                 <input type="hidden" class="form-control" name="role" value="cliente">
+                                <input type="hidden" class="form-control" name="ativo" value="1">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>
                                     <input type="text" class="form-control" placeholder="Username" name="username" value="<?php if(isset($users)) { echo $users->username; }?>">
