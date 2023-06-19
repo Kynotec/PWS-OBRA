@@ -76,7 +76,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Criar Cliente</button>
+                                <button type="submit" class="btn btn-primary">Criar Funcionário</button>
                                 <a href="index.php?c=funcionario&a=index" class="btn btn-info" role="button"> Cancelar</a>
                             </div>
                         </form>

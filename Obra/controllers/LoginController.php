@@ -25,7 +25,7 @@ class LoginController extends Controller
 
                 }
                 if ($_SESSION['role'] == 'cliente') {
-                    $this->redirectToRoute('fo','index');
+                    $this->redirectToRoute('bocliente','index');
 
                 }
                 if ($_SESSION['role'] == 'funcionario') {

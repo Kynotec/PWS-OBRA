@@ -11,6 +11,8 @@ require_once 'controllers/FuncionarioController.php';
 require_once 'controllers/LinhaObraController.php';
 require_once 'controllers/FolhaObraController.php';
 require_once 'controllers/ErrorController.php';
+require_once 'controllers/BoClienteController.php';
+
 
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
@@ -51,6 +53,10 @@ return [
 
         'bo'=>[
             'index' => ['GET', 'BoController', 'index'], //rota backoffice
+        ],
+
+        'bocliente'=>[
+        'index' => ['GET', 'BoClienteController', 'index'], //rota backoffice do cliente
         ],
 
         'empresa'=>[
