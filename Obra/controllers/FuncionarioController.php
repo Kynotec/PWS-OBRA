@@ -9,7 +9,6 @@ class FuncionarioController extends Controller
     }
     public function index(){
 
-
         $users = User::all();
 
         $filterType = $this->getHTTPPostParam('filter_type');
@@ -25,12 +24,19 @@ class FuncionarioController extends Controller
 
     public function show($id)
     {
-        $users = User::find($id);
-        if (is_null($users)) {
-            //TODO redirect to standard error page
-        } else {
-            //mostrar a vista show passando os dados por parâmetro
-            $this->renderView('funcionario','show',['users'=>$users]);
+        try {
+
+            $users = User::find($id);
+            if (is_null($users)) {
+                //TODO redirect to standard error page
+            } else {
+                //mostrar a vista show passando os dados por parâmetro
+                $this->renderView('funcionario', 'show', ['users' => $users]);
+            }
+        }
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
         }
     }
 
@@ -42,13 +48,6 @@ class FuncionarioController extends Controller
     public function store()
     {
         try {
-
-
-            if ($_POST['ativo']) {
-                $_POST['ativo'] = 1;
-            } else {
-                $_POST['ativo'] = 0;
-            }
 
             $users = new User($this->getHTTPPost());
             if ($users->is_valid()) {
@@ -67,6 +66,7 @@ class FuncionarioController extends Controller
     public function edit($id)
     {
         try {
+
             $users = User::find($id);
             if (is_null($users)) {
                 //TODO redirect to standard error page
@@ -81,38 +81,57 @@ class FuncionarioController extends Controller
     }
     public function update($id)
     {
-        $users = User::find($id);
+        try {
 
-        if(isset($_POST['ativo'])){
-            $_POST['ativo'] = 1;
-        }else{
-            $_POST['ativo'] = 0;
+            if ($this->getHTTPPostParam('ativo')) {
+                $this->setHTTPOSTParam('ativo', 1);
+            } else {
+                $this->setHTTPOSTParam('ativo', 0);
+            }
+
+            $users = User::find($id);
+            $users->update_attributes($this->getHTTPPost());
+            if ($users->is_valid()) {
+                $users->save();
+                $this->redirectToRoute('funcionario', 'index');
+            } else {
+                $this->renderView('funcionario', 'edit', ['users' => $users]);
+            }
         }
-
-        $users = User::find($id);
-        $users->update_attributes($this->getHTTPPost());
-        if($users->is_valid()){
-            $users->save();
-            $this-> redirectToRoute('funcionario', 'index');
-        } else {
-            $this->renderView('funcionario', 'edit', ['users' => $users]);
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
         }
     }
 
-    public function disable($id)
+        public function disable($id)
     {
-        $users = User::find($id);
-        $users->update_attribute('ativo', 0);
-        $users->save();
-        $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+        try {
+
+            $users = User::find($id);
+            $users->update_attribute('ativo', 0);
+            $users->save();
+            $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+        }
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
+        }
     }
 
     public function enable($id)
     {
-        $users = User::find($id);
-        $users->update_attribute('ativo', 1);
-        $users->save();
-        $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+        try {
+
+            $users = User::find($id);
+            $users->update_attribute('ativo', 1);
+            $users->save();
+            $this->RedirectToRoute('funcionario', 'index');//redirecionar para o index
+        }
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'funcionario/index']);
+        }
     }
 
 }

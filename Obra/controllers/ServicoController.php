@@ -2,6 +2,11 @@
 
 class ServicoController extends Controller
 {
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
+
     public function index()
     {
         $servicos = Servico::all();
@@ -36,12 +41,19 @@ class ServicoController extends Controller
 
     public function show($id)
     {
-        $servicos = Servico::find($id);
-        if (is_null($servicos)) {
-            //TODO redirect to standard error page
-        } else {
-            //mostrar a vista show passando os dados por parâmetro
-            $this->renderView('servico','show',['servico'=>$servicos]);
+        try {
+
+            $servicos = Servico::find($id);
+            if (is_null($servicos)) {
+                //TODO redirect to standard error page
+            } else {
+                //mostrar a vista show passando os dados por parâmetro
+                $this->renderView('servico', 'show', ['servico' => $servicos]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
         }
     }
 
@@ -53,47 +65,74 @@ class ServicoController extends Controller
 
     public function store()
     {
-        $servicos = new Servico($this->getHTTPPost());
+        try {
 
-        if($servicos->is_valid()){
-            $servicos->save();
-            $this-> redirectToRoute('servico', 'index');
-        } else {
-            $ivas= Iva::all();
-            $this->renderView('servico', 'create',  ['servicos' => $servicos, 'ivas' => $ivas]);
+            $servicos = new Servico($this->getHTTPPost());
+
+            if ($servicos->is_valid()) {
+                $servicos->save();
+                $this->redirectToRoute('servico', 'index');
+            } else {
+                $ivas = Iva::all();
+                $this->renderView('servico', 'create', ['servicos' => $servicos, 'ivas' => $ivas]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
         }
     }
 
     public function edit($id)
     {
-        $servicos = Servico::all();
-        if (is_null($servicos)) {
-            //TODO redirect to standard error page
-        } else {
-            $ivas = Iva::all();
-            $this->renderView('servico', 'edit', ['id' => $id, 'servicos' => $servicos, 'ivas' => $ivas]);
+        try {
+
+            $servicos = Servico::all();
+            if (is_null($servicos)) {
+                //TODO redirect to standard error page
+            } else {
+                $ivas = Iva::all();
+                $this->renderView('servico', 'edit', ['id' => $id, 'servicos' => $servicos, 'ivas' => $ivas]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
         }
     }
 
     public function update($id)
     {
-        $servicos = Servico::find($id);
-        $servicos->update_attributes($this->getHTTPPost());
-        if($servicos->is_valid()){
-            $servicos->save();
-            $this-> redirectToRoute('servico', 'index');
-        } else {
-            $ivas = Iva::all();
-            $this->renderView('servico', 'edit', ['servicos' => $servicos, 'ivas' => $ivas]);
+        try {
+
+            $servicos = Servico::find($id);
+            $servicos->update_attributes($this->getHTTPPost());
+            if ($servicos->is_valid()) {
+                $servicos->save();
+                $this->redirectToRoute('servico', 'index');
+            } else {
+                $ivas = Iva::all();
+                $this->renderView('servico', 'edit', ['servicos' => $servicos, 'ivas' => $ivas]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
         }
     }
 
     public function delete($id)
     {
-        $servicos = Servico::find($id);
-        $servicos->delete();
-        //redirecionar para o index
-        $this->redirectToRoute('servico','index');
+        try {
+            $servicos = Servico::find($id);
+            $servicos->delete();
+            //redirecionar para o index
+            $this->redirectToRoute('servico', 'index');
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
+        }
     }
 
 }

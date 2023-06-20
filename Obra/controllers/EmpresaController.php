@@ -2,15 +2,18 @@
 
 class EmpresaController extends Controller
 {
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
+
     public function index(){
-        //$this->loginFilterByRole(['administrador', 'funcionario']);
-        $empresa = Empresa::find(1);
+        $empresa = Empresa::first();
         $this->renderView('empresa', 'index', ['empresa' => $empresa]);
     }
 
     public function edit($id)
     {
-        //$this->loginFilterByRole(['administrador', 'funcionario']);
         $empresa = Empresa::find($id);
         if (is_null($empresa)) {
             //TODO redirect to standard error page
@@ -20,14 +23,20 @@ class EmpresaController extends Controller
     }
     public function update($id)
     {
-        //$this->loginFilterByRole(['administrador', 'funcionario']);
-        $empresa = Empresa::find($id);
-        $empresa->update_attributes($_POST);
-        if($empresa->is_valid()){
-            $empresa->save();
-            $this-> redirectToRoute('empresa', 'index');
-        } else {
-            $this->renderView('empresa', 'edit', ['empresa' => $empresa]);
+        try {
+
+            $empresa = Empresa::find($id);
+            $empresa->update_attributes($_POST);
+            if ($empresa->is_valid()) {
+                $empresa->save();
+                $this->redirectToRoute('empresa', 'index');
+            } else {
+                $this->renderView('empresa', 'edit', ['empresa' => $empresa]);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'empresa/index']);
         }
     }
 }

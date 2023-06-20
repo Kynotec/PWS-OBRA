@@ -7,8 +7,8 @@
         <div class="card-body">
             <p class="login-box-msg">Inicie Sessão Para Continuar</p>
             <?php if(isset($fail)){ ?>
-                <div class="callout callout-danger">
-                    <p>Credenciais incorretas!</p>
+                <div id="mensagem-erro"  class="callout callout-danger">
+                    <p>Ups! Ocorreu um erro. Por favor, tente novamente</p>
                 </div>
             <?php } ?>
             <form action="./index.php?c=login&a=checkLogin" method="post">
@@ -44,3 +44,12 @@
     </div>
     <!-- /.card -->
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var mensagemErro = document.getElementById('mensagem-erro');
+        setTimeout(function() {
+            mensagemErro.style.display = 'none';
+        }, 3000);
+    });
+</script>

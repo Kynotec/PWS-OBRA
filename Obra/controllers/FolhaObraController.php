@@ -3,6 +3,10 @@ use Carbon\Carbon;
 
 class FolhaObraController extends Controller
 {
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
     public function index()
     {
         $folhaobras = FolhaObra::all();
@@ -14,11 +18,14 @@ class FolhaObraController extends Controller
 
     public function create()
     {
-        $empresas = Empresa::all();
-        if (count($empresas) > 0) {
-            $empresa = $empresas[0];
-            $this->renderView('folhaobra', 'create', ['empresa' => $empresa]);
-        }
+            $empresas = Empresa::all();
+
+            if (count($empresas) > 0) {
+                $empresa = $empresas[0];
+                $this->renderView('folhaobra', 'create', ['empresa' => $empresa]);
+            }
+            else $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/index']);
+
 
     }
 

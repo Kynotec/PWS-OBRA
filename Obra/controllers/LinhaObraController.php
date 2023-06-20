@@ -2,10 +2,14 @@
 
 class LinhaObraController extends Controller
 {
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
 
     public function index($idFolhaObra){
         $folhaobra = FolhaObra::find($idFolhaObra);
-        $empresa = Empresa::find(1);
+        $empresa = Empresa::first();
         $this->renderview('linhaobra', 'index', ['folhaobra' => $folhaobra, 'empresa'=>$empresa]);
 
     }
@@ -13,7 +17,7 @@ class LinhaObraController extends Controller
     public function create($idServico,$idFolhaObra)
     {
         $folhaobra = FolhaObra::find($idFolhaObra);
-        $empresa = Empresa::find(1);
+        $empresa = Empresa::first();
         $CalculoObra = new CalculoObra();
         //$linhaobras = LinhaObra::all();
         $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
@@ -89,7 +93,7 @@ class LinhaObraController extends Controller
     public function edit($idLinhaObra, $idFolhaObra, $idServico)
     {
         $linhaobra = LinhaObra::find($idLinhaObra);
-        $empresa = Empresa::find(1);
+        $empresa = Empresa::first();
         $folhaobra = FolhaObra::find($idFolhaObra);
         $servico = Servico::find($idServico);
         $cliente = User::find($folhaobra->cliente_id);

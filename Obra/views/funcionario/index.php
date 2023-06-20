@@ -68,9 +68,9 @@
                                                 <a class="btn btn-warning btn-sm" href="index.php?c=funcionario&a=edit&id=<?= $user->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
 
                                                 <?php if($user->ativo == 1) {?>
-                                                    <a class="btn btn-danger btn-sm" onclick="disableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
+                                                    <a  href="#" class="btn btn-danger btn-sm" onclick="disableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
                                                 <?php } else { ($user->ativo == 0) ?>
-                                                    <a class="btn btn-success btn-sm" onclick="enableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
+                                                    <a  href="#" class="btn btn-success btn-sm" onclick="enableEntity(<?= $user->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
 
                                                 <?php } ?>
                                             </td>

@@ -2,11 +2,15 @@
 
 class IvaController extends Controller
 {
+    public  function  __construct()
+    {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
+
     public function index()
     {
 
         $ivas = Iva::all();
-
 
         $filterType = $this->getHTTPPostParam('filter_type');
         $tableSearch = $this->getHTTPPostParam('table_search');
@@ -28,12 +32,19 @@ class IvaController extends Controller
 
     public function show($id)
     {
-        $ivas = Iva::find($id);
-        if (is_null($ivas)) {
-            //TODO redirect to standard error page
-        } else {
-            //mostrar a vista show passando os dados por parâmetro
-            $this->renderView('iva', 'show', ['ivas' => $ivas]);
+        try {
+
+            $ivas = Iva::find($id);
+            if (is_null($ivas)) {
+                //TODO redirect to standard error page
+            } else {
+                //mostrar a vista show passando os dados por parâmetro
+                $this->renderView('iva', 'show', ['ivas' => $ivas]);
+            }
+        }
+        catch (Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'iva/index']);
         }
     }
 
@@ -44,11 +55,10 @@ class IvaController extends Controller
 
     public function store()
     {
-
-        if ($_POST['emvigor']) {
-            $_POST['emvigor'] = 1;
+        if ($this->getHTTPPostParam('emvigor')) {
+            $this->setHTTPOSTParam('emvigor', 1);
         } else {
-            $_POST['emvigor'] = 0;
+            $this->setHTTPOSTParam('emvigor', 0);
         }
 
         $ivas = new Iva($this->getHTTPPost());
@@ -64,7 +74,6 @@ class IvaController extends Controller
     public function edit($id)
     {
         try {
-
 
             $iva = Iva::find($id);
             if (is_null($iva)) {
@@ -86,10 +95,10 @@ class IvaController extends Controller
 
             $iva = Iva::find($id);
 
-            if (isset($_POST['emvigor'])) {
-                $_POST['emvigor'] = 1;
+            if ($this->getHTTPPostParam('emvigor')) {
+                $this->setHTTPOSTParam('emvigor', 1);
             } else {
-                $_POST['emvigor'] = 0;
+                $this->setHTTPOSTParam('emvigor', 0);
             }
 
             $iva->update_attributes($this->getHTTPPost());

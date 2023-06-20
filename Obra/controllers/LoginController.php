@@ -13,6 +13,7 @@ class LoginController extends Controller
 
     public function checkLogin()
     {
+
         $username = $this->getHTTPPostParam('username');
         $password = $this->getHTTPPostParam('password');
 
@@ -35,7 +36,7 @@ class LoginController extends Controller
             }
             else
             {
-                $this->redirectToRoute('login', 'index');
+                $this->renderView('login', 'index',['fail'=>true],'login');
             }
 
 
@@ -44,6 +45,7 @@ class LoginController extends Controller
     public function logout()
     {
         $auth = new Auth();
+        $this->authenticationFilter();
         $auth->logout();
         $this->redirectToRoute('login', 'index');
     }

@@ -34,6 +34,12 @@ class Controller
     protected function getHTTPPostParam($key) {
         return $_POST[$key] ?? '';
     }
+
+    //Enviar um valor para uma determinada chave (parâmetro POST)
+    public function setHTTPOSTParam($key, $paramValue) {
+       return $_POST[$key] = $paramValue;
+    }
+
     // Obter o valor para uma determinada chave (parâmetro GET)
     protected function getHTTPGetParam($key) {
         return $_GET[$key] ?? '';
@@ -54,7 +60,7 @@ class Controller
     protected function authenticationFilter(){
         $auth = new Auth();
         if(!$auth->isLoggedIn()){
-            header('Location:'. INVALID_ACCESS_ROUTE);
+            header('Location: '. INVALID_ACCESS_ROUTE);
         }
     }
 

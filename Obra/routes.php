@@ -5,7 +5,6 @@ require_once 'controllers/LoginController.php';
 require_once 'controllers/EmpresaController.php';
 require_once 'controllers/IvaController.php';
 require_once 'controllers/ServicoController.php';
-require_once 'controllers/FoController.php';
 require_once 'controllers/ClienteController.php';
 require_once 'controllers/FuncionarioController.php';
 require_once 'controllers/LinhaObraController.php';
