@@ -77,7 +77,7 @@
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="index.php?c=folhaobra&a=create" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 Emissão Folha Obra
                             </p>
@@ -85,7 +85,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="index.php?c=folhaobra&a=index" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="fas fa-folder"></i>
                             <p>
                                 Folhas de Obra
                             </p>
@@ -93,7 +93,7 @@
                     </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
+                            <i class="nav-icon fas fa-bars"></i>
                             <p>
                                 Gestão de Dados
                                 <i class="fas fa-angle-left right"></i>
@@ -102,32 +102,32 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="index.php?c=funcionario&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-user"></i>
                                     <p>Funcionarios</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="index.php?c=cliente&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-users"></i>
                                     <p>Clientes</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="index.php?c=servico&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-briefcase"></i>
                                     <p>Serviços</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="index.php?c=iva&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-tag"></i>
                                     <p>Iva</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="index.php?c=empresa&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-building"></i>
                                     <p>Empresa</p>
                                 </a>
                             </li>
