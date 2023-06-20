@@ -1,51 +1,64 @@
-<div class="content-wrapper">
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Mostrar Dados </h1>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title ">Dados do Serviço</h3>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="table-responsive ">
-                                <table class="table m-0">
-                                    <thead>
-                                    <tr>
-                                        <th><h3>Id</h3></th>
-                                        <th><h3>Referencia</h3></th>
-                                        <th><h3>Descrição</h3></th>
-                                        <th><h3>Preço/Hora</h3></th>
-                                        <th><h3>Taxa Iva</h3></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?=$servico->id?></td>
-                                        <td><?=$servico->referencia?></td>
-                                        <td><?=$servico->descricao?></td>
-                                        <td><?=$servico->precohora.'€'?></td>
-                                        <td><?=$servico->iva->percentagem.'%'?></td>
-                                    </tr>
-                                    </tbody>
-                                    <td>
-                                        <a href="index.php?c=servico&a=index" class="btn btn-info" role="button"> Cancelar</a>
-                                    </td>
-                                </table>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Detalhes do Serviço</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                    <li class="breadcrumb-item"><a href="./index.php?c=servico&a=index">Serviços</a></li>
+                    <li class="breadcrumb-item active">Detalhes"<b><?= $servico->descricao ?>"</b></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="d-inline p-2"><?=$servico->descricao?></h2>
+                        <div class="card-tools">
+                            <div class="btn-toolbar">
+                                <div class="btn-group mr-2">
+                                    <a href="index.php?c=servico&a=edit&id=<?=$servico->id ?>" class="btn" role="button"><i class="fas fa-edit" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
                                 </div>
+                                <div class="btn-group">
+                                    <a href="index.php?c=servico&a=index" class="btn"><i class="fas fa-arrow-left" data-toggle="tooltip" data-placement="left" title="Cancelar"></i></a>
+                                </div>
+                            </div>
+                    </div>
+                        <div class="card-body">
+                            <div class="blockquote mb-0">
+                                <div class="row">
+                                    <div class="col-12 pt-4">
+                                        <p><b>Id:</b> <?= $servico->id?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p><b>Referencia:</b> <?=$servico->referencia?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p><b>Descrição:</b> <?=$servico->descricao?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p><b>Preço/Hora:</b> <?=$servico->precohora.'€'?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p><b>Taxa Iva:</b> <?=$servico->iva->percentagem.'%'?></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 </div>
+
+
+

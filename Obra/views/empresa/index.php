@@ -1,53 +1,69 @@
-<div class="content-wrapper">
-    <div class="content-header">
-
-    </div>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                     <div class="card card-primary">
-                        <div class="card-header">
-                              <h3 class="card-title ">Dados da Empresa</h3>
-                         </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-                        <div class="text-muted">
-                            <p class="text-sm">Designação Social
-                                <b class="d-block"><?=$empresa->designacaosocial?></b>
-                            </p>
-                            <p class="text-sm">Email
-                                <b class="d-block"><?=$empresa->email?></b>
-                            </p>
-                            <p class="text-sm">Telefone
-                                <b class="d-block"><?=$empresa->telefone?></b>
-                            </p>
-                            <p class="text-sm">NIF
-                                <b class="d-block"><?=$empresa->nif?></b>
-                            </p>
-                            <p class="text-sm">Morada
-                                <b class="d-block"><?=$empresa->morada?></b>
-                            </p>
-                            <p class="text-sm">Código Postal
-                                <b class="d-block"><?=$empresa->codigopostal?></b>
-                            </p>
-                            <p class="text-sm">Localidade
-                                <b class="d-block"><?=$empresa->localidade?></b>
-                            </p>
-                            <p class="text-sm">Capital Social
-                                <b class="d-block"><?=$empresa->capitalsocial.'€'?></b>
-                            </p>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Detalhes de "<?= $empresa->designacaosocial ?>"</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                    <li class="breadcrumb-item"><a href="./index.php?c=empresa&a=index">Empresa</a></li>
+                    <li class="breadcrumb-item active">Detalhes de "<b><?= $empresa->designacaosocial ?>"</b></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="d-inline p-2"><?=$empresa->designacaosocial?></h2>
+                        <div class="card-tools">
+                            <div class="btn-toolbar">
+                                <div class="btn-group mr-2">
+                                    <a href="index.php?c=empresa&a=edit&id=<?= $empresa->id ?>" class="btn" role="button"><i class="fas fa-edit" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="blockquote mb-0">
+                            <div class="row">
+                                <div class="col-12 pt-4">
+                                    <p><b>Designação Social:</b> <?= $empresa->designacaosocial?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Email:</b> <?=$empresa->email?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Telefone:</b> <?=$empresa->telefone?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>NIF:</b> <?=$empresa->nif?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Morada:</b> <?=$empresa->morada?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Código Postal:</b> <?=$empresa->codigopostal?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Localidade:</b> <?=$empresa->localidade?></p>
+                                </div>
+                                <div class="col-12">
+                                    <p><b>Capital Social:</b> <?=$empresa->capitalsocial.'€'?></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-footer clearfix">
-                <a href="index.php?c=empresa&a=edit&id=<?= $empresa->id ?>" class="btn btn-sm btn-secondary float-left">Editar Dados</a>
-            </div>
         </div>
-    </section>
+    </div>
 </div>
-
 
 

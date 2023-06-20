@@ -25,10 +25,13 @@
                         <div class="card-tools">
                             <div class="btn-toolbar">
                                 <div class="btn-group mr-2">
-                                    <a href="index.php?c=funcionario&a=edit&id=<?=$users->id ?>" class="btn" role="button"><i class="fas fa-edit" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
+                                    <a href="index.php?c=cliente&a=edit&id=<?=$users->id ?>" class="btn" role="button"><i class="fas fa-edit" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
                                 </div>
                                 <div class="btn-group">
                                     <a href="#" class="btn" data-toggle="modal" data-target="#modalDelete"><i class="fas fa-user-minus" data-toggle="tooltip" data-placement="left" title="Desativar"></i></a>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="index.php?c=cliente&a=index" class="btn"><i class="fas fa-arrow-left" data-toggle="tooltip" data-placement="left" title="Cancelar"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +40,7 @@
                         <div class="blockquote mb-0">
                             <div class="row">
                                 <div class="col-12 pt-4">
-                                    <p><b>Estado:</b> <?= $users->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Desativado</span>' ?>
+                                    <p><b>Estado:</b> <?= $users->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?>
                                 </div>
                                 <div class="col-12">
                                     <p><b>Email:</b> <?=$users->email?></p>

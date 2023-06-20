@@ -62,7 +62,7 @@
                                             <td><?= $user->username ?></td>
                                             <td><?= $user->email ?></td>
                                             <td><?= $user->nif ?></td>
-                                            <td><?= $user->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Desativado</span>' ?></td>
+                                            <td><?= $user->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?></td>
                                             <td>
                                                 <a class="btn btn-info btn-sm" href="index.php?c=funcionario&a=show&id=<?= $user->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                                 <a class="btn btn-warning btn-sm" href="index.php?c=funcionario&a=edit&id=<?= $user->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>

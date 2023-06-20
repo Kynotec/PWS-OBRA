@@ -59,7 +59,7 @@
                                                 <?php if($iva->emvigor == 1){ ?>
                                                     <span class="badge bg-success">Em Vigor</span>
                                                 <?php } else { ?>
-                                                    <span class="badge bg-danger">Oculta</span>
+                                                    <span class="badge bg-danger">Oculto</span>
                                                 <?php } ?>
                                             </td>
                                             <td><?= $iva->descricao ?></td>
