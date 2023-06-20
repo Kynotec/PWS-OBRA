@@ -26,6 +26,11 @@
       <path value="$PROJECT_DIR$/Obra/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/Obra/vendor/php-activerecord/php-activerecord" />
       <path value="$PROJECT_DIR$/Obra/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/Obra/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/Obra/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/Obra/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/Obra/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/Obra/vendor/sabberworm/php-css-parser" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
