@@ -79,17 +79,40 @@ class FolhaObraController extends Controller
         $this->redirectToRoute('folhaobra', 'create');
     }
 
-    /*
-     *
-      $filterType = $this->getHTTPPostParam('filter_type');
-        $tableSearch = $this->getHTTPPostParam('table_search');
 
-        if ($filterType && $tableSearch !== '') {
-            $users = array_filter($users, function ($user) use ($filterType, $tableSearch) {
-                return str_contains(strtoupper($user->{$filterType}), strtoupper($tableSearch));
-            });
+    public function update($idFolhaObra)
+    {
+        $folhaobra = FolhaObra::find($idFolhaObra);
+        $CalculoObra = new CalculoObra();
+        $empresa = Empresa::first();
+        $cliente = User::find([$folhaobra->cliente_id]);
+        $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
+        $iva = $CalculoObra->calcularIvaTotal($folhaobra);
+        $total = $subtotal + $iva;
+
+
+        $folhaobra->valortotal = $total;
+        $folhaobra->ivatotal = $iva;
+        $error = '1';
+
+
+
+        if($folhaobra->linhaobras == null)
+        {
+
+            $this->renderView('linhaobra', 'create', [ 'error' => $error,'idFolhaObra' => $idFolhaObra, 'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'subtotal' => $subtotal]);
+
+        }else {
+            $folhaobra->update_attributes([]);
+            if($folhaobra->is_valid()){
+                $folhaobra->save();
+                $folhaobra->estado = 'Emitida';
+                $this-> redirectToRoute('folhaobra', 'show', ['idFolhaObra' => $idFolhaObra]);
+            }
         }
-     */
+
+
+    }
 
     private function filter($folhaobras)
     {

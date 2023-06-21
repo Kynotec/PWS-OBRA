@@ -45,7 +45,10 @@ class LinhaObraController extends Controller
         $linhaobra->servico_id = $idServico;
 
         $linhaobra->quantidade=$quantidade;
-        $linhaobra->valoriva= $linhaobra->servico->precohora*($linhaobra->servico->iva->percentagem/100);
+       $linhaobra->valoriva= $linhaobra->servico->precohora*($linhaobra->servico->iva->percentagem/100);
+
+
+       // $linhaobra->cal= $linhaobra->servico->precohora*$linhaobra->quantidade + ($linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100));
 
         /*$CalculoObra = new CalculoObra();
         $verificar = $CalculoObra->verificarServico($folhaobra, $idServico, $quantidade);
