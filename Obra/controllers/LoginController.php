@@ -22,16 +22,22 @@ class LoginController extends Controller
             {
                 if ($_SESSION['role'] == 'administrador') {
                     $this->redirectToRoute('bo','index');
-
-
                 }
-                if ($_SESSION['role'] == 'cliente') {
+
+                if ($_SESSION['role'] == 'cliente' and $_SESSION['ativo'] == '1') {
                     $this->redirectToRoute('bocliente','index');
-
                 }
-                if ($_SESSION['role'] == 'funcionario') {
-                    $this->redirectToRoute('bo','index');
+                else
+                {
+                    $this->renderView('login', 'index',['fail'=>true],'login');
+                }
 
+                if ($_SESSION['role'] == 'funcionario' and $_SESSION['ativo'] == '1') {
+                    $this->redirectToRoute('bo','index');
+                }
+                else
+                {
+                    $this->renderView('login', 'index',['fail'=>true],'login');
                 }
             }
             else

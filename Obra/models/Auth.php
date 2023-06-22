@@ -17,6 +17,7 @@ class Auth
         {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $user->role;
+            $_SESSION['ativo'] = $user->ativo;
             $_SESSION['id'] = $user->id;
             return true;
 

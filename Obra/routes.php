@@ -35,7 +35,9 @@ return [
             'update' =>['POST','ClienteController','update'],
             'disable' =>['GET','ClienteController','disable'],
             'enable' =>['GET','ClienteController','enable'],
-            'error' => ['GET', 'ErrorController', 'cliente/index']
+            'error' => ['GET', 'ErrorController', 'cliente/index'],
+            'showcliente' =>['GET','ClienteController','showcliente'],
+            'indexcliente' =>['GET','ClienteController','indexcliente']
 
         ],
 
