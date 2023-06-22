@@ -77,12 +77,12 @@
                          with font-awesome or any other icon font library -->
 
 
-                    <li class="nav-header">Faturas</li>
+                    <li class="nav-header">Folha de Obras</li>
                     <li class="nav-item">
                         <a href="index.php?c=folhaobra&a=indexcliente" class="nav-link">
                             <i class="nav-icon fa-solid fa-file-invoice"></i>
                             <p>
-                                Consultar Faturas
+                                Consultar Folhas de Obras
                             </p>
                         </a>
                     </li>
