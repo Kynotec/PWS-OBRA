@@ -28,7 +28,11 @@
                                         <a href="index.php?c=funcionario&a=edit&id=<?=$users->id ?>" class="btn" role="button"><i class="fas fa-edit" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
                                     </div>
                                     <div class="btn-group">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#modalDelete"><i class="fas fa-user-minus" data-toggle="tooltip" data-placement="left" title="Desativar"></i></a>
+                                        <?php if($users->ativo == 1){ ?>
+                                            <a href="#" class="btn" data-toggle="modal" data-target="#modalDelete"><i class="fas fa-user-minus" data-toggle="tooltip" data-placement="left" title="Desativar"></i></a>
+                                        <?php } else { ?>
+                                        <a href="#" class="btn" data-toggle="modal" data-target="#modalActive"><i class="fas fa-user-plus" data-toggle="tooltip" data-placement="left" title="Ativar"></i></a>
+                                        <?php } ?></p>
                                     </div>
                                     <div class="btn-group">
                                         <a href="index.php?c=funcionario&a=index" class="btn"><i class="fas fa-arrow-left" data-toggle="tooltip" data-placement="left" title="Cancelar"></i></a>
@@ -75,3 +79,17 @@
         </div>
     </div>
 </div>
+
+ <div class="modal fade" id="modalActive" role="dialog">
+     <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+             <div class="modal-body">
+                 <p>Pretende mesmo ativar este Cliente?</p>
+             </div>
+             <div class="modal-footer">
+                 <a href="index.php?c=cliente&a=enable&id=<?= $users->id ?>"  class="btn btn-success btn-sm">Ativar</a>
+                 <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+             </div>
+         </div>
+     </div>
+ </div>

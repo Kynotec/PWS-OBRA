@@ -13,6 +13,7 @@ require_once 'controllers/ErrorController.php';
 require_once 'controllers/BoClienteController.php';
 
 
+
 return [
         'defaultRoute' => ['GET', 'HomeController', 'index'],
 
@@ -109,8 +110,11 @@ return [
             'store' =>['GET|POST','FolhaObraController','store'],
             'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
             'delete' =>['GET','FolhaObraController','delete'],
-            'error' => ['GET', 'ErrorController', 'folhaobra/index']
+            'error' => ['GET', 'ErrorController', 'folhaobra/index'],
+            'indexcliente' =>['GET','FolhaObraController','indexcliente']
+
         ],
+
         'error'=>[
             'index' => ['GET', 'ErrorController', 'index'],
         ],

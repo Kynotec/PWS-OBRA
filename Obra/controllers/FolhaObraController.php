@@ -3,21 +3,28 @@ use Carbon\Carbon;
 
 class FolhaObraController extends Controller
 {
-    public  function  __construct()
-    {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
-    }
+
+
+
     public function index()
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $folhaobras = FolhaObra::all();
-
         $folhaobras = $this ->filter($folhaobras);
         $this->renderView('folhaobra', 'index', ['folhaobras' => $folhaobras]);
 
     }
 
+    public function indexcliente()
+    {
+        $this->AuthenticationFilterAs([ 'cliente']);
+        $folhaobras = FolhaObra::all();
+        $this->renderView('folhaobra','indexcliente',['folhaobras' => $folhaobras],'Bocliente');
+    }
+
     public function create()
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
             $empresas = Empresa::all();
 
             if (count($empresas) > 0) {
@@ -31,6 +38,7 @@ class FolhaObraController extends Controller
 
     public function selectClient()
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $users = User::all();
 
         $filterType = $this->getHTTPPostParam('filter_type');
@@ -47,6 +55,7 @@ class FolhaObraController extends Controller
 
     public function store($idCliente)
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $folhaobra = new FolhaObra();
         $datetoday = Carbon::now();
 
@@ -70,6 +79,7 @@ class FolhaObraController extends Controller
 
     public function delete($idFolhaObra)
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $folhaobra = FolhaObra::find($idFolhaObra);
 
         foreach ($folhaobra->linhaobras as $linhaobra) {
@@ -82,6 +92,7 @@ class FolhaObraController extends Controller
 
     public function update($idFolhaObra)
     {
+        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $folhaobra = FolhaObra::find($idFolhaObra);
         $CalculoObra = new CalculoObra();
         $empresa = Empresa::first();
@@ -104,9 +115,10 @@ class FolhaObraController extends Controller
 
         }else {
             $folhaobra->update_attributes([]);
+            $folhaobra->estado = 'Emitida';
             if($folhaobra->is_valid()){
                 $folhaobra->save();
-                $folhaobra->estado = 'Emitida';
+
                 $this-> redirectToRoute('folhaobra', 'show', ['idFolhaObra' => $idFolhaObra]);
             }
         }

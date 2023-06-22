@@ -70,6 +70,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+                    <?php if(in_array($auth->getUserRole(), ['administrador','funcionario'])){ ?>
                     <li class="nav-item">
                         <a href="index.php?c=folhaobra&a=create" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
@@ -94,6 +95,7 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+                        <?php } ?>
                         <ul class="nav nav-treeview">
                             <?php if(in_array($auth->getUserRole(), ['administrador'])){ ?>
                             <li class="nav-item">
@@ -103,6 +105,7 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php if(in_array($auth->getUserRole(), ['administrador','funcionario'])){ ?>
                             <li class="nav-item">
                                 <a href="index.php?c=cliente&a=index" class="nav-link">
                                     <i class="fas fa-users"></i>
@@ -122,14 +125,18 @@
                                     <p>Iva</p>
                                 </a>
                             </li>
+                            <?php } ?>
+                            <?php if(in_array($auth->getUserRole(), ['administrador'])){ ?>
                             <li class="nav-item">
                                 <a href="index.php?c=empresa&a=index" class="nav-link">
                                     <i class="fas fa-building"></i>
                                     <p>Empresa</p>
                                 </a>
                             </li>
+                            <?php } ?>
                         </ul>
                     </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

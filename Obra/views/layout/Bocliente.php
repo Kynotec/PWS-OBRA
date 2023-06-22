@@ -76,17 +76,20 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
 
+
+                    <li class="nav-header">Faturas</li>
                     <li class="nav-item">
-                        <a href="index.php?c=bocliente&a=index" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                        <a href="index.php?c=folhaobra&a=indexcliente" class="nav-link">
+                            <i class="nav-icon fa-solid fa-file-invoice"></i>
                             <p>
-                                Folhas de Obra
+                                Consultar Faturas
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
+                            <i class="nav-icon fas fa-bars"></i>
                             <p>
                                 Gestão de Dados
                                 <i class="fas fa-angle-left right"></i>
@@ -96,10 +99,11 @@
 
                             <li class="nav-item">
                                 <a href="index.php?c=bocliente&a=index" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fas fa-user"></i>
                                     <p>Clientes</p>
                                 </a>
                             </li>
+
                         </ul>
                     </li>
                 </ul>
