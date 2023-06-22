@@ -80,7 +80,7 @@
                     <li class="nav-header">Folha de Obras</li>
                     <li class="nav-item">
                         <a href="index.php?c=folhaobra&a=indexcliente" class="nav-link">
-                            <i class="nav-icon fa-solid fa-file-invoice"></i>
+                            <i class="fas fa-copy"></i>
                             <p>
                                 Consultar Folhas de Obras
                             </p>

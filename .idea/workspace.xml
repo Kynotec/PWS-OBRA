@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Obra/views/bocliente/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/bocliente/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Obra/views/layout/Bocliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/Bocliente.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
