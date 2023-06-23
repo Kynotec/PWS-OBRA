@@ -38,12 +38,12 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php?c=login&a=logout" class="nav-link">Logout</a>
+                <a href="index.php?c=login&a=logout" class="nav-link">Logout (<?= $auth->getUsername(); ?>)</a>
             </li>
 
 
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php?c=layout&a=login" class="nav-link">Pesquisa</a>
+                <a href="" class="nav-link">Mudar Palavra-Pass</a>
             </li>
         </ul>
     </nav>
@@ -95,16 +95,7 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
 
-                            <li class="nav-item">
-                                <a href="index.php?c=cliente&a=indexcliente" class="nav-link">
-                                    <i class="fas fa-user"></i>
-                                    <p>Cliente</p>
-                                </a>
-                            </li>
-
-                        </ul>
                     </li>
                 </ul>
             </nav>

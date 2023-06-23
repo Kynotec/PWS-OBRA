@@ -2,13 +2,12 @@
 
 class ClienteController extends Controller
 {
-
-
-
-
-    public function index()
+    public  function  __construct()
     {
         $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+    }
+    public function index()
+    {
         $users = User::all();
 
         $filterType = $this->getHTTPPostParam('filter_type');
@@ -24,26 +23,8 @@ class ClienteController extends Controller
 
     }
 
-    public function indexcliente()
-    {
-        $this->AuthenticationFilterAs([ 'cliente']);
-        $users = User::all();
-        $this->renderView('cliente','indexcliente',['users' => $users],'Bocliente');
-    }
-
-    public function showcliente($id)
-    {
-        $this->AuthenticationFilterAs([ 'cliente']);
-        $users = User::find($id);
-        $this->renderView('cliente','showcliente',['users' => $users],'Bocliente');
-    }
-
-
-
-
     public function show($id)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
 
@@ -63,13 +44,11 @@ class ClienteController extends Controller
 
     public function create()
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         $this->renderView('cliente', 'create');
     }
 
     public function store()
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
             $users = new User($this->getHTTPPost());
@@ -88,7 +67,6 @@ class ClienteController extends Controller
 
     public function edit($id)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
 
@@ -107,7 +85,6 @@ class ClienteController extends Controller
 
     public function update($id)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
             if ($this->getHTTPPostParam('ativo')) {
@@ -134,7 +111,6 @@ class ClienteController extends Controller
 
     public function disable($id)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
             $users = User::find($id);
@@ -150,7 +126,6 @@ class ClienteController extends Controller
 
     public function enable($id)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
         try {
 
             $users = User::find($id);

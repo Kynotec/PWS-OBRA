@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Obra/views/layout/Bocliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/Obra/views/layout/Bocliente.php" afterDir="false" />
-    </list>
+    <list default="true" id="80df8720-208d-4e5a-a0c6-db22a718bd32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,10 +59,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\PWS-OBRA\Obra\views\iva" />
@@ -97,6 +102,7 @@
       <workItem from="1686435293575" duration="3293000" />
       <workItem from="1686590032540" duration="9973000" />
       <workItem from="1687257646597" duration="13000" />
+      <workItem from="1687479079932" duration="1595000" />
     </task>
     <servers />
   </component>
