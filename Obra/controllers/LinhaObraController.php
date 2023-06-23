@@ -4,7 +4,7 @@ class LinhaObraController extends Controller
 {
     public  function  __construct()
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+        $this->AuthenticationFilterAs(['administrador','funcionario']);
     }
 
     public function index($idFolhaObra){
@@ -15,8 +15,6 @@ class LinhaObraController extends Controller
         $CalculoObra ->AtualizarForm($folhaobra);
 
         $this->renderview('linhaobra', 'index', ['folhaobra' => $folhaobra, 'empresa'=>$empresa]);
-
-
 
     }
 
@@ -51,9 +49,7 @@ class LinhaObraController extends Controller
         $linhaobra->servico_id = $idServico;
 
         $linhaobra->quantidade=$quantidade;
-       $linhaobra->valoriva= $linhaobra->servico->precohora*($linhaobra->servico->iva->percentagem/100);
-
-
+        $linhaobra->valoriva= $linhaobra->servico->precohora*($linhaobra->servico->iva->percentagem/100);
 
         if ($linhaobra->is_valid()) {
             $linhaobra->save();

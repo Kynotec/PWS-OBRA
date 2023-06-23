@@ -4,6 +4,7 @@ class CalculoObra
 {
     public function AtualizarForm($folhaobra){
 
+
         $CalculoObra = New CalculoObra();
         $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
         $iva = $CalculoObra->calcularIvaTotal($folhaobra);

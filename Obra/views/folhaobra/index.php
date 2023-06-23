@@ -70,7 +70,7 @@
                                          <td>
                                              <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
 
-                                             <?php if($folhaobra->estado =='em lancamento')
+                                             <?php if($folhaobra->estado =='Em Lançamento')
                                              { ?>
 
                                                  <a href="index.php?c=folhaobra&a=edit&id=<?=$folhaobra->id ?>"

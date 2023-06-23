@@ -61,6 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
@@ -103,6 +104,7 @@
       <workItem from="1686590032540" duration="9973000" />
       <workItem from="1687257646597" duration="13000" />
       <workItem from="1687479079932" duration="1595000" />
+      <workItem from="1687527526629" duration="2536000" />
     </task>
     <servers />
   </component>
