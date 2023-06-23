@@ -2,61 +2,194 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Mostrar Dados </h1>
-            </div>
 
-        </div>
-    </div>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                        <li class="breadcrumb-item"><a href="./index.php?c=folhaobra&a=index">Obras</a></li>
+                        <li class="breadcrumb-item active">Obra Nº<?= $folhaobra->id ?></li>
+                    </ol>
+                </ol>
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title ">Dados da Folha de Obra</h3>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive ">
-                            <table class="table m-0">
-                                <thead>
-                                <tr>
-                                    <th><h3>Id</h3></th>
-                                    <th><h3>Username</h3></th>
-                                    <th><h3>Password</h3></th>
-                                    <th><h3>Email</h3></th>
-                                    <th><h3>Telefone</h3></th>
-                                    <th><h3>Nif</h3></th>
-                                    <th><h3>Morada</h3></th>
-                                    <th><h3>Código Postal</h3></th>
-                                    <th><h3>Localidade</h3></th>
-                                    <th><h3>Role</h3></th>
-                                    <th><h3>Ativo</h3></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><?=$users->id?></td>
-                                    <td><?=$users->username?></td>
-                                    <td><?=$users->password?></td>
-                                    <td><?=$users->email?></td>
-                                    <td><?=$users->telefone?></td>
-                                    <td><?=$users->nif?></td>
-                                    <td><?=$users->morada?></td>
-                                    <td><?=$users->codigopostal?></td>
-                                    <td><?=$users->localidade?></td>
-                                    <td><?=$users->role?></td>
-                                    <td><?=$users->ativo?></td>
+<!-- /.content-header -->
 
-                                </tr>
-                                </tbody>
-                                <td>
-                                    <a href="index.php?c=funcionario&a=index" class="btn btn-info" role="button"> Cancelar</a>
-                                </td>
-                            </table>
+<!-- Main content -->
+<section class="content" >
+    <div class="container-fluid" >
+        <div class="row" >
+            <div class="col-12" >
+
+                <!-- Main content -->
+                <div class="invoice p-3 mb-3" style="background-color: #fffffc; color: #0a0e14">
+                    <!-- title row -->
+                    <div class="row" >
+                        <div class="col-12">
+                            <h4>
+                                <b>Obra Nº <?= $folhaobra->id ?></b> <br>
+                                <small class="float">Data: <?=$folhaobra->data->format('Y-m-d H:i:s')?> </small>
+                            </h4>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address> <br>
+                                <strong><?=$empresa->designacaosocial?></strong><br>
+                                <?=$empresa->morada?><br>
+                                <?=$empresa->localidade. ',' . $empresa->codigopostal?><br>
+                                <b>Nif:</b> <?= $empresa->nif ?><br>
+                                <b>Telefone:</b> <?= $empresa->telefone ?><br>
+                                <b>Email:</b> <?= $empresa->email?>
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <address><br>
+                                <b>Cliente:</b> <br>
+                                <?= $folhaobra->cliente->username ?> <br>
+                                <?= $folhaobra->cliente->morada ?> <br>
+                                <?= $folhaobra->cliente->codigopostal ?>, <?= $folhaobra->cliente->localidade ?> <br>
+                                <b>Nif:</b> <?= $folhaobra->cliente->nif ?><br>
+                                <b>Telefone:</b> <?= $folhaobra->cliente->telefone?><br>
+                                <b>Email:</b> <?= $folhaobra->cliente->email?><br>
+
+                            </address>
                         </div>
                     </div>
+                    <!-- /.row -->
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <?php if(count($folhaobra->linhaobras) > 0){ ?>
+                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&id=<?= $folhaobra->id ?>">
+                                        <img src="./public/dist/img/pdf-icon.png" height="30">
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <!-- Table row -->
+                        <div class="row">
+                            <div class="col-12 table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Referência</th>
+                                        <th>Descrição</th>
+                                        <th>QTD</th>
+                                        <th>Valor Unitário</th>
+                                        <th>Valor IVA</th>
+                                        <th>Taxa IVA</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($folhaobra->linhaobras as $linhaobra) { ?>
+                                        <tr>
+                                            <td><?=$linhaobra->servico->referencia?></td>
+                                            <td><?=$linhaobra->servico->descricao?></td>
+                                            <td><?=$linhaobra->quantidade?></td>
+                                            <td><?=$linhaobra->valorunitario."€"?></td>
+                                            <td><?=$linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100). "€"?></td>
+                                            <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
+                                            <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade + ($linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100)). "€"?></>
+
+                                        </tr>
+                                    <?php }?>
+                                    <?php  if (!isset($idServico))
+                                    {?>
+                                    <?php }else
+                                        if (isset($servico))
+                                        { ?>
+
+                                            <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
+                                                <tr>
+                                                    <td>
+                                                        <?=$servico->referencia?><br>
+                                                    </td>
+                                                    <td>
+                                                        <?=$servico->descricao?><br>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
+
+                                                    </td>
+                                                    <td>
+                                                        <input type=" " class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
+                                                        <?=$servico->precohora."€"?><br>
+                                                    </td>
+                                                    <td>
+                                                        <input type=" " class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
+                                                        <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
+                                                    </td>
+                                                    <td>
+                                                        <?=$servico->iva->percentagem?>%<br>
+                                                    </td>
+                                                    <td>
+                                                        <?=$servico->precohora*($servico->iva->percentagem/100)?>€ <br>
+                                                    </td>
+
+
+
+                                                </tr>
+                                            </form>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row flex-row-reverse">
+
+                            <!-- /.col -->
+
+                            <div class="col-md-2"">
+
+                            <table class="table">
+                                <tr>
+                                    <th>Subtotal:</th>
+                                    <td>
+                                        <?= $folhaobra->subtotal . "€"?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>IVA:</th>
+                                    <td><?= $folhaobra->ivatotal . "€"?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <td><?= $folhaobra->valortotal . "€"?>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- this row will not appear when printing -->
+                    <div class="col-sm-4 invoice-col">
+
+                        Fatura Processada por : <b><?= $_SESSION['username']?> </b>
+                    </div>
+                    <br><br>
                 </div>
-            </div>
-        </div>
+                <!-- /.invoice -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div><!-- /.container-fluid -->
+
 </section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

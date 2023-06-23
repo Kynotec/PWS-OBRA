@@ -2,6 +2,18 @@
 
 class CalculoObra
 {
+    public function AtualizarForm($folhaobra){
+
+        $CalculoObra = New CalculoObra();
+        $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
+        $iva = $CalculoObra->calcularIvaTotal($folhaobra);
+
+        $total = $subtotal + $iva;
+        $folhaobra->valortotal = $total;
+        $folhaobra->ivatotal = $iva;
+        $folhaobra->subtotal = $subtotal;
+
+    }
 
     public function calcularIvaTotal($folhaobra)
     {

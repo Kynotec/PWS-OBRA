@@ -20,6 +20,7 @@ class FolhaObraController extends Controller
         $this->AuthenticationFilterAs([ 'cliente']);
         $folhaobras = FolhaObra::all();
         $this->renderView('folhaobra','indexcliente',['folhaobras' => $folhaobras],'Bocliente');
+
     }
 
     public function create()
@@ -34,6 +35,23 @@ class FolhaObraController extends Controller
             else $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/index']);
 
 
+    }
+
+    public function show($idFolhaObra)
+    {
+
+        $folhaobra = FolhaObra::find($idFolhaObra);
+        $empresa = Empresa::first();
+        $cliente = User::find([$folhaobra->cliente_id]);
+        $CalculoObra = new CalculoObra();
+        $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
+
+
+        if (is_null($folhaobra)) {
+            //TODO redirect to standard error page
+        } else {
+            $this->renderView('folhaobra', 'show', [ 'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'subtotal' => $subtotal]);
+        }
     }
 
     public function selectClient()
@@ -62,6 +80,7 @@ class FolhaObraController extends Controller
         $folhaobra->data = $datetoday;
         $folhaobra->valortotal = 0;
         $folhaobra->ivatotal = 0;
+        $folhaobra->subtotal = 0;
         $folhaobra->estado = 'Em Lançamento';
         $folhaobra->cliente_id = $idCliente;
         $auth = new Auth();
@@ -101,7 +120,7 @@ class FolhaObraController extends Controller
         $iva = $CalculoObra->calcularIvaTotal($folhaobra);
         $total = $subtotal + $iva;
 
-
+        $folhaobra->subtotal = $subtotal;
         $folhaobra->valortotal = $total;
         $folhaobra->ivatotal = $iva;
         $error = '1';

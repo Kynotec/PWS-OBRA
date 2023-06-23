@@ -68,7 +68,7 @@
                                          <td><?= $folhaobra->cliente->username ?></td>
                                          <td><?= $folhaobra->valortotal ?> €</td>
                                          <td>
-                                             <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&id=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
+                                             <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
 
                                              <?php if($folhaobra->estado =='em lancamento')
                                              { ?>
