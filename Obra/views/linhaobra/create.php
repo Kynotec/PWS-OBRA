@@ -97,9 +97,9 @@
                                         <td><?=$linhaobra->servico->descricao?></td>
                                         <td><?=$linhaobra->quantidade?></td>
                                         <td><?=$linhaobra->valorunitario."€"?></td>
-                                        <td><?=$linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100). "€"?></td>
+                                        <td><?=$linhaobra->valoriva. "€"?></td>
                                         <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
-                                        <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade + ($linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100)). "€"?></>
+                                        <td> <?=$linhaobra->valortotal. "€"?></td>
                                         <td>
                                             <a href="index.php?c=linhaobra&a=edit&idLinhaObra=<?= $linhaobra->id?>&idFolhaObra=<?=$folhaobra->id?>&idServico=<?=$linhaobra->servico->id?>" class="btn btn-primary"><i class="nav-icon fa-solid fa-pen-to-square"></i>Editar</a>
                                             <a href="index.php?c=linhaobra&a=delete&idLinhaObra=<?= $linhaobra->id?>&idFolhaObra=<?=$folhaobra->id?>" class="btn btn-primary" style="background-color: red; border-color: red"><i class="fa-solid fa-trash-can"></i>Cancelar</a>
@@ -130,7 +130,7 @@
                                                     <?=$servico->descricao?><br>
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
+                                                    <input type="text" class="form-control" placeholder="QTD" name="quantidade" min="1" value="1" required style="width: 100px; margin-left: -10px">
 
                                                 </td>
                                                 <td>
@@ -138,14 +138,13 @@
                                                     <?=$servico->precohora."€"?><br>
                                                 </td>
                                                 <td>
-                                                    <input type="hidden" class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                    <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
+
                                                 </td>
                                                 <td>
-                                                    <?=$servico->iva->percentagem?>%<br>
+                                                    <?=$servico->iva->percentagem. "%"?><br>
                                                 </td>
                                                 <td>
-                                                    <?=$servico->precohora+$servico->precohora*($servico->iva->percentagem/100)?>€<br>
+
                                                 </td>
 
                                                 <td>
@@ -170,7 +169,7 @@
 
                         <div class="col-md-2"">
 
-                            <table class="table">
+                            <table class="table table-sm">
                                 <tr>
                                     <th>Subtotal:</th>
                                     <td>

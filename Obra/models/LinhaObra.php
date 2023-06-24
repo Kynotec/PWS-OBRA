@@ -8,7 +8,7 @@ class LinhaObra extends \ActiveRecord\Model
         array('valorunitario', 'message' => 'Indique o valor da obra '),
         array('valoriva', 'message' => 'Indique o valor do iva '),
         array('quantidade', 'message' => 'Indique a quantidade do produto'),
-        //array('subtotal'),
+        array('valortotal'),
     );
 
     static $belongs_to = array(

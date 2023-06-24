@@ -3,9 +3,6 @@ use Carbon\Carbon;
 
 class FolhaObraController extends Controller
 {
-
-
-
     public function index()
     {
         $this->AuthenticationFilterAs([ 'administrador','funcionario']);
@@ -39,13 +36,11 @@ class FolhaObraController extends Controller
 
     public function show($idFolhaObra)
     {
-
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::first();
         $cliente = User::find([$folhaobra->cliente_id]);
         $CalculoObra = new CalculoObra();
         $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
-
 
         if (is_null($folhaobra)) {
             //TODO redirect to standard error page
@@ -68,7 +63,6 @@ class FolhaObraController extends Controller
             });
         }
         $this->renderView('folhaobra', 'selectClient', ['users' => $users]);
-
     }
 
     public function store($idCliente)
@@ -86,14 +80,12 @@ class FolhaObraController extends Controller
         $auth = new Auth();
         $folhaobra->funcionario_id = $auth->getUserId();
 
-
         if ($folhaobra->is_valid()) {
             $folhaobra->save();
             $this->redirectToRoute('linhaobra', 'index', ['idFolhaObra' => $folhaobra->id]);
         } else {
             $this->renderView('folhaobra', 'create', ['folhaobras' => $folhaobra]);
         }
-
     }
 
     public function delete($idFolhaObra)
@@ -108,7 +100,6 @@ class FolhaObraController extends Controller
         $this->redirectToRoute('folhaobra', 'create');
     }
 
-
     public function update($idFolhaObra)
     {
         $this->AuthenticationFilterAs([ 'administrador','funcionario']);
@@ -116,21 +107,11 @@ class FolhaObraController extends Controller
         $CalculoObra = new CalculoObra();
         $empresa = Empresa::first();
         $cliente = User::find([$folhaobra->cliente_id]);
-        $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
-        $iva = $CalculoObra->calcularIvaTotal($folhaobra);
-        $total = $subtotal + $iva;
-
-        $folhaobra->subtotal = $subtotal;
-        $folhaobra->valortotal = $total;
-        $folhaobra->ivatotal = $iva;
-        $error = '1';
-
-
+        $CalculoObra ->AtualizarForm($folhaobra);
 
         if($folhaobra->linhaobras == null)
         {
-
-            $this->renderView('linhaobra', 'create', [ 'error' => $error,'idFolhaObra' => $idFolhaObra, 'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'subtotal' => $subtotal]);
+            $this->renderView('linhaobra', 'create', ['idFolhaObra' => $idFolhaObra, 'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'subtotal' => $subtotal]);
 
         }else {
             $folhaobra->update_attributes([]);
@@ -141,10 +122,7 @@ class FolhaObraController extends Controller
                 $this-> redirectToRoute('folhaobra', 'show', ['idFolhaObra' => $idFolhaObra]);
             }
         }
-
-
     }
-
     private function filter($folhaobras)
     {
         $filterType = $this->getHTTPPostParam('filter_type');

@@ -1,10 +1,13 @@
 <?php
 
-class CalculoObra
+class CalculoObra extends Controller
 {
-    public function AtualizarForm($folhaobra){
-
-
+    public function atualizarLinhaObra($linhaobra){
+        $linhaobra->valoriva = $linhaobra->servico->precohora*$linhaobra->quantidade*($linhaobra->servico->iva->percentagem/100);
+        $linhaobra->valortotal = $linhaobra->servico->precohora*$linhaobra->quantidade + ($linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100));
+    }
+    public function AtualizarForm($folhaobra)
+    {
         $CalculoObra = New CalculoObra();
         $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
         $iva = $CalculoObra->calcularIvaTotal($folhaobra);
@@ -13,15 +16,13 @@ class CalculoObra
         $folhaobra->valortotal = $total;
         $folhaobra->ivatotal = $iva;
         $folhaobra->subtotal = $subtotal;
-
     }
-
     public function calcularIvaTotal($folhaobra)
     {
         $iva = 0;
         foreach ($folhaobra->linhaobras as $linhaobra)
         {
-            $iva += $linhaobra->valoriva * $linhaobra->quantidade;
+            $iva += $linhaobra->valoriva;
         }
         return $iva;
     }

@@ -90,7 +90,7 @@
                             <div class="col-2">
 
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-sm">
                                         <tr>
                                             <th>Subtotal:</th>
                                             <td>0</td>

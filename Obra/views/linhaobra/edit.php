@@ -103,22 +103,21 @@
                                                         <?=$servico->descricao?><br>
                                                     </td>
                                                     <td>
-                                                        <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
+                                                        <input type="number" class="form-control" placeholder="QTD" name="quantidade" value="1" min="1" required style="width: 100px; margin-left: -10px">
 
                                                     </td>
                                                     <td>
-                                                        <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
-                                                        <?=$servico->precohora."€"?><br>
+                                                        <?=$linhaobra->valorunitario. "€"?><br>
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="hidden" class="form-control" value=" <?=$linhaobra->valoriva. "€"?>"><br>
                                                     </td>
                                                     <td>
-                                                        <input type="hidden" class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                        <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
+                                                        <?=$servico->iva->percentagem. "%"?><br>
                                                     </td>
                                                     <td>
-                                                        <?=$servico->iva->percentagem?>%<br>
-                                                    </td>
-                                                    <td>
-                                                        <?=$servico->precohora+$servico->precohora*($servico->iva->percentagem/100)?>€<br>
+
                                                     </td>
 
                                                     <td>
@@ -131,18 +130,14 @@
                                             </form>
 
                                             <?php } else { ?>
-                                            <td><?=$linhaobra->servico->referencia?></td>
-                                            <td><?=$linhaobra->servico->descricao?></td>
-                                            <td><?=$linhaobra->quantidade?></td>
-                                            <td><?=$linhaobra->valorunitario?></td>
-                                            <td><?=$linhaobra->valoriva?></td>
-                                            <td><?=$linhaobra->servico->iva->percentagem?></td>
-                                            <td> <?=$linhaobra->servico->precohora+($linhaobra->servico->iva->percentagem/100)?></td>
-                                            <td>
 
-                                            </td>
-
-
+                                                <td><?=$linhaobra->servico->referencia?></td>
+                                                <td><?=$linhaobra->servico->descricao?></td>
+                                                <td><?=$linhaobra->quantidade?></td>
+                                                <td><?=$linhaobra->valorunitario."€"?></td>
+                                                <td><?=$linhaobra->valoriva. "€"?></td>
+                                                <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
+                                                <td> <?=$linhaobra->valortotal. "€"?></td>
                                     <?php }?>
                                     <?php }?>
                                     </tbody>
@@ -158,11 +153,10 @@
 
                             <div class="col-md-2"">
 
-                            <table class="table">
+                            <table class="table table-sm">
                                 <tr>
                                     <th>Subtotal:</th>
-                                    <td>
-
+                                    <td><?= $folhaobra->subtotal . "€"?>
                                     </td>
                                 </tr>
                                 <tr>

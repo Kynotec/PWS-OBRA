@@ -7,7 +7,8 @@ class LinhaObraController extends Controller
         $this->AuthenticationFilterAs(['administrador','funcionario']);
     }
 
-    public function index($idFolhaObra){
+    public function index($idFolhaObra)
+    {
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::first();
 
@@ -15,7 +16,6 @@ class LinhaObraController extends Controller
         $CalculoObra ->AtualizarForm($folhaobra);
 
         $this->renderview('linhaobra', 'index', ['folhaobra' => $folhaobra, 'empresa'=>$empresa]);
-
     }
 
     public function create($idServico,$idFolhaObra)
@@ -25,7 +25,6 @@ class LinhaObraController extends Controller
 
         $CalculoObra = new CalculoObra();
         $CalculoObra ->AtualizarForm($folhaobra);
-
 
         if(!is_null($idServico)) {
 
@@ -40,16 +39,16 @@ class LinhaObraController extends Controller
 
     public function store($idFolhaObra,$idServico)
     {
-
         $folhaobra = FolhaObra::find($idFolhaObra);
         $quantidade = $this->getHTTPPostParam('quantidade');
 
         $linhaobra = new  LinhaObra($this->getHTTPPost());
         $linhaobra->folha_obra_id = $idFolhaObra;
         $linhaobra->servico_id = $idServico;
+        $linhaobra->quantidade =$quantidade;
 
-        $linhaobra->quantidade=$quantidade;
-        $linhaobra->valoriva= $linhaobra->servico->precohora*($linhaobra->servico->iva->percentagem/100);
+        $CalculoObra = new CalculoObra();
+        $CalculoObra ->atualizarLinhaObra($linhaobra);
 
         if ($linhaobra->is_valid()) {
             $linhaobra->save();
@@ -73,6 +72,10 @@ class LinhaObraController extends Controller
         $folhaobra = FolhaObra::find($idFolhaObra);
         $servico = Servico::find($idServico);
         $cliente = User::find($folhaobra->cliente_id);
+
+        $CalculoObra = new CalculoObra();
+        $CalculoObra ->AtualizarForm($folhaobra);
+
         if (is_null($linhaobra)) {
             //TODO redirect to standard error page
         } else {
@@ -82,8 +85,15 @@ class LinhaObraController extends Controller
 
     public function update($idLinhaObra, $idFolhaObra)
     {
+        $folhaobra = FolhaObra::find($idFolhaObra);
         $linhaobra = LinhaObra::find($idLinhaObra);
         $linhaobra->update_attributes($this->getHTTPPost());
+
+
+        $CalculoObra = new CalculoObra();
+        $CalculoObra ->AtualizarForm($folhaobra);
+        $CalculoObra ->atualizarLinhaObra($linhaobra);
+
         if($linhaobra->is_valid()){
             $linhaobra->save();
 
@@ -121,10 +131,5 @@ class LinhaObraController extends Controller
             });
         }
         $this->renderView('linhaobra', 'selectServico', ['servicos' => $servicos,'folhaobra'=>$folhaobra,'viewSearch'=>$viewSearch]);
-
-
     }
-
-
-
 }

@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Preço/Hora</label>
-                                    <input type="number" class="form-control" placeholder="Preço €" name="precohora" value="<?php if(isset($servicos)) { echo $servicos->precohora; }?>">
+                                    <input type="text" class="form-control" placeholder="Preço €" name="precohora"  value="<?php if(isset($servicos)) { echo $servicos->precohora; }?>">
                                     <?php if(isset($servicos->errors)){ echo $servicos->errors->on('precohora'); }?>
                                 </div>
 
@@ -43,10 +43,10 @@
                                         <?php foreach($ivas as $iva){?>
                                             <?php if($iva->emvigor == 1) { ?>
                                                 <?php if($iva->id == $servicos->iva_id) { ?>
-                                                    <option value="<?= $iva->id?>" selected><?= $iva->percentagem;?> </option>
+                                                    <option value="<?= $iva->id?>" selected><?= $iva->descricao ?> <?= $iva->percentagem;?> </option>
                                                 <?php }
                                                 else { ?>
-                                                    <option value="<?= $iva->id?>"><?= $iva->percentagem;?> </option>
+                                                    <option value="<?= $iva->id?>"><?= $iva->descricao ?> (<?= $iva->percentagem ?>%) </option>
                                                 <?php }
                                             }} ?>
                                     </select>

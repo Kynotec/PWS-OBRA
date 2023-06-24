@@ -153,7 +153,7 @@
 
                             <div class="col-md-2"">
 
-                            <table class="table">
+                            <table class="table table-sm">
                                 <tr>
                                     <th>Subtotal:</th>
                                     <td>

@@ -4,7 +4,7 @@ class EmpresaController extends Controller
 {
     public  function  __construct()
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+        $this->AuthenticationFilterAs(['administrador']);
     }
 
     public function index(){
