@@ -99,8 +99,8 @@ return [
             'selectServico' => ['GET|POST', 'LinhaObraController', 'selectServico'],
             'delete' =>['GET','LinhaObraController','delete'],
             'error' => ['GET', 'ErrorController', 'linhaobra/index']
-
         ],
+    
         'folhaobra'=>[
             'index' => ['GET|POST', 'FolhaObraController', 'index'],
             'edit' =>['GET','FolhaObraController','edit'],
@@ -111,7 +111,9 @@ return [
             'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
             'delete' =>['GET','FolhaObraController','delete'],
             'error' => ['GET', 'ErrorController', 'folhaobra/index'],
-            'indexcliente' =>['GET','FolhaObraController','indexcliente']
+            'indexcliente' =>['GET','FolhaObraController','indexcliente'],
+                        'pdf'=> ['GET', 'FolhaObraController', 'pdf']
+
 
         ],
 
