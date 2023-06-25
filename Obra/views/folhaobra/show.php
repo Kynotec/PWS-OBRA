@@ -96,10 +96,9 @@
                                             <td><?=$linhaobra->servico->descricao?></td>
                                             <td><?=$linhaobra->quantidade?></td>
                                             <td><?=$linhaobra->valorunitario."€"?></td>
-                                            <td><?=$linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100). "€"?></td>
+                                            <td><?=$linhaobra->valoriva. "€"?></td>
                                             <td><?=$linhaobra->servico->iva->percentagem. "%"?></td>
-                                            <td> <?=$linhaobra->servico->precohora*$linhaobra->quantidade + ($linhaobra->valorunitario * $linhaobra->quantidade * ($linhaobra->servico->iva->percentagem/100)). "€"?></>
-
+                                            <td> <?=$linhaobra->valortotal. "€"?></td>
                                         </tr>
                                     <?php }?>
                                     <?php  if (!isset($idServico))
@@ -121,22 +120,17 @@
 
                                                     </td>
                                                     <td>
-                                                        <input type=" " class="form-control" name="valorunitario" value=" <?=$servico->precohora?>">
-                                                        <?=$servico->precohora."€"?><br>
+                                                        <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>"><br>
                                                     </td>
                                                     <td>
-                                                        <input type=" " class="form-control" value=" <?=$servico->precohora*($servico->iva->percentagem/100)?>">
-                                                        <?=$servico->precohora*($servico->iva->percentagem/100) ."€"?><br>
+                                                        <input type="hidden" class="form-control" value=" <?=$linhaobra->valoriva. "€"?>"><br>
                                                     </td>
                                                     <td>
-                                                        <?=$servico->iva->percentagem?>%<br>
+                                                        <?=$servico->iva->percentagem. "%"?><br>
                                                     </td>
                                                     <td>
-                                                        <?=$servico->precohora*($servico->iva->percentagem/100)?>€ <br>
+                                                        <?=$linhaobra->valortotal. "€"?><br>
                                                     </td>
-
-
-
                                                 </tr>
                                             </form>
                                         <?php } ?>
