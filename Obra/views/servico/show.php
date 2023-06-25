@@ -36,7 +36,7 @@
                             <div class="blockquote mb-0">
                                 <div class="row">
                                     <div class="col-12 pt-4">
-                                        <p><b>Id:</b> <?= $servico->id?></p>
+                                        <p><b>Estado:</b> <?= $servico->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?>
                                     </div>
                                     <div class="col-12">
                                         <p><b>Referencia:</b> <?=$servico->referencia?></p>

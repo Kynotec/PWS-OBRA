@@ -46,6 +46,7 @@
                                         <th>Descrição</th>
                                         <th>Preço/Hora</th>
                                         <th>Taxa IVA</th>
+                                        <th>Estado</th>
                                         <th class="fit_column">Ações</th>
                                     </tr>
                                     </thead>
@@ -57,10 +58,16 @@
                                         <td><?=$servico->descricao?></td>
                                         <td><?=$servico->precohora.'€'?></td>
                                         <td><?=$servico->iva->percentagem.'%'?></td>
+                                        <td><?= $servico->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?></td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=servico&a=show&id=<?= $servico->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                             <a class="btn btn-warning btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
-                                            <a class="btn btn-danger btn-sm" onclick="deleteEntity(<?= $servico->id?>)"><i class="fas fa-trash"></i> Apagar </a>
+                                            <?php if($servico->ativo == 1) {?>
+                                                <a  href="#" class="btn btn-danger btn-sm" onclick="disableEntity(<?= $servico->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
+                                            <?php } else { ($servico->ativo == 0) ?>
+                                                <a  href="#" class="btn btn-success btn-sm" onclick="enableEntity(<?= $servico->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
+
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -77,28 +84,54 @@
     </div>
 </div>
 
-    <!-- Modal Delete-->
-    <div class="modal fade" id="modalDelete" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>Pretende mesmo apagar este Serviço?</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="modal_delete_btn" class="btn btn-danger">Apagar</a>
-                    <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
-                </div>
+<!-- Modal Disable-->
+<div class="modal fade" id="modalDisable" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Pretende mesmo desativar este Serviço?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal_disable_btn" class="btn btn-danger">Desativar</a>
+                <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
             </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        function deleteEntity(id)
-        {
-            document.getElementById('modal_delete_btn').setAttribute('href', 'index.php?c=servico&a=delete&id=' + id);
+<!-- Modal Enable-->
+<div class="modal fade" id="modalEnable" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Pretende mesmo ativar este Serviço?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal_enable_btn" class="btn btn-success btn-sm">Ativar</a>
+                <a href="#" class="btn btn-info" data-dismiss="modal">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-            new bootstrap.Modal(document.getElementById('modalDelete'), {
-                keyboard: true
-            }).toggle();
-        }
-    </script>
+<script type="text/javascript">
+    function disableEntity(id)
+    {
+        document.getElementById('modal_disable_btn').setAttribute('href', 'index.php?c=servico&a=disable&id=' + id);
+
+        new bootstrap.Modal(document.getElementById('modalDisable'), {
+            keyboard: true
+        }).toggle();
+    }
+</script>
+
+<script type="text/javascript">
+    function enableEntity(id)
+    {
+        document.getElementById('modal_enable_btn').setAttribute('href', 'index.php?c=servico&a=enable&id=' + id);
+
+        new bootstrap.Modal(document.getElementById('modalEnable'), {
+            keyboard: true
+        }).toggle();
+    }
+</script>

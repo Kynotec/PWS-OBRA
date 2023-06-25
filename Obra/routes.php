@@ -72,7 +72,6 @@ return [
             'update' =>['POST','IvaController','update'],
             'create' =>['GET','IvaController','create'],
             'store' =>['POST','IvaController','store'],
-            'delete' =>['GET','IvaController','delete'],
             'disable' =>['GET','IvaController','disable'],
             'enable' =>['GET','IvaController','enable'],
             'error' => ['GET', 'ErrorController', 'iva/index']
@@ -86,7 +85,8 @@ return [
             'update' =>['POST','ServicoController','update'],
             'create' =>['GET','ServicoController','create'],
             'store' =>['POST','ServicoController','store'],
-            'delete' =>['GET','ServicoController','delete'],
+            'disable' =>['GET','ServicoController','disable'],
+            'enable' =>['GET','ServicoController','enable'],
             'error' => ['GET', 'ErrorController', 'servico/index']
         ],
 

@@ -69,14 +69,11 @@
                                             <a class="btn btn-info btn-sm" href="index.php?c=iva&a=show&id=<?= $iva->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                             <a class="btn btn-warning btn-sm" href="index.php?c=iva&a=edit&id=<?= $iva->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
                                             <?php if($iva->emvigor == 1) {?>
-                                                <a class="btn btn-danger btn-sm" onclick="disableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
+                                                <a  href="#" class="btn btn-danger btn-sm" onclick="disableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-on"></i> Desativar </a>
                                             <?php } else { ($iva->emvigor == 0) ?>
-                                                <a class="btn btn-success btn-sm" onclick="enableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
+                                                <a  href="#" class="btn btn-success btn-sm" onclick="enableEntity(<?= $iva->id ?>)"> <i class="fas fa-toggle-off"></i> Ativar </a>
 
                                             <?php } ?>
-                                            <a class="btn btn-danger btn-sm" onclick="deleteEntity(<?= $iva->id?>)"><i class="fas fa-trash"></i> Apagar </a>
-
-
                                         </td>
                                     </tr>
                                     <?php }
@@ -156,17 +153,6 @@
         document.getElementById('modal_enable_btn').setAttribute('href', 'index.php?c=iva&a=enable&id=' + id);
 
         new bootstrap.Modal(document.getElementById('modalEnable'), {
-            keyboard: true
-        }).toggle();
-    }
-</script>
-
-<script type="text/javascript">
-    function deleteEntity(id)
-    {
-        document.getElementById('modal_delete_btn').setAttribute('href', 'index.php?c=iva&a=delete&id=' + id);
-
-        new bootstrap.Modal(document.getElementById('modalDelete'), {
             keyboard: true
         }).toggle();
     }

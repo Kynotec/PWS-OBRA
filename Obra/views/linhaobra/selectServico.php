@@ -51,7 +51,9 @@
                                 <tbody>
                                     <tr>
                                         <?php if(is_null($folhaobra->linhaobras)) {
-                                        foreach ($servicos as $servico) {
+                                        foreach ($servicos as $servico)
+                                        {
+
                                         ?>
                                     <tr>
 
@@ -64,6 +66,7 @@
 
                                     <?php   } }
                                     foreach ($servicos as $servico){
+                                    if ($servico->ativo == '1') {
                                         ?>
                                             <tr>
                                                 <td><?=$servico->referencia?></td>
@@ -72,7 +75,7 @@
                                                 <td><?=$servico->iva->percentagem.'%'?></td>
                                                 <td><a href="index.php?c=linhaobra&a=create&idServico=<?=$servico->id?>&idFolhaObra=<?=$folhaobra->id?>" class="btn btn-sm btn-info float-left">Selecionar</a></td>
                                             </tr>
-                                        <?php  } ?>
+                                        <?php  }} ?>
 
                                     </tbody>
                                 </table>

@@ -121,13 +121,31 @@ class ServicoController extends Controller
         }
     }
 
-    public function delete($id)
+    public function disable($id)
     {
         try {
-            $servicos = Servico::find($id);
-            $servicos->delete();
-            //redirecionar para o index
-            $this->redirectToRoute('servico', 'index');
+
+
+            $servico = Servico::find($id);
+            $servico->update_attribute('ativo', 0);
+            $servico->save();
+            $this->RedirectToRoute('servico', 'index');//redirecionar para o index
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'servico/index']);
+        }
+    }
+
+    public function enable($id)
+    {
+        try {
+
+
+            $servico = Servico::find($id);
+            $servico->update_attribute('ativo', 1);
+            $servico->save();
+            $this->RedirectToRoute('servico', 'index');//redirecionar para o index
         }
         catch(Exception $_)
         {
