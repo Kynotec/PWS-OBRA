@@ -56,7 +56,7 @@
                                 {
                                     foreach ($users as $user)
                                     {
-                                if ($user->role == 'cliente') {
+                                if ($user->role == 'cliente' and $user->ativo == '1') {
                                 ?>
                                         <tr>
                                             <td><?= $user->username ?></td>
