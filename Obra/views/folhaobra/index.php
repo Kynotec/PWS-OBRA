@@ -59,7 +59,7 @@
                              </thead>
                              <tbody>
                              <?php foreach ($folhaobras as $folhaobra) { ?>
-                                 <?php if($folhaobra->estado!='cancelada'){
+                                 <?php if($folhaobra->estado!='Emitida'){
                                      ?>
                                      <tr>
                                          <td><?=$folhaobra->id ?></td>
@@ -73,10 +73,10 @@
                                              <?php if($folhaobra->estado =='Em Lançamento')
                                              { ?>
 
-                                                 <a href="index.php?c=folhaobra&a=edit&id=<?=$folhaobra->id ?>"
+                                                 <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?=$folhaobra->id ?>"
                                                     class="btn btn-warning" role="button">Editar</a>
 
-                                                 <a href="index.php?c=folhaobra&a=cancel&id=<?=$folhaobra->id ?>"
+                                                 <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>"
                                                     class="btn btn-danger" role="button">Cancelar</a>
                                              <?php } ?>
                                          </td>

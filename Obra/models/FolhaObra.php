@@ -3,9 +3,9 @@
 class FolhaObra extends \ActiveRecord\Model
 {
     static $validates_presence_of = array(
-        array('estado', 'message' => 'Indique o estado da fatura'),
-        array('cliente_id', 'message' => 'Selecione o um cliente para a fatura'),
-        array('funcionario_id', 'message' => 'Selecione um funcionario para a fatura')
+        array('estado'),
+        array('cliente_id'),
+        array('funcionario_id')
     );
 
     static $belongs_to = array(
