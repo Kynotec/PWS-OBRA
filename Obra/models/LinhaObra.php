@@ -11,9 +11,7 @@ class LinhaObra extends \ActiveRecord\Model
         array('valortotal'),
     );
 
-    static $validates_numericality_of = array(
-        array('quantidade', 'only_integer' => true, 'message' => 'Tem que ser numerico')
-    );
+
     static $belongs_to = array(
         array('folhaobra'),
         array('servico'),

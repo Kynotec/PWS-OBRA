@@ -67,11 +67,6 @@
                     <div class="card mt-3">
                         <div class="card-header">
                             <div class="card-tools">
-                                <?php if(count($folhaobra->linhaobras) > 0){ ?>
-                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&id=<?= $folhaobra->id ?>">
-                                        <img src="./public/dist/img/pdf-icon.png" height="30">
-                                    </a>
-                                <?php } ?>
                             </div>
                         </div>
                     <!-- Table row -->
@@ -130,7 +125,7 @@
                                                     <?=$servico->descricao?><br>
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control" placeholder="QTD" name="quantidade" min="1" value="1" required style="width: 100px; margin-left: -10px">
+                                                    <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" value="1" step="0.01" required style="width: 100px; margin-left: -10px">
 
                                                 </td>
                                                 <td>

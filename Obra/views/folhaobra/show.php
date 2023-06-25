@@ -68,7 +68,7 @@
                         <div class="card-header">
                             <div class="card-tools">
                                 <?php if(count($folhaobra->linhaobras) > 0){ ?>
-                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&id=<?= $folhaobra->id ?>">
+                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&idFolhaObra=<?= $folhaobra->id ?>">
                                         <img src="./public/dist/img/pdf-icon.png" height="30">
                                     </a>
                                 <?php } ?>

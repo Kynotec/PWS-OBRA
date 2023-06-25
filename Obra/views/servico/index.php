@@ -42,11 +42,11 @@
                                 <table class="table m-0">
                                     <thead>
                                     <tr>
+                                        <th>Estado</th>
                                         <th>Referencia</th>
                                         <th>Descrição</th>
                                         <th>Preço/Hora</th>
                                         <th>Taxa IVA</th>
-                                        <th>Estado</th>
                                         <th class="fit_column">Ações</th>
                                     </tr>
                                     </thead>
@@ -54,11 +54,11 @@
                                     <tr>
                                         <?php foreach ($servicos as $servico) { ?>
                                     <tr>
+                                        <td><?= $servico->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?></td>
                                         <td><?=$servico->referencia?></td>
                                         <td><?=$servico->descricao?></td>
                                         <td><?=$servico->precohora.'€'?></td>
-                                        <td><?=$servico->iva->percentagem.'%'?></td>
-                                        <td><?= $servico->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?></td>
+                                        <td><?=$servico->iva->descricao ?> (<?= $servico->iva->percentagem ?>%)</td>
                                         <td>
                                             <a class="btn btn-info btn-sm" href="index.php?c=servico&a=show&id=<?= $servico->id?>"><i class="fas fa-eye"></i> Mostrar </a>
                                             <a class="btn btn-warning btn-sm" href="index.php?c=servico&a=edit&id=<?= $servico->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>

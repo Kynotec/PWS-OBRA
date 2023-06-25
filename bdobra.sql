@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 24-Jun-2023 às 21:39
--- Versão do servidor: 8.0.31
--- versão do PHP: 8.1.13
+-- Tempo de geração: 25-Jun-2023 às 23:55
+-- Versão do servidor: 8.0.33
+-- versão do PHP: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,14 +67,17 @@ CREATE TABLE IF NOT EXISTS `folha_obras` (
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   KEY `funcionario_id` (`funcionario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `folha_obras`
 --
 
 INSERT INTO `folha_obras` (`id`, `data`, `valortotal`, `ivatotal`, `subtotal`, `estado`, `cliente_id`, `funcionario_id`) VALUES
-(2, '2023-06-24 21:31:58', '97.76', '13.72', '84.04', 'Emitida', 3, 1);
+(2, '2023-06-24 21:31:58', '97.76', '13.72', '84.04', 'Emitida', 3, 1),
+(3, '2023-06-25 00:13:11', '0.00', '0.00', '0.00', 'Em Lançamento', 4, 1),
+(4, '2023-06-25 00:15:57', '21.30', '3.98', '17.32', 'Emitida', 3, 1),
+(6, '2023-06-25 23:11:48', '17.75', '3.32', '14.43', 'Emitida', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,7 @@ INSERT INTO `ivas` (`id`, `percentagem`, `descricao`, `emvigor`) VALUES
 DROP TABLE IF EXISTS `linha_obras`;
 CREATE TABLE IF NOT EXISTS `linha_obras` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `quantidade` float NOT NULL,
+  `quantidade` decimal(10,2) NOT NULL DEFAULT '1.00',
   `valorunitario` double(10,2) NOT NULL,
   `valoriva` double(10,2) NOT NULL,
   `valortotal` decimal(10,2) NOT NULL,
@@ -119,16 +122,19 @@ CREATE TABLE IF NOT EXISTS `linha_obras` (
   PRIMARY KEY (`id`),
   KEY `servico_id` (`servico_id`),
   KEY `folha_obra_id` (`folha_obra_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `linha_obras`
 --
 
 INSERT INTO `linha_obras` (`id`, `quantidade`, `valorunitario`, `valoriva`, `valortotal`, `folha_obra_id`, `servico_id`) VALUES
-(6, 2, 11.00, 1.32, '23.32', 2, 1),
-(7, 3, 14.43, 9.96, '53.25', 2, 3),
-(8, 1, 18.75, 2.44, '21.19', 2, 4);
+(6, '2.00', 11.00, 1.32, '23.32', 2, 1),
+(7, '3.00', 14.43, 9.96, '53.25', 2, 3),
+(8, '1.00', 18.75, 2.44, '21.19', 2, 4),
+(9, '2.00', 14.43, 4.98, '26.62', 3, 3),
+(10, '1.00', 14.43, 3.98, '21.30', 4, 3),
+(20, '1.00', 14.43, 3.32, '17.75', 6, 3);
 
 -- --------------------------------------------------------
 
@@ -141,7 +147,8 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `referencia` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `descricao` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `precohora` double(10,2) NOT NULL,
+  `precohora` double(10,2) NOT NULL DEFAULT '1.00',
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
   `iva_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `iva_id` (`iva_id`) USING BTREE
@@ -151,12 +158,12 @@ CREATE TABLE IF NOT EXISTS `servicos` (
 -- Extraindo dados da tabela `servicos`
 --
 
-INSERT INTO `servicos` (`id`, `referencia`, `descricao`, `precohora`, `iva_id`) VALUES
-(1, '1', 'Pintura', 11.00, 3),
-(2, '2', 'Canalização', 12.50, 1),
-(3, '3', 'Bate-Chapas', 14.43, 1),
-(4, '4', 'Mecânica', 18.75, 2),
-(5, '5', 'Montagem de Ar-Condicionado', 8.00, 1);
+INSERT INTO `servicos` (`id`, `referencia`, `descricao`, `precohora`, `ativo`, `iva_id`) VALUES
+(1, '1', 'Pintura', 11.00, 1, 3),
+(2, '2', 'Canalização', 12.50, 1, 1),
+(3, '3', 'Bate-Chapas', 14.39, 1, 1),
+(4, '4', 'Mecânica', 18.75, 1, 2),
+(5, '5', 'Montagem de Ar-Condicionado', 8.00, 1, 1);
 
 -- --------------------------------------------------------
 

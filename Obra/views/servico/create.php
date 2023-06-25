@@ -22,7 +22,7 @@
 
                                 <div class="form-group">
                                     <label>Referencia</label>
-                                    <input type="text" class="form-control" placeholder="Referencia" name="referencia" value="<?php if(isset($servicos)) { echo $servicos->referencia; }?>">
+                                    <input type="number" class="form-control" placeholder="Referencia" name="referencia" value="<?php if(isset($servicos)) { echo $servicos->referencia; }?>">
                                     <?php if(isset($servicos->errors)){ echo $servicos->errors->on('referencia'); }?>
                                 </div>
                                 <div class="form-group">
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Preço/Hora</label>
-                                    <input type="text" class="form-control" placeholder="Preço €" name="precohora"  value="<?php if(isset($servicos)) { echo $servicos->precohora; }?>">
+                                    <input type="number" class="form-control" placeholder="Preço €" name="precohora" step="0.01" required value="<?php if(isset($servicos)) { echo $servicos->precohora; }?>">
                                     <?php if(isset($servicos->errors)){ echo $servicos->errors->on('precohora'); }?>
                                 </div>
 

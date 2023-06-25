@@ -23,7 +23,7 @@
                                 <div class="text-muted">
 
                                     <p class="text-sm">Referencia
-                                        <input type="text" class="form-control" placeholder="Referencia" name="referencia" value="<?= $servico->referencia ?>">
+                                        <input type="number" class="form-control" placeholder="Referencia" name="referencia" value="<?= $servico->referencia ?>">
                                         <?php if(isset($servico->errors)){ echo $servico->errors->on('referencia'); }?>
                                     </p>
 
@@ -33,7 +33,7 @@
                                     </p>
 
                                     <p class="text-sm">Preço/Hora
-                                        <input type="text" class="form-control" placeholder="Preço/Hora" name="precohora" value="<?= $servico->precohora ?>">
+                                        <input type="number" class="form-control" placeholder="Preço €" name="precohora" step="0.01" required value="<?= $servico->precohora ?>">
                                         <?php if(isset($servico->errors)){ echo $servico->errors->on('precohora'); }?>
                                     </p>
 

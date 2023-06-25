@@ -48,7 +48,7 @@
                                         <p><b>Preço/Hora:</b> <?=$servico->precohora.'€'?></p>
                                     </div>
                                     <div class="col-12">
-                                        <p><b>Taxa Iva:</b> <?=$servico->iva->percentagem.'%'?></p>
+                                        <p><b>Taxa Iva:</b> <?=$servico->iva->descricao ?> (<?= $servico->iva->percentagem ?>%)</p>
                                     </div>
                                 </div>
                             </div>
