@@ -47,6 +47,9 @@
                                         <p><b>Estado:</b> <?= $users->ativo == 1 ? '<span class="badge bg-success">Ativo</span>': '<span class="badge bg-danger">Inativo</span>' ?>
                                     </div>
                                     <div class="col-12">
+                                        <p><b>Telefone:</b> <?=$users->telefone?></p>
+                                    </div>
+                                    <div class="col-12">
                                         <p><b>Email:</b> <?=$users->email?></p>
                                     </div>
                                     <div class="col-12">
