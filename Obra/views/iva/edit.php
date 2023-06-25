@@ -25,14 +25,13 @@
                                         <input type="checkbox" class="form-check-input" id="emvigor" name="emvigor" <?=$iva->emvigor == 1 ? 'checked' : '' ?>/>
                                         <label for="emvigor" class="form-check-label"> Ativo</label><br>
                                     </div>
-                                    <p class="text-sm">Percentagem
-                                        <input type="text" class="form-control" placeholder="Percentagem" name="percentagem" value="<?= $iva->percentagem ?>">
-                                        <?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?>
-                                    </p>
-
                                     <p class="text-sm">Descrição
                                         <input type="text" class="form-control" placeholder="Descrição" name="descricao" value="<?= $iva->descricao ?>">
                                         <?php if(isset($iva->errors)){ echo $iva->errors->on('descricao'); }?>
+                                    </p>
+                                    <p class="text-sm">Percentagem
+                                        <input type="text" class="form-control" placeholder="Percentagem" name="percentagem" value="<?= $iva->percentagem ?>">
+                                        <?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?>
                                     </p>
                                 </div>
                         </div>

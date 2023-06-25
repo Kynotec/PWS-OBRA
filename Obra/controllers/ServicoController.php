@@ -87,12 +87,12 @@ class ServicoController extends Controller
     {
         try {
 
-            $servicos = Servico::all();
-            if (is_null($servicos)) {
+            $servico = Servico::find($id);
+            if (is_null($servico)) {
                 //TODO redirect to standard error page
             } else {
                 $ivas = Iva::all();
-                $this->renderView('servico', 'edit', ['id' => $id, 'servicos' => $servicos, 'ivas' => $ivas]);
+                $this->renderView('servico', 'edit', ['id' => $id, 'servico' => $servico, 'ivas' => $ivas]);
             }
         }
         catch(Exception $_)

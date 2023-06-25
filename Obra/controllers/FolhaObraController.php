@@ -98,7 +98,7 @@ class FolhaObraController extends Controller
             $linhaobra->delete();
         }
         $folhaobra->delete();
-        $this->redirectToRoute('folhaobra', 'create');
+        $this->redirectToRoute('folhaobra', 'index');
     }
 
     public function update($idFolhaObra)

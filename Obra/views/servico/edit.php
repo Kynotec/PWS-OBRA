@@ -19,8 +19,6 @@
                             <h3 class="card-title ">Dados do Serviço</h3>
                         </div>
                         <div class="card-body">
-                            <?php foreach ($servicos as $servico) ?>
-                            <?php if($servico->id == $id) ?>
                             <form action="index.php?c=servico&a=update&id=<?= $servico->id ?>" method="post">
                                 <div class="text-muted">
 
