@@ -67,11 +67,7 @@
                     <div class="card mt-3">
                         <div class="card-header">
                             <div class="card-tools">
-                                <?php if(count($folhaobra->linhaobras) > 0){ ?>
-                                    <a class="btn btn-sencondary text-right" href="./index.php?c=folhaobra&a=pdf&idFolhaObra=<?= $folhaobra->id ?>">
-                                        <img src="./public/dist/img/pdf-icon.png" height="30">
-                                    </a>
-                                <?php } ?>
+
                             </div>
                         </div>
                         <!-- Table row -->
@@ -165,7 +161,16 @@
                                     </td>
                                 </tr>
                             </table>
+                            <br>
+                            <?php if(count($folhaobra->linhaobras) > 0){ ?>
+
+                                <a class="btn btn-info btn-sm" href="./index.php?c=folhaobra&a=pdf&idFolhaObra=<?= $folhaobra->id ?>"> Imprimir </a>
+                                    <img src="./public/dist/img/pdf-icon.png" height="30">
+                                </a>
+                            <?php } ?>
                         </div>
+
+
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
@@ -174,6 +179,7 @@
                     <div class="col-sm-4 invoice-col">
 
                         Folha Obra Processada por : <b><?= $_SESSION['username']?> </b>
+
                     </div>
                     <br><br>
                 </div>

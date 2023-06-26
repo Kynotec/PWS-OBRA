@@ -72,11 +72,11 @@
                                              <?php if($folhaobra->estado =='Em Lançamento')
                                              { ?>
 
-                                                 <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?=$folhaobra->id ?>"
-                                                    class="btn btn-warning" role="button">Editar</a>
+
+                                                 <a class="btn btn-warning btn-sm" href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-pencil-alt"></i> Editar </a>
 
                                                  <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>"
-                                                    class="btn btn-danger" role="button">Cancelar</a>
+                                                    class="btn btn-danger btn-sm" role="button">Cancelar</a>
                                              <?php } ?>
                                          </td>
                                      </tr>

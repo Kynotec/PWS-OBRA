@@ -182,11 +182,11 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                        <td>
+                                            <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-success btn-sm">Emitir</a>
+                                        </td>
                                     <td>
-                                        <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Emitir</a>
-                                    </td>
-                                    <td>
-                                        <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Anular</a>
+                                        <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-danger btn-sm">Anular</a>
                                     </td>
                                 </tr>
                             </table>

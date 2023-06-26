@@ -106,7 +106,10 @@
 
                                         <tr>
                                             <td>
+                                                <input type="number" class="form-control" name="referencia" ><br>
+                                            <td>
                                                 <a href="index.php?c=linhaobra&a=selectServico&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" >Escolher Servico</a>
+                                            </td>
                                             </td>
                                             <td>
                                             </td>
@@ -126,7 +129,6 @@
                                                     </td>
                                                     <td>
                                                         <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
-
                                                     </td>
                                                     <td>
                                                         <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>"><br>
@@ -144,7 +146,6 @@
                                                     <td>
                                                         <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
                                                         <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
-
                                                     </td>
 
                                                 </tr>
@@ -181,11 +182,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Emitir</a>
+                                        <td>
+                                        <a href="index.php?c=folhaobra&a=update&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-success btn-sm">Emitir</a>
                                     </td>
                                     <td>
-                                        <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary float-right">Anular</a>
+                                        <a href="index.php?c=folhaobra&a=delete&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-danger btn-sm">Anular</a>
                                     </td>
                                 </tr>
                             </table>
