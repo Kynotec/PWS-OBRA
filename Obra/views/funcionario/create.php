@@ -39,12 +39,32 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" placeholder="Password"name="password" value="<?php if(isset($users)) { echo $users->password; }?>">
-                                    <?php if(isset($users->errors)){ echo $users->errors->on('password'); }?>
+                                    <?php
+                                    if(isset($users->errors)) {
+                                        if (is_array($users->errors->on('password'))) {
+                                            foreach ($users->errors->on('password') as $error) {
+                                                echo $error . '<br>';
+                                            }
+                                        } else {
+                                            echo $users->errors->on('password');
+                                        }
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email" value="<?php if(isset($users)) { echo $users->email; }?>">
-                                    <?php if(isset($users->errors)){ echo $users->errors->on('email'); }?>
+                                    <?php
+                                        if(isset($users->errors)) {
+                                            if (is_array($users->errors->on('email'))) {
+                                                foreach ($users->errors->on('email') as $error) {
+                                                    echo $error . '<br>';
+                                                }
+                                            } else {
+                                                echo $users->errors->on('email');
+                                            }
+                                        }
+                                        ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telefone</label>

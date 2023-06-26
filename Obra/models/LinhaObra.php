@@ -7,7 +7,7 @@ class LinhaObra extends \ActiveRecord\Model
         array('servico_id'),
         array('valorunitario'),
         array('valoriva'),
-        array('quantidade', 'message' => 'Indique a quantidade do produto'),
+        array('quantidade', 'message' => 'Indique a quantidade do produto!'),
         array('valortotal'),
     );
 

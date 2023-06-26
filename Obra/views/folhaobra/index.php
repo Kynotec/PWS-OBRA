@@ -33,7 +33,6 @@
                                      <option value="id">Nº Obra</option>
                                      <option value="estado">Estado</option>
                                      <option value="cliente">Cliente</option>
-                                     <option value="funcionario">Funcionario</option>
                                      <option value="total">Total</option>
                                  </select>
                                  <input type="text" name="table_search" class="form-control float-right" placeholder="Procurar">

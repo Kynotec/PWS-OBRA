@@ -29,7 +29,6 @@
                                 <select id="filter_type" class="form-control" name="filter_type">
                                     <option value="estado">Estado</option>
                                     <option value="cliente">Cliente</option>
-                                    <option value="funcionario">Funcionario</option>
                                     <option value="total">Total</option>
                                 </select>
                                 <input type="text" name="table_search" class="form-control float-right" placeholder="Procurar">
@@ -70,7 +69,7 @@
                                 <?php if($folhaobra->estado =='Emitida')
 
                             { ?>
-                                <a href="index.php?c=folhaobra&a=edit&id=<?=$folhaobra->id ?>" class="btn btn-warning" role="button">Pagar</a>
+                                <a class="btn btn-warning btn-sm" href="index.php?c=folhaobra&a=edit&id=<?=$folhaobra->id ?>"><i class=" fas fa-credit-card"></i> Pagar </a>
                                 </td>
                             </tr>
                             <?php } ?>

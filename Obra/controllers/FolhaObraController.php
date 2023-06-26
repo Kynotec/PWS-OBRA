@@ -131,10 +131,10 @@ class FolhaObraController extends Controller
 
         if (isset($filterType, $tableSearch) && $tableSearch != '') {
             $folhaobras = array_filter($folhaobras, function ($folhaobra) use ($filterType, $tableSearch) {
-                if (!strcmp($filterType, 'cliente') || !strcmp($filterType, 'funcionario')) {
+                if (!strcmp($filterType, 'cliente')) {
                     return str_contains(strtoupper($folhaobra->{$filterType}->username), strtoupper($tableSearch));
                 } else if (!strcmp($filterType, 'estado')) {
-                    return str_contains(strtoupper($folhaobra->{$filterType}->estado), strtoupper($tableSearch));
+                    return str_contains(strtoupper($folhaobra->estado), strtoupper($tableSearch));
                 } else if (!strcmp($filterType, 'total')) {
                     return str_contains(strtoupper($folhaobra->valortotal), strtoupper($tableSearch));
                 } else if (!strcmp($filterType, 'id')) {
