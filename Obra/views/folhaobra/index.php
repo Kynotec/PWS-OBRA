@@ -59,8 +59,7 @@
                              </thead>
                              <tbody>
                              <?php foreach ($folhaobras as $folhaobra) { ?>
-                                 <?php if($folhaobra->estado!='Emitida'){
-                                     ?>
+
                                      <tr>
                                          <td><?=$folhaobra->id ?></td>
                                          <td><?=$folhaobra->data ?></td>
@@ -81,7 +80,7 @@
                                              <?php } ?>
                                          </td>
                                      </tr>
-                                 <?php } ?>
+
                              <?php }?>
                              </tbody>
                          </table>
