@@ -27,7 +27,6 @@
                             <form action="index.php?c=folhaobra&a=index" method="post" class="input-group input-group-sm">
                                 <a class="pt-1 mx-2" href="./index.php?c=folhaobra&a=index">Limpar Filtro</a>
                                 <select id="filter_type" class="form-control" name="filter_type">
-                                    <option value="id">Nº Fatura</option>
                                     <option value="estado">Estado</option>
                                     <option value="cliente">Cliente</option>
                                     <option value="funcionario">Funcionario</option>
@@ -46,7 +45,6 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                             <tr>
-                                <th class="fit_column">Nº</th>
                                 <th class="fit_column">Data da Obra</th>
                                 <th class="fit_column">Estado</th>
                                 <th class="fit_column">Cliente</th>
@@ -62,13 +60,12 @@
                                 if($folhaobra->estado =='Emitida')
                             { ?>
                             <tr>
-                                <td><?=$folhaobra->id ?></td>
                                 <td><?=$folhaobra->data ?></td>
                                 <td><?=$folhaobra->estado ?></td>
                                 <td><?= $folhaobra->cliente->username ?></td>
                                 <td><?= $folhaobra->valortotal ?> €</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&id=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
+                                    <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
 
                                 <?php if($folhaobra->estado =='Emitida')
 
