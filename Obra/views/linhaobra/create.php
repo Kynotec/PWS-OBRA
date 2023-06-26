@@ -32,7 +32,16 @@
                         <div class="col-12">
                             <h4>
                                     <b>Obra Nº <?= $folhaobra->id ?></b> <br>
-                                    <small class="float">Data: <?=$folhaobra->data->format('Y-m-d H:i:s')?> </small>
+                                    <small class="float">Data: <?=$folhaobra->data->format('Y-m-d H:i:s')?> </small><br>
+                                <?php if($folhaobra->estado =='Emitida')
+                                {
+                                    echo '<span class="badge bg-success">'.$folhaobra->estado.'</span>';
+                                }
+                                elseif ($folhaobra->estado =='Em Lançamento')
+                                {
+                                    echo '<span class="badge bg-warning">'.$folhaobra->estado.'</span>';
+                                }
+                                ?>
                             </h4>
                         </div>
                         <!-- /.col -->
@@ -43,7 +52,7 @@
                             <address> <br>
                                 <strong><?=$empresa->designacaosocial?></strong><br>
                                 <?=$empresa->morada?><br>
-                                <?=$empresa->localidade. ',' . $empresa->codigopostal?><br>
+                                <?=$empresa->localidade. ', ' .$empresa->codigopostal?><br>
                                 <b>Nif:</b> <?= $empresa->nif ?><br>
                                 <b>Telefone:</b> <?= $empresa->telefone ?><br>
                                 <b>Email:</b> <?= $empresa->email?>

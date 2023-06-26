@@ -191,7 +191,7 @@ class FolhaObraController extends Controller
                         <div class="col-10">
                          <h2>
                                 <b>Obra Nº ' . $folhaobra->id .'</b> <br>
-                                 <span >Estado: <b>'.$folhaobra->estado .'</b></span><br>
+                                 <small class="float" >Estado: <b>'.$folhaobra->estado .'</b></small><br>
                                 <small class="float">Data: '.$folhaobra->data->format('Y-m-d H:i:s').' </small>
                             </h2>
                          </div>
@@ -227,10 +227,10 @@ class FolhaObraController extends Controller
                       </div>
                    </div>
                    
-                    <div class="card mt-3">
+                    <div class="">
                         <div class="row">
                             <div class="col-12 table">
-                                <table class="table-left table-striped">
+                                <table class="table-left small table-striped text-center" >
                                     <thead>
                                     <tr>
                                         <th>Referência</th>
@@ -248,11 +248,12 @@ class FolhaObraController extends Controller
                 {
                     $html .= '
                                    <tr>
-                                   <td>'. $linhaobra->servico->id.'</td>
+                                   <td>'. $linhaobra->servico->referencia.'</td>
                                    <td>'. $linhaobra->servico->descricao.'</td>
                                    <td>'. $linhaobra->quantidade .'</td>
                                    <td>'. $linhaobra->valorunitario .'€</td>
                                    <td>'. $linhaobra->servico->iva->percentagem .'%</td>
+                                   <td>'.$linhaobra->valoriva.'€</td>
                                    <td>'. $linhaobra->valorunitario * $linhaobra->quantidade.' €</td>
                                    </tr>
                                    </tbody></table>
@@ -267,7 +268,7 @@ class FolhaObraController extends Controller
 
                             <div class="col-md-2"">
 
-                            <table class="tab-content">
+                            <table class="table table-sm">
                                 <tr>
                                     <th>Subtotal:</th>
                                     <td>
@@ -287,9 +288,8 @@ class FolhaObraController extends Controller
                             </table>
                         </div>
                      </div>
-                    ';
-            $html .= '
-            <div class="col-sm-4 invoice-col">
+            <div class="col-sm-5 invoice-col">
+            <br>
             <p>Obra emitida por '. $folhaobra->funcionario->username .'</p>
            </div>
                     <br><br>

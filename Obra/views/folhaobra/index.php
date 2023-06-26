@@ -63,7 +63,17 @@
                                      <tr>
                                          <td><?=$folhaobra->id ?></td>
                                          <td><?=$folhaobra->data ?></td>
-                                         <td><?=$folhaobra->estado ?></td>
+                                         <td>
+                                         <?php if($folhaobra->estado =='Emitida')
+                                         {
+                                             echo '<span class="badge bg-success">'.$folhaobra->estado.'</span>';
+                                         }
+                                         elseif ($folhaobra->estado =='Em Lançamento')
+                                         {
+                                             echo '<span class="badge bg-warning">'.$folhaobra->estado.'</span>';
+                                         }
+                                         ?>
+                                         </td>
                                          <td><?= $folhaobra->cliente->username ?></td>
                                          <td><?= $folhaobra->valortotal ?> €</td>
                                          <td>

@@ -40,7 +40,7 @@
                                 <address> <br>
                                     <strong><?=$empresa->designacaosocial?></strong><br>
                                     <?=$empresa->morada?><br>
-                                    <?=$empresa->localidade. ',' . $empresa->codigopostal?><br>
+                                    <?=$empresa->localidade. ', ' . $empresa->codigopostal?><br>
                                     Telefone: <?=$empresa->telefone?><br>
                                     Email: <?=$empresa->email?>
                                 </address>
