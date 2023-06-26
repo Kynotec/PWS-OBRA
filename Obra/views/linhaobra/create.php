@@ -198,7 +198,7 @@
                     <!-- this row will not appear when printing -->
                         <div class="col-sm-4 invoice-col">
 
-                            Fatura Processada por : <b><?= $_SESSION['username']?> </b>
+                            Folha Obra Processada por : <b><?= $_SESSION['username']?> </b>
                         </div>
                     <br><br>
                 </div>

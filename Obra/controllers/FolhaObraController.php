@@ -136,7 +136,7 @@ class FolhaObraController extends Controller
                 } else if (!strcmp($filterType, 'estado')) {
                     return str_contains(strtoupper($folhaobra->{$filterType}->estado), strtoupper($tableSearch));
                 } else if (!strcmp($filterType, 'total')) {
-                    return str_contains(strtoupper($folhaobra->getTotal()), strtoupper($tableSearch));
+                    return str_contains(strtoupper($folhaobra->valortotal), strtoupper($tableSearch));
                 } else if (!strcmp($filterType, 'id')) {
                     return str_contains(strtoupper($folhaobra->{$filterType}), strtoupper($tableSearch));
                 }

@@ -30,7 +30,7 @@
                              <form action="index.php?c=folhaobra&a=index" method="post" class="input-group input-group-sm">
                                  <a class="pt-1 mx-2" href="./index.php?c=folhaobra&a=index">Limpar Filtro</a>
                                  <select id="filter_type" class="form-control" name="filter_type">
-                                     <option value="id">Nº Fatura</option>
+                                     <option value="id">Nº Obra</option>
                                      <option value="estado">Estado</option>
                                      <option value="cliente">Cliente</option>
                                      <option value="funcionario">Funcionario</option>
