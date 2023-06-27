@@ -16,6 +16,7 @@ class Auth
         if (!is_null($user))
         {
             $_SESSION['username'] = $username;
+            $_SESSION['email'] = $user->email;
             $_SESSION['role'] = $user->role;
             $_SESSION['ativo'] = $user->ativo;
             $_SESSION['id'] = $user->id;
@@ -28,6 +29,7 @@ class Auth
         }
     }
 
+    
     function isLoggedIn()
     {
         return isset($_SESSION['username']);

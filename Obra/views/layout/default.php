@@ -41,6 +41,25 @@
                 <a href="index.php?c=login&a=logout" class="nav-link">Logout (<?= $auth->getUsername(); ?>)</a>
             </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-user"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header"><?=  $auth->getUsername();?></span>
+                    <div class="dropdown-divider"></div>
+                    <a href="index.php?c=definicoes&a=index" class="dropdown-item">
+                        <i class="fas fa-cog mr-2"></i> Definições
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="index.php?c=login&a=logout" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Terminar Sessão
+                    </a>
+                </div>
+            </li>
+        </ul>
     </nav>
     <!-- /.navbar -->
 

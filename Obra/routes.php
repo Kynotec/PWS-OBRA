@@ -11,6 +11,7 @@ require_once 'controllers/LinhaObraController.php';
 require_once 'controllers/FolhaObraController.php';
 require_once 'controllers/ErrorController.php';
 require_once 'controllers/BoClienteController.php';
+require_once 'controllers/DefinicoesController.php';
 
 
 
@@ -120,6 +121,12 @@ return [
         'error'=>[
             'index' => ['GET', 'ErrorController', 'index'],
         ],
+
+        'definicoes'=>[
+            'index' => ['GET', 'DefinicoesController', 'index'],
+            'updateEmail' => ['POST', 'DefinicoesController', 'updateEmail']
+        ],
+
        ];
 
 ?>
