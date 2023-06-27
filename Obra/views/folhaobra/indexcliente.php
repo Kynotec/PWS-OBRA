@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="./index.php?c=bo&a=index">Obra</a></li>
+                        <li class="breadcrumb-item"><a href="./index.php?c=folhaobra&a=indexcliente">Obra</a></li>
                         <li class="breadcrumb-item active">Obras</></li>
                     </ol>
                 </ol>
@@ -24,8 +24,8 @@
                     <div class="card-header">
 
                         <div class="card-tools">
-                            <form action="index.php?c=folhaobra&a=index" method="post" class="input-group input-group-sm">
-                                <a class="pt-1 mx-2" href="./index.php?c=folhaobra&a=index">Limpar Filtro</a>
+                            <form action="index.php?c=folhaobra&a=indexcliente" method="post" class="input-group input-group-sm">
+                                <a class="pt-1 mx-2" href="./index.php?c=folhaobra&a=indexcliente">Limpar Filtro</a>
                                 <select id="filter_type" class="form-control" name="filter_type">
                                     <option value="estado">Estado</option>
                                     <option value="cliente">Cliente</option>
@@ -69,7 +69,7 @@
                                 <?php if($folhaobra->estado =='Emitida')
 
                             { ?>
-                                <a class="btn btn-warning btn-sm" href="index.php?c=folhaobra&a=edit&id=<?=$folhaobra->id ?>"><i class=" fas fa-credit-card"></i> Pagar </a>
+                                <a class="btn btn-warning btn-sm" href="index.php?c=folhaobra&a=pagamento&idFolhaObra=<?=$folhaobra->id ?>"><i class=" fas fa-credit-card"></i> Pagar </a>
                                 </td>
                             </tr>
                             <?php } ?>

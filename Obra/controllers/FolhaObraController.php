@@ -17,6 +17,7 @@ class FolhaObraController extends Controller
     {
         $this->AuthenticationFilterAs([ 'cliente']);
         $folhaobras = FolhaObra::all();
+        $folhaobras = $this ->filter($folhaobras);
         $this->renderView('folhaobra','indexcliente',['folhaobras' => $folhaobras],'Bocliente');
 
     }
@@ -91,7 +92,7 @@ class FolhaObraController extends Controller
 
     public function delete($idFolhaObra)
     {
-        $this->AuthenticationFilterAs([ 'administrador','funcionario']);
+        $this->AuthenticationFilterAs(['administrador','funcionario']);
         $folhaobra = FolhaObra::find($idFolhaObra);
 
         foreach ($folhaobra->linhaobras as $linhaobra) {
@@ -126,6 +127,7 @@ class FolhaObraController extends Controller
     }
     private function filter($folhaobras)
     {
+        $this->AuthenticationFilterAs(['administrador','funcionario','cliente']);
         $filterType = $this->getHTTPPostParam('filter_type');
         $tableSearch = $this->getHTTPPostParam('table_search');
 
@@ -146,7 +148,25 @@ class FolhaObraController extends Controller
         return $folhaobras;
     }
 
+    public function pagamento($idFolhaObra)
+    {
+        $this->AuthenticationFilterAs(['cliente']);
+        $folhaobra = FolhaObra::all();
+        $this->renderView('folhaobra','pagamento',['folhaobra' => $folhaobra],'Bocliente');
+    }
+    public function updatepagamento($idFolhaObra)
+    {
 
+        $this->AuthenticationFilterAs(['cliente']);
+        $folhaobra = FolhaObra::find($idFolhaObra);
+
+        $folhaobra->update_attributes([]);
+        $folhaobra->estado = 'Paga';
+        if($folhaobra->is_valid()){
+            $folhaobra->save();
+                $this-> renderView('folhaobra', 'indexcliente',['idFolhaObra'=>$idFolhaObra],'Bocliente');
+            }
+        }
 
     public function pdf($idFolhaObra){
         $this->authenticationFilter();

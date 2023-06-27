@@ -111,10 +111,10 @@ return [
             'selectClient' => ['GET|POST', 'FolhaObraController', 'selectClient'],
             'delete' =>['GET','FolhaObraController','delete'],
             'error' => ['GET', 'ErrorController', 'folhaobra/index'],
-            'indexcliente' =>['GET','FolhaObraController','indexcliente'],
-                        'pdf'=> ['GET', 'FolhaObraController', 'pdf']
-
-
+            'indexcliente' =>['GET|POST','FolhaObraController','indexcliente'],
+            'pagamento' =>['GET', 'FolhaObraController','pagamento'],
+            'updatepagamento' =>['GET|POST', 'FolhaObraController','updatepagamento'],
+            'pdf'=> ['GET', 'FolhaObraController', 'pdf']
         ],
 
         'error'=>[
