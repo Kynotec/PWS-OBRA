@@ -38,17 +38,23 @@ class FolhaObraController extends Controller
 
     public function show($idFolhaObra)
     {
+        $this->authenticationFilter();
+        $auth = new Auth();
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::first();
-        $cliente = User::find([$folhaobra->cliente_id]);
-        $CalculoObra = new CalculoObra();
-        $subtotal = $CalculoObra->calcularSubTotal($folhaobra);
 
-        if (is_null($folhaobra)) {
-            //TODO redirect to standard error page
-        } else {
-            $this->renderView('folhaobra', 'show', [ 'folhaobra' => $folhaobra, 'empresa' => $empresa, 'cliente' => $cliente, 'subtotal' => $subtotal]);
+        if($auth->getUserRole() =='cliente')
+        {
+            if(  User::find_by_username($_SESSION['username'])->id !=$folhaobra->cliente->id)
+            {
+                $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/indexcliente']);
+            }
+
         }
+        $this->renderView('folhaobra', 'show', [ 'folhaobra' => $folhaobra, 'empresa' => $empresa],'BoCliente');
+
+
+
     }
 
     public function selectClient()
@@ -154,6 +160,7 @@ class FolhaObraController extends Controller
         $folhaobra = FolhaObra::find($idFolhaObra);
         $this->renderView('folhaobra','pagamento',['folhaobra' => $folhaobra],'Bocliente');
     }
+
     public function updatepagamento($idFolhaObra)
     {
 
@@ -165,7 +172,18 @@ class FolhaObraController extends Controller
             $folhaobras->save();
                 $this-> redirectToRoute('folhaobra', 'indexcliente');
             }
+
+        $folhaobra = FolhaObra::find($idFolhaObra);
+
+        if($folhaobra->estado == 'Emitida')
+        {
+            $folhaobra->estado = 'Paga';
+            $folhaobra->is_valid();
+                $folhaobra->save();
+
+                $this-> renderView('folhaobra', 'indexcliente',['folhaobra' => $folhaobra,'idFolhaObra'=>$idFolhaObra],'Bocliente');
         }
+    }
 
     public function pdf($idFolhaObra){
         $this->authenticationFilter();

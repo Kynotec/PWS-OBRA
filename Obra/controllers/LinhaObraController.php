@@ -39,7 +39,6 @@ class LinhaObraController extends Controller
 
     public function store($idFolhaObra,$idServico)
     {
-        $folhaobra = FolhaObra::find($idFolhaObra);
         $quantidade = $this->getHTTPPostParam('quantidade');
 
         $linhaobra = new  LinhaObra($this->getHTTPPost());

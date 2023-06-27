@@ -124,7 +124,8 @@ return [
 
         'definicoes'=>[
             'index' => ['GET', 'DefinicoesController', 'index'],
-            'updateEmail' => ['POST', 'DefinicoesController', 'updateEmail']
+            'updateEmail' => ['POST', 'DefinicoesController', 'updateEmail'],
+            'updatePassword' => ['POST', 'DefinicoesController', 'updatePassword']
         ],
 
        ];

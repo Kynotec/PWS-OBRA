@@ -115,7 +115,9 @@
 
                                         <tr>
                                             <td>
-                                                <input type="number" class="form-control" name="referencia" ><br>
+                                                <form  action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
+                                                <input type="number" class="form-control" name="referencia" value="<? ?>"><br>
+                                                </form>
                                             <td>
                                                 <a href="index.php?c=linhaobra&a=selectServico&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" >Escolher Servico</a>
                                             </td>
