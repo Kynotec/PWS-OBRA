@@ -56,7 +56,6 @@
                             <?php $auth=new Auth();
                             $cliente=$auth->getUserId();
                             if($cliente== $folhaobra->cliente_id )
-                                if($folhaobra->estado =='Emitida')
                             { ?>
                             <tr>
                                 <td><?=$folhaobra->data ?></td>

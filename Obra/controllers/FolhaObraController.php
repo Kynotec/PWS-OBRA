@@ -151,20 +151,19 @@ class FolhaObraController extends Controller
     public function pagamento($idFolhaObra)
     {
         $this->AuthenticationFilterAs(['cliente']);
-        $folhaobra = FolhaObra::all();
+        $folhaobra = FolhaObra::find($idFolhaObra);
         $this->renderView('folhaobra','pagamento',['folhaobra' => $folhaobra],'Bocliente');
     }
     public function updatepagamento($idFolhaObra)
     {
 
         $this->AuthenticationFilterAs(['cliente']);
-        $folhaobra = FolhaObra::find($idFolhaObra);
+        $folhaobras = FolhaObra::find($idFolhaObra);
 
-        $folhaobra->update_attributes([]);
-        $folhaobra->estado = 'Paga';
-        if($folhaobra->is_valid()){
-            $folhaobra->save();
-                $this-> renderView('folhaobra', 'indexcliente',['idFolhaObra'=>$idFolhaObra],'Bocliente');
+        $folhaobras->estado = 'Paga';
+        if($folhaobras->is_valid()){
+            $folhaobras->save();
+                $this-> redirectToRoute('folhaobra', 'indexcliente');
             }
         }
 

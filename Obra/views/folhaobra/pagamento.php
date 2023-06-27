@@ -22,11 +22,21 @@
                     <div class="card-header">
                         <h3 class="card-title">Pagar Folha-Obra</h3>
                     </div>
-                    <form class="form-horizontal" action="index.php?c=folhaobra&a=updatepagamento" method="post">
+                    <form class="form-horizontal" action="index.php?c=folhaobra&a=updatepagamento&idFolhaObra=<?=$folhaobra->id?>" method="post">
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-form-label">Introduza o número do Cartão de Crédito:</label>
-                                <input type="number" class="form-control" placeholder="Número do Cartão de Crédito">
+                                <input type="number" id="myInput" oninput="limitInputLength(event)"  required class="form-control" placeholder="Número do Cartão de Crédito">
+                                <script>
+                                    function limitInputLength(event) {
+                                        const input = event.target;
+                                        const maxLength = 16;
+
+                                        if (input.value.length > maxLength) {
+                                            input.value = input.value.slice(0, maxLength);
+                                        }
+                                    }
+                                </script>
                             </div>
                         </div>
                         <div class="card-footer">
