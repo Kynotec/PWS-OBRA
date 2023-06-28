@@ -23,7 +23,17 @@
                                 <div class="form-group">
                                     <label>Referencia</label>
                                     <input type="number" class="form-control" placeholder="Referencia" name="referencia" value="<?php if(isset($servicos)) { echo $servicos->referencia; }?>">
-                                    <?php if(isset($servicos->errors)){ echo $servicos->errors->on('referencia'); }?>
+                                    <?php
+                                    if(isset($servicos->errors)) {
+                                        if (is_array($servicos->errors->on('referencia'))) {
+                                            foreach ($servicos->errors->on('referencia') as $error) {
+                                                echo $error . '<br>';
+                                            }
+                                        } else {
+                                            echo $servicos->errors->on('referencia');
+                                        }
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Descrição</label>

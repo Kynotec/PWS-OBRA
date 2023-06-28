@@ -52,37 +52,42 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             <?php foreach ($folhaobras as $folhaobra) { ?>
-                            <?php $auth=new Auth();
+                                <?php  if($folhaobra->estado == 'Emitida' or $folhaobra->estado == 'Paga') {
+                                     $auth=new Auth();
                             $cliente=$auth->getUserId();
                             if($cliente== $folhaobra->cliente_id )
                             { ?>
-                            <tr>
+                                <tr>
                                 <td><?=$folhaobra->data ?></td>
                                 <td>
-                                <?php if($folhaobra->estado =='Paga')
-                            {
-                                echo '<span class="badge bg-success">'.$folhaobra->estado.'</span>';
-                            }
-                            elseif ($folhaobra->estado =='Emitida')
-                            {
-                                echo '<span class="badge bg-warning">'.$folhaobra->estado.'</span>';
-                            }
-                                ?></td>
+                                    <?php if($folhaobra->estado =='Paga')
+                                    {
+                                        echo '<span class="badge bg-gradient-gray">'.$folhaobra->estado.'</span>';
+                                    }
+                                    elseif ($folhaobra->estado =='Emitida')
+                                    {
+                                        echo '<span class="badge bg-success">'.$folhaobra->estado.'</span>';
+                                    }
+                                    ?></td>
                                 <td><?= $folhaobra->cliente->username ?></td>
                                 <td><?= $folhaobra->valortotal ?> €</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
+                                <a class="btn btn-info btn-sm" href="index.php?c=folhaobra&a=show&idFolhaObra=<?= $folhaobra->id?>"><i class="fas fa-eye"></i> Mostrar </a>
 
                                 <?php if($folhaobra->estado =='Emitida')
 
                             { ?>
                                 <a class="btn btn-warning btn-sm" href="index.php?c=folhaobra&a=pagamento&idFolhaObra=<?=$folhaobra->id ?>"><i class=" fas fa-credit-card"></i> Pagar </a>
                                 </td>
-                            </tr>
+                                </tr>
+
                             <?php } ?>
                             <?php } ?>
                             <?php } ?>
+                            <?php } ?>
+
                             </tbody>
                         </table>
                     </div>

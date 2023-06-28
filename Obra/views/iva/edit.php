@@ -30,7 +30,7 @@
                                         <?php if(isset($iva->errors)){ echo $iva->errors->on('descricao'); }?>
                                     </p>
                                     <p class="text-sm">Percentagem
-                                        <input type="text" class="form-control" placeholder="Percentagem" name="percentagem" value="<?= $iva->percentagem ?>">
+                                        <input type="text" class="form-control"  placeholder="Percentagem" maxlength="2" minlength="1" id="numericInput" oninput="validateNumericInput(event)"  name="percentagem" required value="<?= $iva->percentagem ?>">
                                         <?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?>
                                     </p>
                                 </div>
@@ -46,3 +46,16 @@
         </div>
     </section>
 </div>
+<script>
+    function validateNumericInput(event) {
+        const input = event.target;
+        const value = input.value.replace(/\D/g, ''); // Remove non-digit characters
+        input.value = input.value.replace(/\D/g, '');
+
+        if (value.length < 1) {
+            input.setCustomValidity("Insira até 2 digitos!");
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+</script>

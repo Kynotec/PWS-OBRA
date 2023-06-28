@@ -27,7 +27,17 @@
                                         </p>
                                         <p class="text-sm">Email
                                             <input type="text" class="form-control" placeholder="Email" name="email" value="<?= $empresa->email ?>">
-                                            <?php if(isset($empresa->errors)){ echo $empresa->errors->on('email'); }?>
+                                            <?php
+                                            if(isset($empresa->errors)) {
+                                            if (is_array($empresa->errors->on('email'))) {
+                                            foreach ($empresa->errors->on('email') as $error) {
+                                            echo $error . '<br>';
+                                            }
+                                            } else {
+                                            echo $empresa->errors->on('email');
+                                            }
+                                            }
+                                            ?>
                                         </p>
                                         <p class="text-sm">Telefone
                                             <input type="text" class="form-control" placeholder="Telefone" name="telefone" minlength="9" maxlength="9" value="<?= $empresa->telefone ?>">
@@ -50,7 +60,7 @@
                                             <?php if(isset($empresa->errors)){ echo $empresa->errors->on('localidade'); }?>
                                         </p>
                                         <p class="text-sm">Capital Social
-                                            <input type="text" class="form-control" placeholder="Capital Social" name="capitalsocial" value="<?= $empresa->capitalsocial ?>">
+                                            <input type="text" class="form-control" placeholder="Capital Social" name="capitalsocial" required value="<?= $empresa->capitalsocial ?>">
                                             <?php if(isset($empresa->errors)){ echo $empresa->errors->on('capitalsocial'); }?>
                                         </p>
                                     </div>

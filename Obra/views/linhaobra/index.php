@@ -123,10 +123,9 @@
                                         <td>
                                             <a href="index.php?c=linhaobra&a=selectServico&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" >Escolher Servico</a>
                                         </td>
-
                                         <td>
                                         </td>
-                                        <td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                                        <td> </td><td> </td><td> </td><td>
                                     </tr>
                                     <?php  if (isset($servico))
                                     { ?>

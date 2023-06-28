@@ -71,7 +71,11 @@
                                          {
                                              echo '<span class="badge bg-warning">'.$folhaobra->estado.'</span>';
                                          }
-                                         ?>
+                                         elseif ($folhaobra->estado =='Paga')
+                                         {
+                                            echo '<span class="badge bg-gradient-gray">'.$folhaobra->estado.'</span>';
+                                         }
+                                             ?>
                                          </td>
                                          <td><?= $folhaobra->cliente->username ?></td>
                                          <td><?= $folhaobra->valortotal ?> €</td>

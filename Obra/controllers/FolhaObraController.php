@@ -43,19 +43,18 @@ class FolhaObraController extends Controller
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::first();
 
-        if($auth->getUserRole() =='cliente')
-        {
-            if(  User::find_by_username($_SESSION['username'])->id !=$folhaobra->cliente->id)
-            {
+        if ($auth->getUserRole() == 'cliente') {
+            if (User::find_by_username($_SESSION['username'])->id != $folhaobra->cliente->id) {
                 $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/indexcliente']);
             }
-
+            $this->renderView('folhaobra', 'show', ['folhaobra' => $folhaobra, 'empresa' => $empresa], 'BoCliente');
         }
-        $this->renderView('folhaobra', 'show', [ 'folhaobra' => $folhaobra, 'empresa' => $empresa],'BoCliente');
-
-
+        else{
+            $this->renderView('folhaobra', 'show', ['folhaobra' => $folhaobra, 'empresa' => $empresa]);
+        }
 
     }
+
 
     public function selectClient()
     {
@@ -296,6 +295,7 @@ class FolhaObraController extends Controller
                                    </tbody></table>
                                     ';
              }
+            $html.= '</tbody></table>';
             $html .= '
 
                     </div> 
@@ -344,7 +344,7 @@ class FolhaObraController extends Controller
             $dompdf->setPaper('A4');
             $dompdf->render();
             //Mostra uma página com a estrutura do PDF
-            $dompdf->stream("pdf", array("Attachment" => false));
+            $dompdf->stream("pdf");
         }
         catch (Exception $_)
         {

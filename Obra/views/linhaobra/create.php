@@ -124,7 +124,6 @@
                                 <?php }else
                                     if (isset($servico))
                                     { ?>
-
                                         <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
                                             <tr>
                                                 <td>

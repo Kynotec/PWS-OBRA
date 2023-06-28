@@ -49,7 +49,17 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email" value="<?php if(isset($users)) { echo $users->email; }?>">
-                                    <?php if(isset($users->errors)){ echo $users->errors->on('email'); }?>
+                                    <?php
+                                    if(isset($users->errors)) {
+                                        if (is_array($users->errors->on('email'))) {
+                                            foreach ($users->errors->on('email') as $error) {
+                                                echo $error . '<br>';
+                                            }
+                                        } else {
+                                            echo $users->errors->on('email');
+                                        }
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Telefone</label>
