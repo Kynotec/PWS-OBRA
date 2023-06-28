@@ -110,58 +110,70 @@
                                             </td>
                                         </tr>
                                     <?php }?>
-                                    <?php  if (!isset($idServico))
-                                    {?>
+                                    <tr>
+                                        <form action="index.php?c=linhaobra&a=validate&idFolhaObra=<?=$folhaobra->id?>" method="post">
+                                        <td>
+                                            <input type="number"  name="referencia" id="referencia"><br>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="fas fa-plus" style="background-color: green"></button>
+                                        </td>
+                                        </form>
 
+                                        <td>
+                                            <a href="index.php?c=linhaobra&a=selectServico&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" >Escolher Servico</a>
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                        <td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                                    </tr>
+                                    <?php  if (isset($servico))
+                                    { ?>
+                                    <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
                                         <tr>
                                             <td>
+
+
+
+                                                <?=$servico->referencia?><br>
+
+
                                                 <form  action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
                                                 <input type="number" class="form-control" name="referencia" value="<? ?>"><br>
                                                 </form>
                                             <td>
                                                 <a href="index.php?c=linhaobra&a=selectServico&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" >Escolher Servico</a>
                                             </td>
+
                                             </td>
                                             <td>
+                                                <?=$servico->descricao?><br>
                                             </td>
-                                            <td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                                            <td>
+                                                <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
+                                            </td>
+                                            <td>
+                                                <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>"><br>
+                                            </td>
+                                            <td>
+                                                <input type="hidden" class="form-control" value=" <?=$linhaobra->valoriva. "€"?>"><br>
+                                            </td>
+                                            <td>
+                                                <?=$servico->iva->percentagem. "%"?><br>
+                                            </td>
+                                            <td>
+                                                <?=$linhaobra->valortotal. "€"?><br>
+                                            </td>
+
+                                            <td>
+                                                <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
+                                                <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
+                                            </td>
+
                                         </tr>
-                                    <?php }else
-                                        if (isset($servico))
-                                        { ?>
-
-                                            <form action="index.php?c=linhaobra&a=store&idFolhaObra=<?= $folhaobra->id?>&idServico=<?= $servico->id?>" method="post">
-                                                <tr>
-                                                    <td>
-                                                        <?=$servico->referencia?><br>
-                                                    </td>
-                                                    <td>
-                                                        <?=$servico->descricao?><br>
-                                                    </td>
-                                                    <td>
-                                                        <input type="number" class="form-control" placeholder="QTD" name="quantidade" min="1" required style="width: 100px; margin-left: -10px">
-                                                    </td>
-                                                    <td>
-                                                        <input type="hidden" class="form-control" name="valorunitario" value=" <?=$servico->precohora?>"><br>
-                                                    </td>
-                                                    <td>
-                                                        <input type="hidden" class="form-control" value=" <?=$linhaobra->valoriva. "€"?>"><br>
-                                                    </td>
-                                                    <td>
-                                                        <?=$servico->iva->percentagem. "%"?><br>
-                                                    </td>
-                                                    <td>
-                                                        <?=$linhaobra->valortotal. "€"?><br>
-                                                    </td>
-
-                                                    <td>
-                                                        <button type="submit" class="btn btn-primary" style="background-color: green"> Validar</button>
-                                                        <a href="index.php?c=linhaobra&a=index&idFolhaObra=<?= $folhaobra->id?>" class="btn btn-primary" style="background-color: red">Cancelar</i></a>
-                                                    </td>
-
-                                                </tr>
-                                            </form>
-                                        <?php } ?>
+                                    </form>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

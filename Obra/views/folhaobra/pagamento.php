@@ -26,17 +26,7 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-form-label">Introduza o número do Cartão de Crédito:</label>
-                                <input type="number" id="myInput" oninput="limitInputLength(event)"  required class="form-control" placeholder="Número do Cartão de Crédito">
-                                <script>
-                                    function limitInputLength(event) {
-                                        const input = event.target;
-                                        const maxLength = 16;
-
-                                        if (input.value.length > maxLength) {
-                                            input.value = input.value.slice(0, maxLength);
-                                        }
-                                    }
-                                </script>
+                                <input type="text"  required class="form-control"  maxlength="16" minlength="16" id="numericInput" oninput="validateNumericInput(event)" placeholder="Número do Cartão de Crédito">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -50,3 +40,17 @@
 </div>
 </div>
 
+
+<script>
+    function validateNumericInput(event) {
+        const input = event.target;
+        const value = input.value.replace(/\D/g, ''); // Remove non-digit characters
+        input.value = input.value.replace(/\D/g, '');
+
+        if (value.length < 16) {
+            input.setCustomValidity("Insira os 16 digitos do cartão de crédito!");
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+</script>

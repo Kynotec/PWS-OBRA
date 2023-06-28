@@ -99,6 +99,7 @@ return [
             'store' =>['GET|POST','LinhaObraController','store'],
             'selectServico' => ['GET|POST', 'LinhaObraController', 'selectServico'],
             'delete' =>['GET','LinhaObraController','delete'],
+            'validate' =>['POST','LinhaObraController','validate'],
             'error' => ['GET', 'ErrorController', 'linhaobra/index']
         ],
     
