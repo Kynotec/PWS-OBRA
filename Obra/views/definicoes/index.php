@@ -6,9 +6,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Obra</a></li>
-
-                        <li class="breadcrumb-item active">Definições</li>
+                           <li class="breadcrumb-item active">Definições</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

@@ -17,8 +17,6 @@ class ErrorController extends Controller
             $callbackRoute = null;
         }
 
-
-
         $this->RenderView('error','index', ['callbackroute' => $callbackRoute],'error');
     }
 

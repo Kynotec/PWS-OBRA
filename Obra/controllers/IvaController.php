@@ -136,7 +136,6 @@ class IvaController extends Controller
     {
         try {
 
-
             $iva = Iva::find($id);
             $iva->update_attribute('emvigor', 1);
             $iva->save();

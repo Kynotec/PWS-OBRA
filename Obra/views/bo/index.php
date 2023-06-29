@@ -193,7 +193,7 @@
                     <div class="icon" >
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="index.php?c=serviços&a=index" class="small-box-footer">Ver todos os Serviços <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="index.php?c=servico&a=index" class="small-box-footer">Ver todos os Serviços <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
                 <div class="card">
                     <!-- /.card-header -->

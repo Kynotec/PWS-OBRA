@@ -12,5 +12,4 @@ class BoClienteController extends Controller
         $this->renderView('bocliente','index',[],'Bocliente');
     }
 
-
 }

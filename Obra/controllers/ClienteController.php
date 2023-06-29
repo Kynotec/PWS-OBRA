@@ -69,7 +69,6 @@ class ClienteController extends Controller
     {
         try {
 
-
             $users = User::find($id);
             if (is_null($users)) {
                 //TODO redirect to standard error page
@@ -138,6 +137,5 @@ class ClienteController extends Controller
             $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'cliente/index']);
         }
     }
-
 }
 

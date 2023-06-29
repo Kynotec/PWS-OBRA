@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="./index.php?c=folhaobra&a=indexcliente">Obra</a></li>
+                        <li class="breadcrumb-item"><a href="./index.php?c=bocliente&a=index">Obra</a></li>
                         <li class="breadcrumb-item active">Obras</></li>
                     </ol>
                 </ol>

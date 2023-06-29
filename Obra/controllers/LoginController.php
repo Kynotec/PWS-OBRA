@@ -9,8 +9,6 @@ class LoginController extends Controller
     {
         $this->renderView('login','index',[],'login');
     }
-
-
     public function checkLogin()
     {
 
@@ -47,7 +45,6 @@ class LoginController extends Controller
 
 
     }
-
     public function logout()
     {
         $auth = new Auth();
@@ -55,7 +52,4 @@ class LoginController extends Controller
         $auth->logout();
         $this->redirectToRoute('login', 'index');
     }
-
-
-
 }
