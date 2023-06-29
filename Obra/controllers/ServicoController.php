@@ -105,14 +105,14 @@ class ServicoController extends Controller
     {
         try {
 
-            $servicos = Servico::find($id);
-            $servicos->update_attributes($this->getHTTPPost());
-            if ($servicos->is_valid()) {
-                $servicos->save();
+            $servico = Servico::find($id);
+            $servico->update_attributes($this->getHTTPPost());
+            if ($servico->is_valid()) {
+                $servico->save();
                 $this->redirectToRoute('servico', 'index');
             } else {
                 $ivas = Iva::all();
-                $this->renderView('servico', 'edit', ['servicos' => $servicos, 'ivas' => $ivas]);
+                $this->renderView('servico', 'edit', ['servico' => $servico, 'ivas' => $ivas]);
             }
         }
         catch(Exception $_)
