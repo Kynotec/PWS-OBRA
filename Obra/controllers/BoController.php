@@ -1,7 +1,5 @@
 <?php
 
-require_once 'models/Auth.php';
-require_once 'controllers/Controller.php';
 
 class BoController extends Controller
 {
