@@ -59,16 +59,16 @@ class LinhaObraController extends Controller
     public function validate($idFolhaObra)
     {
         $referencia = $this->getHTTPPostParam('referencia');
-        try {
         $servico = Servico::find($referencia);
-        if (!is_null($servico)){
-            $this->redirectToRoute('linhaobra', 'create', ['idServico' => $referencia,'idFolhaObra' => $idFolhaObra]);
-        }
-        }catch (Exception $_)
-        {
-            //TODO:: verificar erro
-            $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/index']);
-        }
+
+            if ($servico->ativo == '1') {
+
+                $this->redirectToRoute('linhaobra', 'create', ['idServico' => $referencia, 'idFolhaObra' => $idFolhaObra]);
+            }
+                else{
+                        $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'folhaobra/index']);
+            }
+
     }
 
     public function store($idFolhaObra,$idServico)

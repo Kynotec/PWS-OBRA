@@ -22,16 +22,3 @@
         <p class="text-center">Clique <a href="index.php?c=folhaobra&a=indexcliente">aqui</a> para consultar as suas folhas de obras!</p>
     </div>
 </div>
-<style>
-    body, html {
-        height: 100%;
-        margin: 0;
-    }
-
-    .center-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-</style>
