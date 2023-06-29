@@ -288,11 +288,10 @@ class FolhaObraController extends Controller
                                    <td>'. $linhaobra->servico->descricao.'</td>
                                    <td>'. $linhaobra->quantidade .'</td>
                                    <td>'. $linhaobra->valorunitario .'€</td>
-                                   <td>'. $linhaobra->servico->iva->percentagem .'%</td>
-                                   <td>'.$linhaobra->valoriva.'€</td>
-                                   <td>'. $linhaobra->valorunitario * $linhaobra->quantidade.' €</td>
+                                   <td>'. $linhaobra->valoriva.'€</td>
+                                   <td>'.$linhaobra->servico->iva->percentagem. '%</td>
+                                   <td>'. $linhaobra->valortotal.' €</td>
                                    </tr>
-                                   </tbody></table>
                                     ';
              }
             $html.= '</tbody></table>';
