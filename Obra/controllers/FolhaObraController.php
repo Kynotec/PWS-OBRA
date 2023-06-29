@@ -42,6 +42,8 @@ class FolhaObraController extends Controller
         $auth = new Auth();
         $folhaobra = FolhaObra::find($idFolhaObra);
         $empresa = Empresa::first();
+        $CalculoObra = new CalculoObra();
+        $CalculoObra ->AtualizarForm($folhaobra);
 
         if ($auth->getUserRole() == 'cliente') {
             if (User::find_by_username($_SESSION['username'])->id != $folhaobra->cliente->id) {
