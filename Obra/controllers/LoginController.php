@@ -1,5 +1,7 @@
 <?php
 
+require_once 'models/Auth.php';
+require_once 'controllers/Controller.php';
 
 class LoginController extends Controller
 {

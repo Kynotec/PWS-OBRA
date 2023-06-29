@@ -19,21 +19,6 @@ Esta possui como objetivo principal permitir a um funcionário emitir folhas de 
 Através da aplicação, cada cliente pode visualizar as suas folhas de obra em formato próprio para impressão. 
 A aplicação permite também a inserção e gestão dos dados necessários para emissão das folhas de obra.
 
-#### Credências de Acesso ao Sistema:
->Administrador: 
-   >- username->admin | password->admin
->Funcionários:
-   >- username->funcionario1 | password->funcionario1
-   >- username->funcionario2 | password->funcionario2
-   >- username->funcionario3 | password->funcionario3 (INATIVO)
-
->Cliente:
-   >- username->diogo | password-diogo
-   >- username-luis | password->luis
-   >- username->alexandre | password->alexandre
-   >- username->joaquim| password->joaquim (INATIVO)
-
-
 > Endereço do Repositorio:
 > [GitHub](https://github.com/Kynotec/PWS-OBRA)
 
