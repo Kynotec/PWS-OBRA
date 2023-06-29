@@ -40,30 +40,40 @@ class DefinicoesController extends Controller
     {
         $this->authenticationFilter();
 
-        $auth = new Auth();
-        $userName = $_SESSION['username'];
-        $user = User::find_by_username($userName);
+        try {
+            $auth = new Auth();
+            $userName = $_SESSION['username'];
+            $user = User::find_by_username($userName);
 
 
-        if($auth->checkAuth($userName,$this->getHTTPPostParam('old_password'))) {
+            if ($auth->checkAuth($userName, $this->getHTTPPostParam('old_password'))) {
 
-            if ($this->getHTTPPostParam('new_password') == $this->getHTTPPostParam('re_new_password'))
-            {
-                $user->update_attribute('password',($this->getHTTPPostParam('new_password')));
+                if ($this->getHTTPPostParam('new_password') == $this->getHTTPPostParam('re_new_password')) {
+                    $user->update_attribute('password', ($this->getHTTPPostParam('new_password')));
 
 
-                if ($user->is_valid()) {
-                    $user->save();
-                    $this->RedirectToRoute('definicoes', 'index');
-                } else
+                    if ($user->is_valid()) {
+                        $user->save();
+                        $this->RedirectToRoute('definicoes', 'index');
+                    } else {
+                        $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'definicoes/index']);
+                    }
+                }
+                else
                 {
                     $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'definicoes/index']);
                 }
-
-             }
+            }
+            else
+            {
+                $this->RedirectToRoute('error', 'index', ['callbackRoute' => 'definicoes/index']);
+            }
+        }
+        catch(Exception $_)
+        {
+            $this->RedirectToRoute('errors', 'index', ['callbackRoute' => 'definicoes/index']);
         }
     }
-
 
 
 
