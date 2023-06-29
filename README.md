@@ -14,7 +14,7 @@
 >  - Luis Carlos Canelas Ferreira Nº2211882
 
 #### Descrição:
-> A aplicação folhas de obra consiste num  uma aplicação de emissão de folhas de obra. 
+> A aplicação folhas de obra consiste numa aplicação de emissão de folhas de obra. 
 Esta possui como objetivo principal permitir a um funcionário emitir folhas de obra de forma simples, rápida e direta. 
 Através da aplicação, cada cliente pode visualizar as suas folhas de obra em formato próprio para impressão. 
 A aplicação permite também a inserção e gestão dos dados necessários para emissão das folhas de obra.
@@ -22,6 +22,7 @@ A aplicação permite também a inserção e gestão dos dados necessários para
 #### Credências de Acesso ao Sistema:
 > Administrador:
 >- username->admin | password->admin
+
 > Funcionários:
 >- username->funcionario1 | password->funcionario1
 >- username->funcionario2 | password->funcionario2
